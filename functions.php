@@ -61,7 +61,7 @@ function wilbur_theme_support() {
 	set_post_thumbnail_size( 1200, 9999 );
 
 	// Add custom image size used in Cover Template.
-	add_image_size( 'twentytwenty-fullscreen', 1980, 9999 );
+	add_image_size( 'wilbur-fullscreen', 1980, 9999 );
 
 	// Custom logo.
 	$logo_width  = 120;
@@ -153,26 +153,26 @@ add_action( 'after_setup_theme', 'wilbur_theme_support' );
 require get_template_directory() . '/inc/template-tags.php';
 
 // Handle SVG icons.
-require get_template_directory() . '/classes/class-twentytwenty-svg-icons.php';
+require get_template_directory() . '/classes/class-wilbur-svg-icons.php';
 require get_template_directory() . '/inc/svg-icons.php';
 
 // Handle Customizer settings.
-require get_template_directory() . '/classes/class-twentytwenty-customize.php';
+require get_template_directory() . '/classes/class-wilbur-customize.php';
 
 // Require Separator Control class.
-require get_template_directory() . '/classes/class-twentytwenty-separator-control.php';
+require get_template_directory() . '/classes/class-wilbur-separator-control.php';
 
 // Custom comment walker.
-require get_template_directory() . '/classes/class-twentytwenty-walker-comment.php';
+require get_template_directory() . '/classes/class-wilbur-walker-comment.php';
 
 // Custom page walker.
-require get_template_directory() . '/classes/class-twentytwenty-walker-page.php';
+require get_template_directory() . '/classes/class-wilbur-walker-page.php';
 
 // Custom script loader class.
-require get_template_directory() . '/classes/class-twentytwenty-script-loader.php';
+require get_template_directory() . '/classes/class-wilbur-script-loader.php';
 
 // Non-latin language handling.
-require get_template_directory() . '/classes/class-twentytwenty-non-latin-languages.php';
+require get_template_directory() . '/classes/class-wilbur-non-latin-languages.php';
 
 // Custom CSS.
 require get_template_directory() . '/inc/custom-css.php';
@@ -184,14 +184,14 @@ function wilbur_register_styles() {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_style( 'twentytwenty-style', get_stylesheet_uri(), array(), $theme_version );
-	wp_style_add_data( 'twentytwenty-style', 'rtl', 'replace' );
+	wp_enqueue_style( 'wilbur-style', get_stylesheet_uri(), array(), $theme_version );
+	wp_style_add_data( 'wilbur-style', 'rtl', 'replace' );
 
 	// Add output of Customizer settings as inline style.
-	wp_add_inline_style( 'twentytwenty-style', wilbur_get_customizer_css( 'front-end' ) );
+	wp_add_inline_style( 'wilbur-style', wilbur_get_customizer_css( 'front-end' ) );
 
 	// Add print CSS.
-	wp_enqueue_style( 'twentytwenty-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
+	wp_enqueue_style( 'wilbur-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
 
 }
 
@@ -208,8 +208,8 @@ function wilbur_register_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'twentytwenty-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
-	wp_script_add_data( 'twentytwenty-js', 'async', true );
+	wp_enqueue_script( 'wilbur-js', get_template_directory_uri() . '/assets/js/index.js', array(), $theme_version, false );
+	wp_script_add_data( 'wilbur-js', 'async', true );
 
 }
 
@@ -243,7 +243,7 @@ function wilbur_non_latin_languages() {
 	$custom_css = TwentyTwenty_Non_Latin_Languages::get_non_latin_css( 'front-end' );
 
 	if ( $custom_css ) {
-		wp_add_inline_style( 'twentytwenty-style', $custom_css );
+		wp_add_inline_style( 'wilbur-style', $custom_css );
 	}
 }
 
@@ -391,17 +391,17 @@ add_action( 'widgets_init', 'wilbur_sidebar_registration' );
 function wilbur_block_editor_styles() {
 
 	// Enqueue the editor styles.
-	wp_enqueue_style( 'twentytwenty-block-editor-styles', get_theme_file_uri( '/assets/css/editor-style-block.css' ), array(), wp_get_theme()->get( 'Version' ), 'all' );
-	wp_style_add_data( 'twentytwenty-block-editor-styles', 'rtl', 'replace' );
+	wp_enqueue_style( 'wilbur-block-editor-styles', get_theme_file_uri( '/assets/css/editor-style-block.css' ), array(), wp_get_theme()->get( 'Version' ), 'all' );
+	wp_style_add_data( 'wilbur-block-editor-styles', 'rtl', 'replace' );
 
 	// Add inline style from the Customizer.
-	wp_add_inline_style( 'twentytwenty-block-editor-styles', wilbur_get_customizer_css( 'block-editor' ) );
+	wp_add_inline_style( 'wilbur-block-editor-styles', wilbur_get_customizer_css( 'block-editor' ) );
 
 	// Add inline style for non-latin fonts.
-	wp_add_inline_style( 'twentytwenty-block-editor-styles', TwentyTwenty_Non_Latin_Languages::get_non_latin_css( 'block-editor' ) );
+	wp_add_inline_style( 'wilbur-block-editor-styles', TwentyTwenty_Non_Latin_Languages::get_non_latin_css( 'block-editor' ) );
 
 	// Enqueue the editor script.
-	wp_enqueue_script( 'twentytwenty-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
+	wp_enqueue_script( 'wilbur-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
 }
 
 add_action( 'enqueue_block_editor_assets', 'wilbur_block_editor_styles', 1, 1 );
@@ -585,14 +585,14 @@ function wilbur_customize_controls_enqueue_scripts() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 
 	// Add main customizer js file.
-	wp_enqueue_script( 'twentytwenty-customize', get_template_directory_uri() . '/assets/js/customize.js', array( 'jquery' ), $theme_version, false );
+	wp_enqueue_script( 'wilbur-customize', get_template_directory_uri() . '/assets/js/customize.js', array( 'jquery' ), $theme_version, false );
 
 	// Add script for color calculations.
-	wp_enqueue_script( 'twentytwenty-color-calculations', get_template_directory_uri() . '/assets/js/color-calculations.js', array( 'wp-color-picker' ), $theme_version, false );
+	wp_enqueue_script( 'wilbur-color-calculations', get_template_directory_uri() . '/assets/js/color-calculations.js', array( 'wp-color-picker' ), $theme_version, false );
 
 	// Add script for controls.
-	wp_enqueue_script( 'twentytwenty-customize-controls', get_template_directory_uri() . '/assets/js/customize-controls.js', array( 'twentytwenty-color-calculations', 'customize-controls', 'underscore', 'jquery' ), $theme_version, false );
-	wp_localize_script( 'twentytwenty-customize-controls', 'twentyTwentyBgColors', wilbur_get_customizer_color_vars() );
+	wp_enqueue_script( 'wilbur-customize-controls', get_template_directory_uri() . '/assets/js/customize-controls.js', array( 'wilbur-color-calculations', 'customize-controls', 'underscore', 'jquery' ), $theme_version, false );
+	wp_localize_script( 'wilbur-customize-controls', 'twentyTwentyBgColors', wilbur_get_customizer_color_vars() );
 }
 
 add_action( 'customize_controls_enqueue_scripts', 'wilbur_customize_controls_enqueue_scripts' );
@@ -607,12 +607,12 @@ add_action( 'customize_controls_enqueue_scripts', 'wilbur_customize_controls_enq
 function wilbur_customize_preview_init() {
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	wp_enqueue_script( 'twentytwenty-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview', 'customize-selective-refresh', 'jquery' ), $theme_version, true );
-	wp_localize_script( 'twentytwenty-customize-preview', 'twentyTwentyBgColors', wilbur_get_customizer_color_vars() );
-	wp_localize_script( 'twentytwenty-customize-preview', 'twentyTwentyPreviewEls', wilbur_get_elements_array() );
+	wp_enqueue_script( 'wilbur-customize-preview', get_theme_file_uri( '/assets/js/customize-preview.js' ), array( 'customize-preview', 'customize-selective-refresh', 'jquery' ), $theme_version, true );
+	wp_localize_script( 'wilbur-customize-preview', 'twentyTwentyBgColors', wilbur_get_customizer_color_vars() );
+	wp_localize_script( 'wilbur-customize-preview', 'twentyTwentyPreviewEls', wilbur_get_elements_array() );
 
 	wp_add_inline_script(
-		'twentytwenty-customize-preview',
+		'wilbur-customize-preview',
 		sprintf(
 			'wp.customize.selectiveRefresh.partialConstructor[ %1$s ].prototype.attrs = %2$s;',
 			wp_json_encode( 'cover_opacity' ),
