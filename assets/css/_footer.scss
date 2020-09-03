@@ -1,0 +1,45 @@
+/**
+ * Footer styles
+ */
+.footer-message {
+	display: none;
+	margin: 0 0 0 2.4rem;
+	color: #6d6d6d;
+
+	a {
+		color: inherit;
+	}
+}
+
+.to-the-top {
+
+	.arrow {
+		display: inline-block;
+		-webkit-transform: rotate(180deg);
+		        transform: rotate(180deg);
+
+		svg {
+			fill: currentColor;
+			-webkit-transition: -webkit-transform 0.15s linear;
+			transition: -webkit-transform 0.15s linear;
+			transition: transform 0.15s linear;
+			transition: transform 0.15s linear, -webkit-transform 0.15s linear;
+		}
+	}
+
+	&:hover {
+		.arrow {
+			svg {
+				-webkit-transform: translateY(20%);
+				        transform: translateY(20%);
+			}
+		}
+	}
+}
+
+@media ( min-width: 700px ) {
+
+	.footer-message {
+		display: block;
+	}
+}

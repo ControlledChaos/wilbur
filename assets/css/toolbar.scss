@@ -1,0 +1,211 @@
+/**
+ * User toolbar
+ */
+
+@import '_colors';
+@import '_typography';
+
+#wpadminbar {
+	color: $white;
+	background: $black;
+
+	@media screen and ( max-width: 480px ) {
+		position: absolute !important;
+	}
+
+	& * {
+		box-sizing: border-box;
+		font-family: $sans;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: unset;
+
+		@supports ( font-variation-settings: normal ) {
+			font-family: $inter;
+		}
+	}
+
+	.ab-item,
+	a.ab-item,
+	> #wp-toolbar span.ab-label,
+	> #wp-toolbar span.noticon,
+	.ab-icon,
+	.ab-icon:before,
+	.ab-item:before,
+	.ab-item:after {
+		color: #eee;
+	}
+
+	img.avatar {
+		border-radius: 50%;
+	}
+
+	@media screen and ( max-width: 480px ) {
+		position: relative;
+	}
+
+	.ab-top-menu > .menupop > .ab-sub-wrapper {
+
+		@media screen and ( max-width: 600px ) {
+			padding: 1.5rem;
+		}
+	}
+
+	&:not(.mobile) .ab-top-menu > li:hover > .ab-item,
+	&:not(.mobile) .ab-top-menu > li > .ab-item:focus,
+	&.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
+	&.nojs .ab-top-menu > li.menupop:hover > .ab-item,
+	.ab-top-menu > li.menupop.hover > .ab-item {
+		color: $white;
+		background: $primary_pink;
+	}
+
+	&:not(.mobile) > #wp-toolbar li:hover span.ab-label,
+	&:not(.mobile) > #wp-toolbar li.hover span.ab-label,
+	&:not(.mobile) > #wp-toolbar a:focus span.ab-label {
+		color: $white;
+	}
+
+	&:not(.mobile) li:hover .ab-icon:before,
+	&:not(.mobile) li:hover .ab-item:before,
+	&:not(.mobile) li:hover .ab-item:after,
+	&:not(.mobile) li:hover #adminbarsearch:before {
+		color: $white;
+	}
+
+	// Admin Bar: submenu.
+	.menupop .ab-sub-wrapper {
+		background: $black;
+	}
+
+	.quicklinks .menupop ul.ab-sub-secondary,
+	.quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
+		background: $black;
+	}
+
+	.ab-submenu .ab-item,
+	.quicklinks .menupop ul li a,
+	.quicklinks .menupop.hover ul li a,
+	&.nojs .quicklinks .menupop:hover ul li a {
+		color: $white;
+	}
+
+	.quicklinks li .blavatar,
+	.menupop .menupop > .ab-item:before {
+		color: $white;
+	}
+
+	.quicklinks .menupop ul li .ab-item,
+	.quicklinks .menupop ul li a strong,
+	.quicklinks .menupop.hover ul li .ab-item,
+	.shortlink-input,
+	#wpadminbar.nojs .quicklinks .menupop:hover ul li .ab-item {
+		height: auto;
+	}
+
+	.quicklinks .menupop ul li a:hover,
+	.quicklinks .menupop ul li a:focus,
+	.quicklinks .menupop ul li a:hover strong,
+	.quicklinks .menupop ul li a:focus strong,
+	.quicklinks .ab-sub-wrapper .menupop.hover > a,
+	.quicklinks .menupop.hover ul li a:hover,
+	.quicklinks .menupop.hover ul li a:focus,
+	&.nojs .quicklinks .menupop:hover ul li a:hover,
+	&.nojs .quicklinks .menupop:hover ul li a:focus,
+	li:hover .ab-icon:before,
+	li:hover .ab-item:before,
+	li a:focus .ab-icon:before,
+	li .ab-item:focus:before,
+	li .ab-item:focus .ab-icon:before,
+	li.hover .ab-icon:before,
+	li.hover .ab-item:before,
+	li:hover #adminbarsearch:before,
+	li #adminbarsearch.adminbar-focused:before {
+		background: $primary_pink;
+		color: $white;
+	}
+
+	.quicklinks li a:hover .blavatar,
+	.quicklinks li a:focus .blavatar,
+	.quicklinks .ab-sub-wrapper .menupop.hover > a .blavatar,
+	.menupop .menupop > .ab-item:hover:before,
+	&.mobile .quicklinks .ab-icon:before,
+	&.mobile .quicklinks .ab-item:before {
+		color: $white;
+	}
+
+	&.mobile .quicklinks .hover .ab-icon:before,
+	&.mobile .quicklinks .hover .ab-item:before {
+		color: $white;
+	}
+
+	// Admin Bar: search.
+	#adminbarsearch:before {
+		color: $white;
+	}
+
+	& > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
+		color: $primary_pink;
+		background: #eee;
+	}
+
+	// Admin Bar: my account.
+	.quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
+		border: none;
+		background-color: $primary_pink;
+	}
+
+	#wp-admin-bar-user-info .display-name {
+		color: $white;
+	}
+
+	#wp-admin-bar-user-info a:hover .display-name {
+		color: $white;
+	}
+
+	#wp-admin-bar-user-info .username {
+		color: $white;
+	}
+
+	@media screen and ( max-width: 782px ) {
+
+		#wp-admin-bar-menu-toggle {
+
+			a {
+				height: 46px;
+				border: none;
+
+				&:hover,
+				&:focus {
+					border: none;
+				}
+			}
+
+			.ab-icon:before {
+				height: 46px;
+			}
+		}
+	}
+}
+
+// Admin Bar: frontend link.
+.wp-admin #wpadminbar #wp-admin-bar-frontend-link > .ab-item {
+	font-weight: bold;
+	font-weight: 700;
+}
+
+.wp-responsive-open #wpadminbar {
+
+	#wp-admin-bar-menu-toggle {
+
+		a {
+			background-color: $primary_pink;
+		}
+
+		.ab-icon {
+			&:before {
+				color: $white;
+			}
+		}
+	}
+}

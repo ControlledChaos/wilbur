@@ -1,0 +1,12 @@
+/**
+ * Dark mode styles
+ *
+ * These syles are enqueued if the dark mode option is selected
+ * in the Customizer or if the user's device prefers dark mode.
+ */
+@import '_colors';
+
+body {
+	background-color: #222;
+	color: #fff;
+}

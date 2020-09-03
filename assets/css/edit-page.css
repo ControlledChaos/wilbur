@@ -1,0 +1,565 @@
+/**
+ * Editor styles for version 5.4 and later
+ */
+/**
+ * Typography
+ */
+/**
+ * Sans-serif font
+ *
+ * The Hindsight theme uses Inter variable as a sans-serif font,
+ * same as the Twenty Twenty parent theme.
+ *
+ * @link https://github.com/rsms/inter
+ */
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style: normal;
+  src: url(../fonts/inter/inter-upright-var.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style: italic;
+  src: url(../fonts/inter/inter-italic-var.woff2) format("woff2");
+}
+
+/**
+ * Serif font
+ *
+ * The Hindsight theme uses Crimson Pro variable as a serif font.
+ *
+ * Chosen to supercede Hoefler Text, Garamond in the Twenty Twenty
+ * parent theme because of its variable weight, like Inter.
+ *
+ * Also, it render more cleanly at small size on Windows when
+ * Hoefler Text is not available and Garamond is used, with
+ * the exeption of the lowercase E character.
+ *
+ * @link https://github.com/Fonthausen/CrimsonPro
+ */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-weight: 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style: normal;
+  src: url(../fonts/crimson/crimson-pro-roman.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Crimson Pro';
+  font-weight: 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style: italic;
+  src: url(../fonts/crimson/crimson-pro-italic.woff) format("woff");
+}
+
+/**
+ * Chrome renders extra-wide &nbsp; characters for the Hoefler Text font.
+ * This results in a jumping cursor when typing in both the classic editor and
+ * block editor. The following font-face override fixes the issue by manually
+ * inserting a custom font that includes just a Hoefler Text space replacement
+ * for that character instead.
+ */
+@font-face {
+  font-family: NonBreakingSpaceOverride;
+  src: url(data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAMoAA0AAAAACDQAAALTAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGh4GYACCahEICjx3CywAATYCJANUBCAFhiEHgWwbXQfILgpsY+rQRRARwyAs6uL7pxzYhxEE+32b3aeHmifR6tklkS9hiZA0ewkqGRJE+H7/+6378ASViK/PGeavqJyOzsceKi1s3BCiQsiOdn1r/RBgIJYEgCUhbm/8/8/h4saPssnTNkkiWUBrTRtjmQSajw3Ui3pZ3LYDPD+XG2C3JA/yKAS8/rU5eNfuGqRf4eNNgV4YAlIIgxglEkWe6FYpq10+wi3g+/nUgvgPFczNrz/RsTgVm/zfbPuHZlsuQECxuyqBcQwKFBjFgKO8AqP4bAN9tFJtnM9xPcbNjeXS/x1wY/xU52f5W/X1+9cnH4YwKIaoRRAkUkj/YlAAeF/624foiIDBgBmgQBeGAyhBljUPZUm/l2dTvmpqcBDUOHdbPZWd8JsBAsGr4w8/EDn82/bUPx4eh0YNrQTBuHO2FjQEAGBwK0DeI37DpQVqdERS4gZBhpeUhWCfLFz7J99aEBgsJCHvUGAdAPp4IADDCAPCEFMGpMZ9AQpTfQtQGhLbGVBZFV8BaqNyP68oTZgHNj3M8kBPfXTTC9t90UuzYhy9ciH0grVlOcqyCytisvbsERsEYztiznR0WCrmTksJwbSNK6fd1Rvr25I9oLvctUoEbNOmXJbqgYgPXEHJ82IUsrCnpkxh23F1rfZ2zcRnJYoXtauB3VTFkFXQg3uoZYD5qE0kdjDtoDoF1h2bulGmev5HbYhbrjtohQSRI4aNOkffIcT+d3v6atpaYh3JvPoQsztCcqvaBkppDSPcQ3bw3KaCBo1f5CJWTZEgW3LjLofYg51MaVezrx8xZitYbQ9KYeoRaqQdVLwSEfrKXLK1otCWOKNdR/YwYAfon5Yk8O2MJfSD10dPGA5PIJJQMkah0ugMJiv6x4Dm7LEa8xnrRGGGLAg4sAlbsA07sAt76DOsXKO3hIjtIlpnnFrt1qW4kh6NhS83P/6HB/fl1SMAAA==) format("woff2"), url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAUQAA0AAAAACDQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAE9AAAABwAAAAchf5yU0dERUYAAATYAAAAHAAAAB4AJwAbT1MvMgAAAaAAAABJAAAAYJAcgU5jbWFwAAACIAAAAF4AAAFqUUxBZ2dhc3AAAATQAAAACAAAAAgAAAAQZ2x5ZgAAApAAAAAyAAAAPL0n8y9oZWFkAAABMAAAADAAAAA2Fi93Z2hoZWEAAAFgAAAAHQAAACQOSgWaaG10eAAAAewAAAAzAAAAVC7TAQBsb2NhAAACgAAAABAAAAAsAOQBAm1heHAAAAGAAAAAHQAAACAAWQALbmFtZQAAAsQAAAF6AAADIYvD/Adwb3N0AAAEQAAAAI4AAADsapk2o3jaY2BkYGAA4ov5mwzj+W2+MnCzXwCKMNzgCBSB0LfbQDQ7AxuI4mBgAlEAFKQIRHjaY2BkYGD3+NvCwMDBAALsDAyMDKhAFAA3+wH3AAAAeNpjYGRgYBBl4GBgYgABEMnIABJzAPMZAAVmAGUAAAB42mNgZlJhnMDAysDCKsKygYGBYRqEZtrDYMT4D8gHSmEHjgUFOQwODAqqf9g9/rYwMLB7MNUAhRlBcsxBrMlASoGBEQAj8QtyAAAAeNrjYGBkAAGmWQwMjO8gmBnIZ2NA0ExAzNjAAFYJVn0ASBsD6VAIDZb7AtELAgANIgb9AHjaY2BgYGaAYBkGRgYQSAHyGMF8FgYPIM3HwMHAxMDGoMCwQIFLQV8hXvXP//9AcRCfAcb///h/ygPW+w/vb7olBjUHCTCyMcAFGZmABBO6AogThgZgIUsXAEDcEzcAAHjaY2BgECMCyoEgACZaAed42mNgYmRgYGBnYGNgYAZSDJqMgorCgoqCjECRXwwNrCAKSP5mAAFGBiRgyAAAi/YFBQAAeNqtkc1OwkAUhU/5M25cEhcsZick0AwlBJq6MWwgJkAgYV/KAA2lJeUn+hY+gktXvpKv4dLTMqKycGHsTZNv7px7z50ZAFd4hYHjdw1Ls4EiHjVncIFnzVnc4F1zDkWjrzmPW+NNcwGlzIRKI3fJlUyrEjZQxb3mDH2fNGfRx4vmHKqG0JzHg6E0F9DOlFBGBxUI1GEzLNT4S0aLuTtsGAEUuYcQHkyg3KmIum1bNUvKlrjbbAIleqHHnS4iSudpQcySMYtdFiXlAxzSbAwfMxK6kZoHKhbjjespMTioOPZnzI+4ucCeTVyKMVKLfeAS6vSWaTinuZwzyy/Dc7vaed+6KaV0kukdPUk6yOcctZPvvxxqksq2lEW8RvHjMEO2FCl/zy6p3NEm0R9OFSafJdldc4QVeyaaObMBO0/5cCaa6d9Ggyubxire+lEojscdjoWUR1xGOy8KD8mG2ZLO2l2paDc3A39qmU2z2W5YNv5+u79e6QfGJY/hAAB42m3NywrCMBQE0DupWp/1AYI7/6DEaLQu66Mrd35BKUWKJSlFv1+rue4cGM7shgR981qSon+ZNwUJ8iDgoYU2OvDRRQ99DDDECAHGmGCKmf80hZSx/Kik/LliFbtmN6xmt+yOjdg9GztV4tROnRwX/Bsaaw51nt4Lc7tWaZYHp/MlzKx51LZs5htNri+2AAAAAQAB//8AD3jaY2BkYGDgAWIxIGZiYARCESBmAfMYAAR6AEMAAAABAAAAANXtRbgAAAAA2AhRFAAAAADYCNuG) format("woff");
+}
+
+/**
+ * Font stack variables
+ *
+ * The $sans and $serif stacks are default. The $inter and $crimson
+ * stacks are used in @supports( font-variation-settings ) queries.
+ */
+/**
+ * Default theme typography styles ane
+ * parent theme overrides.
+ */
+.entry-content p,
+.entry-content ol,
+.entry-content ul,
+.entry-content dl,
+.entry-content dt {
+  font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif;
+  font-size: 2.225rem;
+}
+
+@supports (font-variation-settings: normal) {
+  .entry-content p,
+  .entry-content ol,
+  .entry-content ul,
+  .entry-content dl,
+  .entry-content dt {
+    font-family: "Crimson Pro", NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif;
+    font-weight: 360;
+  }
+}
+
+.block-editor-page {
+  overflow: hidden;
+}
+
+.block-editor {
+  position: relative;
+  background-color: #f5efe0;
+}
+
+.block-editor-editor-skeleton {
+  top: 0 !important;
+}
+
+.block-editor-editor-skeleton__body {
+  margin-top: 57px;
+}
+
+.has-fixed-toolbar .block-editor-editor-skeleton__body {
+  margin-top: 93px;
+}
+
+@media screen and (min-width: 1280px) {
+  .has-fixed-toolbar .block-editor-editor-skeleton__body {
+    margin-top: 57px;
+  }
+}
+
+.block-editor__container {
+  min-height: unset;
+}
+
+@media screen and (min-width: 600px) {
+  .block-editor__container {
+    bottom: 32px;
+  }
+}
+
+.editor-styles-wrapper {
+  padding-bottom: 3rem;
+}
+
+.is-sidebar-opened .block-editor-editor-skeleton__content {
+  margin-right: 280px;
+}
+
+.is-sidebar-opened .block-editor-editor-skeleton__sidebar {
+  position: absolute !important;
+  left: auto;
+  bottom: 0;
+}
+
+@media screen and (min-width: 782px) {
+  .is-sidebar-opened .block-editor-editor-skeleton__sidebar {
+    top: 57px;
+  }
+}
+
+.edit-post-visual-editor .editor-post-title__block {
+  margin-bottom: 0;
+}
+
+.edit-post-sidebar > .components-panel {
+  padding-bottom: 3rem;
+}
+
+.components-panel__body p {
+  font-size: 1.8rem !important;
+}
+
+.block-editor-editor-skeleton {
+  position: absolute;
+}
+
+@media screen and (min-width: 782px) {
+  .block-editor-editor-skeleton {
+    left: 0;
+  }
+}
+
+.components-button {
+  border-radius: 0px;
+}
+
+.components-button.edit-post-sidebar__panel-tab.is-active {
+  -webkit-box-shadow: inset 0 -3px #cd2653;
+          box-shadow: inset 0 -3px #cd2653;
+}
+
+.block-editor-editor-skeleton__header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.edit-post-header {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.edit-post-header .components-button {
+  border-radius: 0px;
+  text-shadow: none;
+}
+
+.edit-post-header .components-button.is-primary, .edit-post-header .components-button.is-secondary {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.0333em;
+  text-transform: uppercase;
+}
+
+.edit-post-header .components-button.is-primary:hover, .edit-post-header .components-button.is-primary:focus, .edit-post-header .components-button.is-primary:not(:disabled):not([aria-disabled="true"]):hover, .edit-post-header .components-button.is-secondary:hover, .edit-post-header .components-button.is-secondary:focus, .edit-post-header .components-button.is-secondary:not(:disabled):not([aria-disabled="true"]):hover {
+  text-decoration: underline;
+}
+
+.edit-post-header .components-button.is-primary {
+  background: #cd2653;
+  border-color: #cd2653;
+}
+
+.edit-post-header .components-button.is-primary:hover, .edit-post-header .components-button.is-primary:focus, .edit-post-header .components-button.is-primary:not(:disabled):not([aria-disabled="true"]):hover {
+  color: #ffffff;
+  background: #cd2653;
+  border-color: #cd2653;
+  -webkit-box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+          box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+}
+
+.edit-post-header .components-button.is-primary:hover:enabled, .edit-post-header .components-button.is-primary:focus:enabled, .edit-post-header .components-button.is-primary:not(:disabled):not([aria-disabled="true"]):hover:enabled {
+  -webkit-box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+          box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+}
+
+.edit-post-header .components-button.is-primary:focus {
+  -webkit-box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+          box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+}
+
+.edit-post-header .components-button.is-primary:focus:enabled {
+  -webkit-box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+          box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+}
+
+.edit-post-header .components-button.is-primary:disabled, .edit-post-header .components-button.is-primary:disabled:active:enabled, .edit-post-header .components-button.is-primary[aria-disabled="true"], .edit-post-header .components-button.is-primary[aria-disabled="true"]:active:enabled, .edit-post-header .components-button.is-primary[aria-disabled="true"]:enabled {
+  background-color: #cccccc;
+  border-color: #cccccc;
+  color: #888888;
+}
+
+.edit-post-header .components-button.is-primary:disabled:hover, .edit-post-header .components-button.is-primary:disabled:focus, .edit-post-header .components-button.is-primary:disabled:active:enabled:hover, .edit-post-header .components-button.is-primary:disabled:active:enabled:focus, .edit-post-header .components-button.is-primary[aria-disabled="true"]:hover, .edit-post-header .components-button.is-primary[aria-disabled="true"]:focus, .edit-post-header .components-button.is-primary[aria-disabled="true"]:active:enabled:hover, .edit-post-header .components-button.is-primary[aria-disabled="true"]:active:enabled:focus, .edit-post-header .components-button.is-primary[aria-disabled="true"]:enabled:hover, .edit-post-header .components-button.is-primary[aria-disabled="true"]:enabled:focus {
+  background-color: #cccccc;
+  border-color: #cccccc;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  text-decoration: none;
+}
+
+.edit-post-header .components-button.is-secondary {
+  border-color: #cd2653;
+  color: #cd2653;
+}
+
+.edit-post-header .components-button.is-secondary:not(:disabled):not([aria-disabled="true"]):hover, .edit-post-header .components-button.is-secondary:focus {
+  background: #cd2653;
+  border-color: #cd2653;
+  color: #ffffff;
+}
+
+.edit-post-header .components-button.is-secondary:focus {
+  -webkit-box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+          box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+}
+
+.edit-post-header .components-button.is-tertiary {
+  color: #000000;
+}
+
+.edit-post-header .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):hover, .edit-post-header .components-button.is-tertiary:not(:disabled):not([aria-disabled="true"]):focus {
+  color: #cd2653;
+  text-decoration: underline;
+}
+
+.edit-post-header .components-button.is-pressed {
+  background: #cd2653;
+}
+
+.edit-post-header .components-button.is-pressed:hover, .edit-post-header .components-button.is-pressed:focus {
+  background: #cd2653 !important;
+  border-color: #cd2653 !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.edit-post-header .components-button.is-pressed:hover svg, .edit-post-header .components-button.is-pressed:focus svg {
+  fill: #ffffff !important;
+}
+
+.edit-post-header .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):hover {
+  background: #cd2653 !important;
+  border-color: #cd2653 !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.edit-post-header .components-button:not(:disabled):not([aria-disabled="true"]):not(.is-secondary):not(.is-primary):not(.is-tertiary):not(.is-link):hover svg {
+  fill: #ffffff !important;
+}
+
+.components-button.edit-post-fullscreen-mode-close.has-icon {
+  background: inherit;
+}
+
+.components-button.edit-post-fullscreen-mode-close.has-icon svg {
+  width: 28px !important;
+  height: 28px !important;
+  fill: rgba(0, 0, 0, 0.625);
+}
+
+.edit-post-post-link__preview-link-container {
+  font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif;
+}
+
+@supports (font-variation-settings: normal) {
+  .edit-post-post-link__preview-link-container {
+    font-family: "Crimson Pro", NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif;
+  }
+}
+
+.block-editor-editor-skeleton__footer {
+  -ms-flex-negative: unset;
+      flex-shrink: unset;
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}
+
+.edit-post-visual-editor .block-editor-writing-flow__click-redirect {
+  min-height: 0;
+}
+
+.editor-post-title__block .editor-post-title__input::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.editor-post-title__block .editor-post-title__input:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.editor-post-title__block .editor-post-title__input::-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.editor-post-title__block .editor-post-title__input::placeholder {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.edit-post-visual-editor .components-button {
+  font-weight: 700;
+}
+
+@supports (font-variation-settings: normal) {
+  .edit-post-visual-editor .components-button {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  }
+}
+
+.editor-post-permalink {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border-left: solid 1px #b5bcc2;
+}
+
+.editor-post-permalink .components-button.is-secondary {
+  border-color: #cd2653;
+  color: #cd2653;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.0333em;
+  text-transform: uppercase;
+}
+
+.editor-post-permalink .components-button.is-secondary:not(:disabled):not([aria-disabled="true"]):hover, .editor-post-permalink .components-button.is-secondary:focus {
+  background: #cd2653;
+  border-color: #cd2653;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.editor-post-permalink .components-button.is-secondary:focus {
+  -webkit-box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+          box-shadow: 0 0 0 1px #cd2653, inset 0 0 0 1px #ffffff;
+}
+
+.editor-post-title__block:not(.is-focus-mode).is-selected .editor-post-title__input {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: dotted 2px #cccccc;
+}
+
+.components-button.is-primary:disabled,
+.components-button.is-primary:disabled:active:enabled,
+.components-button.is-primary[aria-disabled="true"],
+.components-button.is-primary[aria-disabled="true"]:active:enabled,
+.components-button.is-primary[aria-disabled="true"]:enabled {
+  color: #888888;
+  background: #cccccc;
+  border-color: #cccccc;
+  opacity: 1;
+}
+
+.components-button.is-primary:disabled:active:enabled:focus:enabled,
+.components-button.is-primary:disabled:focus:enabled,
+.components-button.is-primary[aria-disabled="true"]:active:enabled:focus:enabled,
+.components-button.is-primary[aria-disabled="true"]:enabled:focus:enabled,
+.components-button.is-primary[aria-disabled="true"]:focus:enabled {
+  -webkit-box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px #cd2653;
+          box-shadow: 0 0 0 1px #ffffff, 0 0 0 3px #cd2653;
+}
+
+.components-modal__frame .input-control:focus, .components-modal__frame input[type="checkbox"]:focus, .components-modal__frame input[type="color"]:focus, .components-modal__frame input[type="date"]:focus, .components-modal__frame input[type="datetime-local"]:focus, .components-modal__frame input[type="datetime"]:focus, .components-modal__frame input[type="email"]:focus, .components-modal__frame input[type="month"]:focus, .components-modal__frame input[type="number"]:focus, .components-modal__frame input[type="password"]:focus, .components-modal__frame input[type="radio"]:focus, .components-modal__frame input[type="search"]:focus, .components-modal__frame input[type="tel"]:focus, .components-modal__frame input[type="text"]:focus, .components-modal__frame input[type="time"]:focus, .components-modal__frame input[type="url"]:focus, .components-modal__frame input[type="week"]:focus, .components-modal__frame select:focus, .components-modal__frame textarea:focus, .components-popover .input-control:focus, .components-popover input[type="checkbox"]:focus, .components-popover input[type="color"]:focus, .components-popover input[type="date"]:focus, .components-popover input[type="datetime-local"]:focus, .components-popover input[type="datetime"]:focus, .components-popover input[type="email"]:focus, .components-popover input[type="month"]:focus, .components-popover input[type="number"]:focus, .components-popover input[type="password"]:focus, .components-popover input[type="radio"]:focus, .components-popover input[type="search"]:focus, .components-popover input[type="tel"]:focus, .components-popover input[type="text"]:focus, .components-popover input[type="time"]:focus, .components-popover input[type="url"]:focus, .components-popover input[type="week"]:focus, .components-popover select:focus, .components-popover textarea:focus, .edit-post-header .input-control:focus, .edit-post-header input[type="checkbox"]:focus, .edit-post-header input[type="color"]:focus, .edit-post-header input[type="date"]:focus, .edit-post-header input[type="datetime-local"]:focus, .edit-post-header input[type="datetime"]:focus, .edit-post-header input[type="email"]:focus, .edit-post-header input[type="month"]:focus, .edit-post-header input[type="number"]:focus, .edit-post-header input[type="password"]:focus, .edit-post-header input[type="radio"]:focus, .edit-post-header input[type="search"]:focus, .edit-post-header input[type="tel"]:focus, .edit-post-header input[type="text"]:focus, .edit-post-header input[type="time"]:focus, .edit-post-header input[type="url"]:focus, .edit-post-header input[type="week"]:focus, .edit-post-header select:focus, .edit-post-header textarea:focus, .edit-post-sidebar .input-control:focus, .edit-post-sidebar input[type="checkbox"]:focus, .edit-post-sidebar input[type="color"]:focus, .edit-post-sidebar input[type="date"]:focus, .edit-post-sidebar input[type="datetime-local"]:focus, .edit-post-sidebar input[type="datetime"]:focus, .edit-post-sidebar input[type="email"]:focus, .edit-post-sidebar input[type="month"]:focus, .edit-post-sidebar input[type="number"]:focus, .edit-post-sidebar input[type="password"]:focus, .edit-post-sidebar input[type="radio"]:focus, .edit-post-sidebar input[type="search"]:focus, .edit-post-sidebar input[type="tel"]:focus, .edit-post-sidebar input[type="text"]:focus, .edit-post-sidebar input[type="time"]:focus, .edit-post-sidebar input[type="url"]:focus, .edit-post-sidebar input[type="week"]:focus, .edit-post-sidebar select:focus, .edit-post-sidebar textarea:focus, .edit-post-text-editor .input-control:focus, .edit-post-text-editor input[type="checkbox"]:focus, .edit-post-text-editor input[type="color"]:focus, .edit-post-text-editor input[type="date"]:focus, .edit-post-text-editor input[type="datetime-local"]:focus, .edit-post-text-editor input[type="datetime"]:focus, .edit-post-text-editor input[type="email"]:focus, .edit-post-text-editor input[type="month"]:focus, .edit-post-text-editor input[type="number"]:focus, .edit-post-text-editor input[type="password"]:focus, .edit-post-text-editor input[type="radio"]:focus, .edit-post-text-editor input[type="search"]:focus, .edit-post-text-editor input[type="tel"]:focus, .edit-post-text-editor input[type="text"]:focus, .edit-post-text-editor input[type="time"]:focus, .edit-post-text-editor input[type="url"]:focus, .edit-post-text-editor input[type="week"]:focus, .edit-post-text-editor select:focus, .edit-post-text-editor textarea:focus, .edit-post-visual-editor .input-control:focus, .edit-post-visual-editor input[type="checkbox"]:focus, .edit-post-visual-editor input[type="color"]:focus, .edit-post-visual-editor input[type="date"]:focus, .edit-post-visual-editor input[type="datetime-local"]:focus, .edit-post-visual-editor input[type="datetime"]:focus, .edit-post-visual-editor input[type="email"]:focus, .edit-post-visual-editor input[type="month"]:focus, .edit-post-visual-editor input[type="number"]:focus, .edit-post-visual-editor input[type="password"]:focus, .edit-post-visual-editor input[type="radio"]:focus, .edit-post-visual-editor input[type="search"]:focus, .edit-post-visual-editor input[type="tel"]:focus, .edit-post-visual-editor input[type="text"]:focus, .edit-post-visual-editor input[type="time"]:focus, .edit-post-visual-editor input[type="url"]:focus, .edit-post-visual-editor input[type="week"]:focus, .edit-post-visual-editor select:focus, .edit-post-visual-editor textarea:focus, .editor-post-publish-panel .input-control:focus, .editor-post-publish-panel input[type="checkbox"]:focus, .editor-post-publish-panel input[type="color"]:focus, .editor-post-publish-panel input[type="date"]:focus, .editor-post-publish-panel input[type="datetime-local"]:focus, .editor-post-publish-panel input[type="datetime"]:focus, .editor-post-publish-panel input[type="email"]:focus, .editor-post-publish-panel input[type="month"]:focus, .editor-post-publish-panel input[type="number"]:focus, .editor-post-publish-panel input[type="password"]:focus, .editor-post-publish-panel input[type="radio"]:focus, .editor-post-publish-panel input[type="search"]:focus, .editor-post-publish-panel input[type="tel"]:focus, .editor-post-publish-panel input[type="text"]:focus, .editor-post-publish-panel input[type="time"]:focus, .editor-post-publish-panel input[type="url"]:focus, .editor-post-publish-panel input[type="week"]:focus, .editor-post-publish-panel select:focus, .editor-post-publish-panel textarea:focus {
+  color: #000000;
+  border-color: #cd2653;
+  -webkit-box-shadow: 0 0 0 1px #cd2653;
+          box-shadow: 0 0 0 1px #cd2653;
+}
+
+.components-icon-button:not(:disabled):not([aria-disabled="true"]):not(.is-default):hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.components-icon-button:not(:disabled):not([aria-disabled="true"]):not(.is-default):hover svg {
+  fill: #cd2653;
+}
+
+.edit-post-sidebar__panel-tab.is-active {
+  -webkit-box-shadow: inset 0 -3px #cd2653;
+          box-shadow: inset 0 -3px #cd2653;
+}
+
+.edit-post-sidebar .components-button.is-tertiary,
+.edit-post-sidebar .components-button.is-link {
+  color: #cd2653;
+}
+
+.edit-post-sidebar .components-button.is-tertiary:hover, .edit-post-sidebar .components-button.is-tertiary:focus,
+.edit-post-sidebar .components-button.is-link:hover,
+.edit-post-sidebar .components-button.is-link:focus {
+  color: #000000;
+}
+
+.components-snackbar-list .components-button.is-tertiary,
+.components-snackbar-list .components-button.is-link {
+  color: #ffffff;
+}
+
+.components-snackbar-list .components-button.is-tertiary:hover, .components-snackbar-list .components-button.is-tertiary:focus,
+.components-snackbar-list .components-button.is-link:hover,
+.components-snackbar-list .components-button.is-link:focus {
+  color: #cd2653 !important;
+}
+
+.components-button.is-tertiary, .components-button.is-link {
+  color: #cd2653;
+}
+
+.wp-core-ui select:focus {
+  border-color: #cd2653;
+  color: #000000;
+  -webkit-box-shadow: 0 0 0 1px #cd2653;
+          box-shadow: 0 0 0 1px #cd2653;
+}
+
+.components-datetime__date .CalendarDay__selected {
+  background: #cd2653;
+}
+
+.components-modal__frame input[type="checkbox"]:checked,
+.components-modal__frame input[type="radio"]:checked,
+.components-popover input[type="checkbox"]:checked,
+.components-popover input[type="radio"]:checked,
+.edit-post-header input[type="checkbox"]:checked,
+.edit-post-header input[type="radio"]:checked,
+.edit-post-sidebar input[type="checkbox"]:checked,
+.edit-post-sidebar input[type="radio"]:checked,
+.edit-post-text-editor input[type="checkbox"]:checked,
+.edit-post-text-editor input[type="radio"]:checked,
+.edit-post-visual-editor input[type="checkbox"]:checked,
+.edit-post-visual-editor input[type="radio"]:checked,
+.editor-post-publish-panel input[type="checkbox"]:checked,
+.editor-post-publish-panel input[type="radio"]:checked {
+  background-color: #cd2653;
+  border-color: #cd2653;
+}
+
+.components-modal__frame input[type="checkbox"]:checked:focus,
+.components-modal__frame input[type="radio"]:checked:focus,
+.components-popover input[type="checkbox"]:checked:focus,
+.components-popover input[type="radio"]:checked:focus,
+.edit-post-header input[type="checkbox"]:checked:focus,
+.edit-post-header input[type="radio"]:checked:focus,
+.edit-post-sidebar input[type="checkbox"]:checked:focus,
+.edit-post-sidebar input[type="radio"]:checked:focus,
+.edit-post-text-editor input[type="checkbox"]:checked:focus,
+.edit-post-text-editor input[type="radio"]:checked:focus,
+.edit-post-visual-editor input[type="checkbox"]:checked:focus,
+.edit-post-visual-editor input[type="radio"]:checked:focus,
+.editor-post-publish-panel input[type="checkbox"]:checked:focus,
+.editor-post-publish-panel input[type="radio"]:checked:focus {
+  -webkit-box-shadow: 0 0 0 2px #cd2653;
+          box-shadow: 0 0 0 2px #cd2653;
+}
+
+.components-modal__frame input[type="checkbox"]:hover,
+.components-modal__frame input[type="radio"]:hover,
+.components-popover input[type="checkbox"]:hover,
+.components-popover input[type="radio"]:hover,
+.edit-post-header input[type="checkbox"]:hover,
+.edit-post-header input[type="radio"]:hover,
+.edit-post-sidebar input[type="checkbox"]:hover,
+.edit-post-sidebar input[type="radio"]:hover,
+.edit-post-text-editor input[type="checkbox"]:hover,
+.edit-post-text-editor input[type="radio"]:hover,
+.edit-post-visual-editor input[type="checkbox"]:hover,
+.edit-post-visual-editor input[type="radio"]:hover,
+.editor-post-publish-panel input[type="checkbox"]:hover,
+.editor-post-publish-panel input[type="radio"]:hover {
+  -webkit-box-shadow: 0 0 0 2px #cd2653;
+          box-shadow: 0 0 0 2px #cd2653;
+  border-color: transparent;
+}
+
+.block-editor-block-list__insertion-point-inserter .block-editor-inserter__toggle,
+.block-editor-block-list__block-popover-inserter .block-editor-inserter__toggle {
+  color: #cd2653;
+}
+
+.components-popover input[type="search"].block-editor-inserter__search:focus {
+  border-color: #cd2653;
+  -webkit-box-shadow: 0 0 0 1px #cd2653;
+          box-shadow: 0 0 0 1px #cd2653;
+}
+
+.components-modal__frame input[type="radio"]:checked:before,
+.components-popover input[type="radio"]:checked:before,
+.edit-post-header input[type="radio"]:checked:before,
+.edit-post-sidebar input[type="radio"]:checked:before,
+.edit-post-text-editor input[type="radio"]:checked:before,
+.edit-post-visual-editor input[type="radio"]:checked:before,
+.editor-post-publish-panel input[type="radio"]:checked:before {
+  margin: 6px 0 0 6px;
+}

@@ -1,0 +1,491 @@
+/**
+ * Backend styles for right-to-left languages
+ */
+/**
+ * Typography
+ */
+/**
+ * Sans-serif font
+ *
+ * The Hindsight theme uses Inter variable as a sans-serif font,
+ * same as the Twenty Twenty parent theme.
+ *
+ * @link https://github.com/rsms/inter
+ */
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style: normal;
+  src: url(../fonts/inter/inter-upright-var.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-weight: 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style: italic;
+  src: url(../fonts/inter/inter-italic-var.woff2) format("woff2");
+}
+
+/**
+ * Serif font
+ *
+ * The Hindsight theme uses Crimson Pro variable as a serif font.
+ *
+ * Chosen to supercede Hoefler Text, Garamond in the Twenty Twenty
+ * parent theme because of its variable weight, like Inter.
+ *
+ * Also, it render more cleanly at small size on Windows when
+ * Hoefler Text is not available and Garamond is used, with
+ * the exeption of the lowercase E character.
+ *
+ * @link https://github.com/Fonthausen/CrimsonPro
+ */
+@font-face {
+  font-family: 'Crimson Pro';
+  font-weight: 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style: normal;
+  src: url(../fonts/crimson/crimson-pro-roman.woff) format("woff");
+}
+
+@font-face {
+  font-family: 'Crimson Pro';
+  font-weight: 100 900;
+  /* stylelint-disable-line font-weight-notation */
+  font-style: italic;
+  src: url(../fonts/crimson/crimson-pro-italic.woff) format("woff");
+}
+
+/**
+ * Chrome renders extra-wide &nbsp; characters for the Hoefler Text font.
+ * This results in a jumping cursor when typing in both the classic editor and
+ * block editor. The following font-face override fixes the issue by manually
+ * inserting a custom font that includes just a Hoefler Text space replacement
+ * for that character instead.
+ */
+@font-face {
+  font-family: NonBreakingSpaceOverride;
+  src: url(data:application/font-woff2;charset=utf-8;base64,d09GMgABAAAAAAMoAA0AAAAACDQAAALTAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP0ZGVE0cGh4GYACCahEICjx3CywAATYCJANUBCAFhiEHgWwbXQfILgpsY+rQRRARwyAs6uL7pxzYhxEE+32b3aeHmifR6tklkS9hiZA0ewkqGRJE+H7/+6378ASViK/PGeavqJyOzsceKi1s3BCiQsiOdn1r/RBgIJYEgCUhbm/8/8/h4saPssnTNkkiWUBrTRtjmQSajw3Ui3pZ3LYDPD+XG2C3JA/yKAS8/rU5eNfuGqRf4eNNgV4YAlIIgxglEkWe6FYpq10+wi3g+/nUgvgPFczNrz/RsTgVm/zfbPuHZlsuQECxuyqBcQwKFBjFgKO8AqP4bAN9tFJtnM9xPcbNjeXS/x1wY/xU52f5W/X1+9cnH4YwKIaoRRAkUkj/YlAAeF/624foiIDBgBmgQBeGAyhBljUPZUm/l2dTvmpqcBDUOHdbPZWd8JsBAsGr4w8/EDn82/bUPx4eh0YNrQTBuHO2FjQEAGBwK0DeI37DpQVqdERS4gZBhpeUhWCfLFz7J99aEBgsJCHvUGAdAPp4IADDCAPCEFMGpMZ9AQpTfQtQGhLbGVBZFV8BaqNyP68oTZgHNj3M8kBPfXTTC9t90UuzYhy9ciH0grVlOcqyCytisvbsERsEYztiznR0WCrmTksJwbSNK6fd1Rvr25I9oLvctUoEbNOmXJbqgYgPXEHJ82IUsrCnpkxh23F1rfZ2zcRnJYoXtauB3VTFkFXQg3uoZYD5qE0kdjDtoDoF1h2bulGmev5HbYhbrjtohQSRI4aNOkffIcT+d3v6atpaYh3JvPoQsztCcqvaBkppDSPcQ3bw3KaCBo1f5CJWTZEgW3LjLofYg51MaVezrx8xZitYbQ9KYeoRaqQdVLwSEfrKXLK1otCWOKNdR/YwYAfon5Yk8O2MJfSD10dPGA5PIJJQMkah0ugMJiv6x4Dm7LEa8xnrRGGGLAg4sAlbsA07sAt76DOsXKO3hIjtIlpnnFrt1qW4kh6NhS83P/6HB/fl1SMAAA==) format("woff2"), url(data:application/font-woff;charset=utf-8;base64,d09GRgABAAAAAAUQAA0AAAAACDQAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAE9AAAABwAAAAchf5yU0dERUYAAATYAAAAHAAAAB4AJwAbT1MvMgAAAaAAAABJAAAAYJAcgU5jbWFwAAACIAAAAF4AAAFqUUxBZ2dhc3AAAATQAAAACAAAAAgAAAAQZ2x5ZgAAApAAAAAyAAAAPL0n8y9oZWFkAAABMAAAADAAAAA2Fi93Z2hoZWEAAAFgAAAAHQAAACQOSgWaaG10eAAAAewAAAAzAAAAVC7TAQBsb2NhAAACgAAAABAAAAAsAOQBAm1heHAAAAGAAAAAHQAAACAAWQALbmFtZQAAAsQAAAF6AAADIYvD/Adwb3N0AAAEQAAAAI4AAADsapk2o3jaY2BkYGAA4ov5mwzj+W2+MnCzXwCKMNzgCBSB0LfbQDQ7AxuI4mBgAlEAFKQIRHjaY2BkYGD3+NvCwMDBAALsDAyMDKhAFAA3+wH3AAAAeNpjYGRgYBBl4GBgYgABEMnIABJzAPMZAAVmAGUAAAB42mNgZlJhnMDAysDCKsKygYGBYRqEZtrDYMT4D8gHSmEHjgUFOQwODAqqf9g9/rYwMLB7MNUAhRlBcsxBrMlASoGBEQAj8QtyAAAAeNrjYGBkAAGmWQwMjO8gmBnIZ2NA0ExAzNjAAFYJVn0ASBsD6VAIDZb7AtELAgANIgb9AHjaY2BgYGaAYBkGRgYQSAHyGMF8FgYPIM3HwMHAxMDGoMCwQIFLQV8hXvXP//9AcRCfAcb///h/ygPW+w/vb7olBjUHCTCyMcAFGZmABBO6AogThgZgIUsXAEDcEzcAAHjaY2BgECMCyoEgACZaAed42mNgYmRgYGBnYGNgYAZSDJqMgorCgoqCjECRXwwNrCAKSP5mAAFGBiRgyAAAi/YFBQAAeNqtkc1OwkAUhU/5M25cEhcsZick0AwlBJq6MWwgJkAgYV/KAA2lJeUn+hY+gktXvpKv4dLTMqKycGHsTZNv7px7z50ZAFd4hYHjdw1Ls4EiHjVncIFnzVnc4F1zDkWjrzmPW+NNcwGlzIRKI3fJlUyrEjZQxb3mDH2fNGfRx4vmHKqG0JzHg6E0F9DOlFBGBxUI1GEzLNT4S0aLuTtsGAEUuYcQHkyg3KmIum1bNUvKlrjbbAIleqHHnS4iSudpQcySMYtdFiXlAxzSbAwfMxK6kZoHKhbjjespMTioOPZnzI+4ucCeTVyKMVKLfeAS6vSWaTinuZwzyy/Dc7vaed+6KaV0kukdPUk6yOcctZPvvxxqksq2lEW8RvHjMEO2FCl/zy6p3NEm0R9OFSafJdldc4QVeyaaObMBO0/5cCaa6d9Ggyubxire+lEojscdjoWUR1xGOy8KD8mG2ZLO2l2paDc3A39qmU2z2W5YNv5+u79e6QfGJY/hAAB42m3NywrCMBQE0DupWp/1AYI7/6DEaLQu66Mrd35BKUWKJSlFv1+rue4cGM7shgR981qSon+ZNwUJ8iDgoYU2OvDRRQ99DDDECAHGmGCKmf80hZSx/Kik/LliFbtmN6xmt+yOjdg9GztV4tROnRwX/Bsaaw51nt4Lc7tWaZYHp/MlzKx51LZs5htNri+2AAAAAQAB//8AD3jaY2BkYGDgAWIxIGZiYARCESBmAfMYAAR6AEMAAAABAAAAANXtRbgAAAAA2AhRFAAAAADYCNuG) format("woff");
+}
+
+/**
+ * Font stack variables
+ *
+ * The $sans and $serif stacks are default. The $inter and $crimson
+ * stacks are used in @supports( font-variation-settings ) queries.
+ */
+/**
+ * Default theme typography styles ane
+ * parent theme overrides.
+ */
+.entry-content p,
+.entry-content ol,
+.entry-content ul,
+.entry-content dl,
+.entry-content dt {
+  font-family: NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif;
+  font-size: 2.225rem;
+}
+
+@supports (font-variation-settings: normal) {
+  .entry-content p,
+  .entry-content ol,
+  .entry-content ul,
+  .entry-content dl,
+  .entry-content dt {
+    font-family: "Crimson Pro", NonBreakingSpaceOverride, "Hoefler Text", Garamond, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "Liberation Serif", "Times New Roman", Constantia, Times, Georgia, serif;
+    font-weight: 360;
+  }
+}
+
+body.rtl,
+body.rtl .press-this a.wp-switch-editor {
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  body.rtl,
+  body.rtl .press-this a.wp-switch-editor {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  }
+}
+
+/* Repeat previous rules for IE11 (when JS enabled for polyfill). */
+body.touch-enabled .primary-menu > li.menu-item-has-children > a {
+  padding-right: 0;
+  margin-right: 2rem;
+}
+
+body.touch-enabled .primary-menu ul li.menu-item-has-children > a {
+  margin-right: 4.5rem;
+  padding-right: 0;
+  width: unset;
+}
+
+#wpcontent .wrap > h1 {
+  padding: 4rem 160px 2rem 20px;
+  left: auto;
+  right: 50%;
+  -webkit-transform: translateX(calc(50% + 8rem));
+  transform: translateX(calc(50% + 8rem));
+}
+
+@media screen and (max-width: 782px) {
+  .auto-fold #wpcontent {
+    padding-right: 0;
+  }
+}
+
+.folded #wpcontent .wrap > h1 {
+  right: calc(50% + 8rem);
+  padding: 4rem 2rem 2rem;
+}
+
+/**
+ * Admin header
+ */
+@media screen and (min-width: 1000px) {
+  .header-titles-wrapper {
+    margin: 0 0 0 4rem;
+    text-align: right;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .header-titles {
+    margin: -1rem -2.4rem 0 0;
+  }
+  .header-titles .site-title,
+  .header-titles .site-logo,
+  .header-titles .site-description {
+    margin: 1rem 2.4rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .primary-menu-wrapper + .header-toggles {
+    margin-left: auto;
+    margin-right: 4rem;
+  }
+}
+
+.primary-menu {
+  margin: -0.8rem -1.6rem 0 0;
+}
+
+@media screen and (min-width: 1220px) {
+  .primary-menu {
+    margin: -0.8rem -2.5rem 0 0;
+  }
+}
+
+.primary-menu ul:after {
+  right: auto;
+  left: 1.8rem;
+}
+
+.primary-menu > li {
+  margin: 0.8rem 1.6rem 0 0;
+}
+
+@media screen and (min-width: 1220px) {
+  .primary-menu > li {
+    margin: 0.8rem 2.5rem 0 0;
+  }
+}
+
+.primary-menu > li.menu-item-has-children > a {
+  padding-right: 0;
+  padding-left: 2rem;
+}
+
+.primary-menu > li > .icon {
+  right: auto;
+  left: 0.5rem;
+}
+
+/**
+ * Admin menu
+ */
+#adminmenuback {
+  border-right: none;
+  border-left: solid 1px #cccccc;
+}
+
+#adminmenu {
+  background-color: #ffffff;
+}
+
+#adminmenu li .wp-submenu {
+  left: auto;
+  right: calc(100% + 16px);
+}
+
+#adminmenu a.menu-top {
+  padding: 0 1.5rem 0 0;
+}
+
+#adminmenu .wp-submenu:before {
+  left: auto;
+  right: -16px;
+}
+
+#adminmenu .wp-submenu-head {
+  padding: 0 1.6rem 0 2rem;
+}
+
+#adminmenu .wp-has-current-submenu .wp-submenu {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+#adminmenu .wp-has-current-submenu ul > li > a {
+  padding: 0.3rem 0 0.3rem 2rem;
+}
+
+#adminmenu .opensub .wp-submenu {
+  left: auto;
+  right: calc(100% + 16px);
+}
+
+#adminmenu li:not(.wp-has-current-submenu):after,
+#adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:after {
+  left: auto;
+  right: 100%;
+  border-right-color: transparent !important;
+}
+
+#adminmenu li:not(.wp-has-current-submenu):hover:after,
+#adminmenu li.wp-has-submenu.wp-not-current-submenu.opensub:hover:after {
+  border-right-color: transparent;
+  border-left-color: #000000;
+}
+
+.folded #adminmenu a.menu-top {
+  padding: 0 0 0 1.5rem;
+}
+
+.folded #adminmenu li.wp-has-current-submenu:hover .wp-submenu, .folded #adminmenu li.wp-has-current-submenu:focus .wp-submenu {
+  left: auto;
+  right: calc(100% + 16px);
+}
+
+.folded #adminmenu .opensub .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu.sub-open,
+.folded #adminmenu .wp-has-current-submenu a.menu-top:focus + .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu.opensub .wp-submenu,
+.folded #adminmenu .wp-submenu.sub-open,
+.folded #adminmenu a.menu-top:focus + .wp-submenu {
+  left: auto;
+  right: calc(100% + 16px);
+}
+
+.folded ul#adminmenu li.wp-has-current-submenu:after {
+  right: auto;
+  left: -16px;
+}
+
+.folded ul#adminmenu li.wp-has-current-submenu:hover:after {
+  border-right-color: transparent;
+  border-left-color: #000000;
+}
+
+@media screen and (max-width: 960px) {
+  .auto-fold #adminmenu a.menu-top {
+    padding: 0;
+  }
+}
+
+.auto-fold #adminmenu .wp-has-current-submenu ul > li > a {
+  padding: 0.3rem 0 0.3rem 2rem;
+}
+
+@media screen and (max-width: 960px) {
+  .auto-fold #adminmenu li a.menu-top {
+    padding-right: 0;
+  }
+}
+
+@media screen and (max-width: 782px) {
+  .auto-fold #adminmenu li.menu-top .wp-submenu > li > a {
+    padding: 0.5rem 1.5rem 0.5rem 2rem;
+  }
+}
+
+.auto-fold .wp-responsive-open #adminmenu li a.menu-top {
+  padding: 5px 1.5rem 5px 5px;
+}
+
+#screen-meta-links {
+  right: auto;
+  left: 0;
+  margin: 0 20px 0 0;
+}
+
+#screen-meta {
+  margin: 0 20px 0 -1px;
+}
+
+/**
+ * Dashboard
+ */
+#dashboard-panel #dashboard-get-started {
+  padding: 0 0 0 2rem;
+}
+
+#dashboard-panel .tabbed-content ul.ui-tabs-nav {
+  padding: 9px .4em 0 0;
+}
+
+#dashboard-panel .tabbed-content ul.ui-tabs-nav li a {
+  margin: 1px 0 0 .2em;
+}
+
+#dashboard-panel .dashboard-panel-section-intro {
+  padding: 1rem 0 0 2rem;
+}
+
+#dashboard-panel .dashboard-panel-section-intro figure {
+  margin: 0 0 0 1em;
+}
+
+@media screen and (max-width: 799px) {
+  #dashboard-panel .dashboard-panel-section-intro figure {
+    float: right;
+  }
+}
+
+.welcome-panel .welcome-panel-content:first-child {
+  padding: 0 0 0 2rem;
+}
+
+@media screen and (min-width: 782px) {
+  .edit-post-layout__content {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
+
+body.auto-fold .edit-post-layout__content {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+@media screen and (min-width: 700px) {
+  .footer-widgets-wrapper {
+    margin-left: auto;
+    margin-right: -4rem;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .footer-widgets-wrapper {
+    margin-left: auto;
+    margin-right: -6rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .footer-menu {
+    margin: -0.8rem -1.6rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .footer-menu {
+    margin: -1.2rem -2.4rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .footer-menu {
+    margin: -1.5rem -3rem 0 0;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .footer-menu li {
+    margin: 0.8rem 1.6rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .footer-menu li {
+    margin: 1.2rem 2.4rem 0 0;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .footer-menu li {
+    margin: 1.5rem 3rem 0 0;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .footer-widgets {
+    margin-left: auto;
+    margin-right: 4rem;
+  }
+}
+
+@media screen and (min-width: 1220px) {
+  .footer-widgets {
+    margin-left: 0;
+    margin-right: 6rem;
+  }
+}
+
+.footer-widgets .widget .search-form {
+  margin: 0 -0.8rem -0.8rem 0;
+}
+
+.footer-widgets .widget .search-form .search-field,
+.footer-widgets .widget .search-form .search-submit {
+  margin: 0 0.8rem 0.8rem 0;
+}
+
+.footer-widgets .widget.widget_tag_cloud a {
+  margin-right: auto;
+  margin-left: 0.5rem;
+}
+
+.footer-widgets .widget.widget_archive li li,
+.footer-widgets .widget.widget_categories li li,
+.footer-widgets .widget.widget_pages li li,
+.footer-widgets .widget.widget_meta li li,
+.footer-widgets .widget.widget_nav_menu li li {
+  margin-left: auto;
+  margin-right: 2rem;
+}
+
+.footer-widgets .widget.widget_nav_menu .widget-content > div > ul {
+  margin-right: 0;
+}
+
+.footer-widgets .widget .calendar_wrap tfoot #prev {
+  text-align: right;
+}
+
+.footer-widgets .widget .calendar_wrap tfoot #next {
+  text-align: left;
+}
+
+#wpfooter #footer-upgrade {
+  text-align: left;
+}
+
+#update-nag,
+.update-nag {
+  left: auto;
+  right: 50%;
+  padding: 2rem 160px 0 3rem;
+  -webkit-transform: translateX(calc(50% + 8rem));
+  transform: translateX(calc(50% + 8rem));
+}
+
+#update-nag:before,
+.update-nag:before {
+  margin: 0 0 0 0.5em;
+}

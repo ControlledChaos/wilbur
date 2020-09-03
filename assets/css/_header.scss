@@ -1,0 +1,37 @@
+
+/**
+ * Header
+ */
+
+// Stop hiding the site description (tagline) on mobile.
+.site-description {
+	display: block;
+}
+
+button.close-nav-toggle .toggle-text {
+    font-weight: 700;
+}
+
+.search-modal .search-field {
+	font-weight: 800;
+
+	&::-webkit-input-placeholder {
+		color: rgba($color: $text, $alpha: 0.75);
+	}
+
+	&::-moz-placeholder {
+		color: rgba($color: $text, $alpha: 0.75);
+	}
+
+	&:-ms-input-placeholder {
+		color: rgba($color: $text, $alpha: 0.75);
+	}
+
+	&::-ms-input-placeholder {
+		color: rgba($color: $text, $alpha: 0.75);
+	}
+
+	&::placeholder {
+		color: rgba($color: $text, $alpha: 0.75);
+	}
+}
