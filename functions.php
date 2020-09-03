@@ -128,7 +128,7 @@ function wilbur_theme_support() {
 	 * page load, as it is a one-off operation only needed once in the customizer.
 	 */
 	if ( is_customize_preview() ) {
-		require get_template_directory() . '/inc/starter-content.php';
+		require get_template_directory() . '/includes/starter-content.php';
 		add_theme_support( 'starter-content', wilbur_get_starter_content() );
 	}
 
@@ -150,32 +150,32 @@ add_action( 'after_setup_theme', 'wilbur_theme_support' );
  * REQUIRED FILES
  * Include required files.
  */
-require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/includes/template-tags.php';
 
 // Handle SVG icons.
-require get_template_directory() . '/classes/class-wilbur-svg-icons.php';
-require get_template_directory() . '/inc/svg-icons.php';
+require get_template_directory() . '/includes/classes/class-wilbur-svg-icons.php';
+require get_template_directory() . '/includes/svg-icons.php';
 
 // Handle Customizer settings.
-require get_template_directory() . '/classes/class-wilbur-customize.php';
+require get_template_directory() . '/includes/classes/class-wilbur-customize.php';
 
 // Require Separator Control class.
-require get_template_directory() . '/classes/class-wilbur-separator-control.php';
+require get_template_directory() . '/includes/classes/class-wilbur-separator-control.php';
 
 // Custom comment walker.
-require get_template_directory() . '/classes/class-wilbur-walker-comment.php';
+require get_template_directory() . '/includes/classes/class-wilbur-walker-comment.php';
 
 // Custom page walker.
-require get_template_directory() . '/classes/class-wilbur-walker-page.php';
+require get_template_directory() . '/includes/classes/class-wilbur-walker-page.php';
 
 // Custom script loader class.
-require get_template_directory() . '/classes/class-wilbur-script-loader.php';
+require get_template_directory() . '/includes/classes/class-wilbur-script-loader.php';
 
 // Non-latin language handling.
-require get_template_directory() . '/classes/class-wilbur-non-latin-languages.php';
+require get_template_directory() . '/includes/classes/class-wilbur-non-latin-languages.php';
 
 // Custom CSS.
-require get_template_directory() . '/inc/custom-css.php';
+require get_template_directory() . '/includes/custom-css.php';
 
 /**
  * Register and Enqueue Styles.
