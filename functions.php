@@ -112,9 +112,9 @@ function twentytwenty_theme_support() {
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on Wilbur, use a find and replace
-	 * to change 'twentytwenty' to the name of your theme in all the template files.
+	 * to change 'wilbur' to the name of your theme in all the template files.
 	 */
-	load_theme_textdomain( 'twentytwenty' );
+	load_theme_textdomain( 'wilbur' );
 
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
@@ -255,11 +255,11 @@ add_action( 'wp_enqueue_scripts', 'twentytwenty_non_latin_languages' );
 function twentytwenty_menus() {
 
 	$locations = array(
-		'primary'  => __( 'Desktop Horizontal Menu', 'twentytwenty' ),
-		'expanded' => __( 'Desktop Expanded Menu', 'twentytwenty' ),
-		'mobile'   => __( 'Mobile Menu', 'twentytwenty' ),
-		'footer'   => __( 'Footer Menu', 'twentytwenty' ),
-		'social'   => __( 'Social Menu', 'twentytwenty' ),
+		'primary'  => __( 'Desktop Horizontal Menu', 'wilbur' ),
+		'expanded' => __( 'Desktop Expanded Menu', 'wilbur' ),
+		'mobile'   => __( 'Mobile Menu', 'wilbur' ),
+		'footer'   => __( 'Footer Menu', 'wilbur' ),
+		'social'   => __( 'Social Menu', 'wilbur' ),
 	);
 
 	register_nav_menus( $locations );
@@ -337,7 +337,7 @@ if ( ! function_exists( 'wp_body_open' ) ) {
  * Include a skip to content link at the top of the page so that users can bypass the menu.
  */
 function twentytwenty_skip_link() {
-	echo '<a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'twentytwenty' ) . '</a>';
+	echo '<a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'wilbur' ) . '</a>';
 }
 
 add_action( 'wp_body_open', 'twentytwenty_skip_link', 5 );
@@ -362,9 +362,9 @@ function twentytwenty_sidebar_registration() {
 		array_merge(
 			$shared_args,
 			array(
-				'name'        => __( 'Footer #1', 'twentytwenty' ),
+				'name'        => __( 'Footer #1', 'wilbur' ),
 				'id'          => 'sidebar-1',
-				'description' => __( 'Widgets in this area will be displayed in the first column in the footer.', 'twentytwenty' ),
+				'description' => __( 'Widgets in this area will be displayed in the first column in the footer.', 'wilbur' ),
 			)
 		)
 	);
@@ -374,9 +374,9 @@ function twentytwenty_sidebar_registration() {
 		array_merge(
 			$shared_args,
 			array(
-				'name'        => __( 'Footer #2', 'twentytwenty' ),
+				'name'        => __( 'Footer #2', 'wilbur' ),
 				'id'          => 'sidebar-2',
-				'description' => __( 'Widgets in this area will be displayed in the second column in the footer.', 'twentytwenty' ),
+				'description' => __( 'Widgets in this area will be displayed in the second column in the footer.', 'wilbur' ),
 			)
 		)
 	);
@@ -481,22 +481,22 @@ function twentytwenty_block_editor_settings() {
 	// Block Editor Palette.
 	$editor_color_palette = array(
 		array(
-			'name'  => __( 'Accent Color', 'twentytwenty' ),
+			'name'  => __( 'Accent Color', 'wilbur' ),
 			'slug'  => 'accent',
 			'color' => twentytwenty_get_color_for_area( 'content', 'accent' ),
 		),
 		array(
-			'name'  => __( 'Primary', 'twentytwenty' ),
+			'name'  => __( 'Primary', 'wilbur' ),
 			'slug'  => 'primary',
 			'color' => twentytwenty_get_color_for_area( 'content', 'text' ),
 		),
 		array(
-			'name'  => __( 'Secondary', 'twentytwenty' ),
+			'name'  => __( 'Secondary', 'wilbur' ),
 			'slug'  => 'secondary',
 			'color' => twentytwenty_get_color_for_area( 'content', 'secondary' ),
 		),
 		array(
-			'name'  => __( 'Subtle Background', 'twentytwenty' ),
+			'name'  => __( 'Subtle Background', 'wilbur' ),
 			'slug'  => 'subtle-background',
 			'color' => twentytwenty_get_color_for_area( 'content', 'borders' ),
 		),
@@ -509,7 +509,7 @@ function twentytwenty_block_editor_settings() {
 		$background_color     = $background_color_arr[0]['default-color'];
 	}
 	$editor_color_palette[] = array(
-		'name'  => __( 'Background Color', 'twentytwenty' ),
+		'name'  => __( 'Background Color', 'wilbur' ),
 		'slug'  => 'background',
 		'color' => '#' . $background_color,
 	);
@@ -524,26 +524,26 @@ function twentytwenty_block_editor_settings() {
 		'editor-font-sizes',
 		array(
 			array(
-				'name'      => _x( 'Small', 'Name of the small font size in the block editor', 'twentytwenty' ),
-				'shortName' => _x( 'S', 'Short name of the small font size in the block editor.', 'twentytwenty' ),
+				'name'      => _x( 'Small', 'Name of the small font size in the block editor', 'wilbur' ),
+				'shortName' => _x( 'S', 'Short name of the small font size in the block editor.', 'wilbur' ),
 				'size'      => 18,
 				'slug'      => 'small',
 			),
 			array(
-				'name'      => _x( 'Regular', 'Name of the regular font size in the block editor', 'twentytwenty' ),
-				'shortName' => _x( 'M', 'Short name of the regular font size in the block editor.', 'twentytwenty' ),
+				'name'      => _x( 'Regular', 'Name of the regular font size in the block editor', 'wilbur' ),
+				'shortName' => _x( 'M', 'Short name of the regular font size in the block editor.', 'wilbur' ),
 				'size'      => 21,
 				'slug'      => 'normal',
 			),
 			array(
-				'name'      => _x( 'Large', 'Name of the large font size in the block editor', 'twentytwenty' ),
-				'shortName' => _x( 'L', 'Short name of the large font size in the block editor.', 'twentytwenty' ),
+				'name'      => _x( 'Large', 'Name of the large font size in the block editor', 'wilbur' ),
+				'shortName' => _x( 'L', 'Short name of the large font size in the block editor.', 'wilbur' ),
 				'size'      => 26.25,
 				'slug'      => 'large',
 			),
 			array(
-				'name'      => _x( 'Larger', 'Name of the larger font size in the block editor', 'twentytwenty' ),
-				'shortName' => _x( 'XL', 'Short name of the larger font size in the block editor.', 'twentytwenty' ),
+				'name'      => _x( 'Larger', 'Name of the larger font size in the block editor', 'wilbur' ),
+				'shortName' => _x( 'XL', 'Short name of the larger font size in the block editor.', 'wilbur' ),
 				'size'      => 32,
 				'slug'      => 'larger',
 			),

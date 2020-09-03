@@ -78,8 +78,8 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					'type'        => 'checkbox',
 					'section'     => 'title_tagline',
 					'priority'    => 10,
-					'label'       => __( 'Retina logo', 'twentytwenty' ),
-					'description' => __( 'Scales the logo to half its uploaded size, making it sharp on high-res screens.', 'twentytwenty' ),
+					'label'       => __( 'Retina logo', 'wilbur' ),
+					'description' => __( 'Scales the logo to half its uploaded size, making it sharp on high-res screens.', 'wilbur' ),
 				)
 			);
 
@@ -98,7 +98,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					$wp_customize,
 					'header_footer_background_color',
 					array(
-						'label'   => __( 'Header &amp; Footer Background Color', 'twentytwenty' ),
+						'label'   => __( 'Header &amp; Footer Background Color', 'wilbur' ),
 						'section' => 'colors',
 					)
 				)
@@ -120,10 +120,10 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 				array(
 					'type'    => 'radio',
 					'section' => 'colors',
-					'label'   => __( 'Primary Color', 'twentytwenty' ),
+					'label'   => __( 'Primary Color', 'wilbur' ),
 					'choices' => array(
-						'default' => __( 'Default', 'twentytwenty' ),
-						'custom'  => __( 'Custom', 'twentytwenty' ),
+						'default' => __( 'Default', 'wilbur' ),
+						'custom'  => __( 'Custom', 'wilbur' ),
 					),
 				)
 			);
@@ -180,7 +180,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					array(
 						'section'         => 'colors',
 						'settings'        => 'accent_hue',
-						'description'     => __( 'Apply a custom color for links, buttons, featured images.', 'twentytwenty' ),
+						'description'     => __( 'Apply a custom color for links, buttons, featured images.', 'wilbur' ),
 						'mode'            => 'hue',
 						'active_callback' => function() use ( $wp_customize ) {
 							return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
@@ -199,7 +199,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			$wp_customize->add_section(
 				'options',
 				array(
-					'title'      => __( 'Theme Options', 'twentytwenty' ),
+					'title'      => __( 'Theme Options', 'wilbur' ),
 					'priority'   => 40,
 					'capability' => 'edit_theme_options',
 				)
@@ -222,7 +222,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					'type'     => 'checkbox',
 					'section'  => 'options',
 					'priority' => 10,
-					'label'    => __( 'Show search in header', 'twentytwenty' ),
+					'label'    => __( 'Show search in header', 'wilbur' ),
 				)
 			);
 
@@ -243,7 +243,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					'type'     => 'checkbox',
 					'section'  => 'options',
 					'priority' => 10,
-					'label'    => __( 'Show author bio', 'twentytwenty' ),
+					'label'    => __( 'Show author bio', 'wilbur' ),
 				)
 			);
 
@@ -264,10 +264,10 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					'type'     => 'radio',
 					'section'  => 'options',
 					'priority' => 10,
-					'label'    => __( 'On archive pages, posts show:', 'twentytwenty' ),
+					'label'    => __( 'On archive pages, posts show:', 'wilbur' ),
 					'choices'  => array(
-						'full'    => __( 'Full text', 'twentytwenty' ),
-						'summary' => __( 'Summary', 'twentytwenty' ),
+						'full'    => __( 'Full text', 'wilbur' ),
+						'summary' => __( 'Summary', 'wilbur' ),
 					),
 				)
 			);
@@ -278,9 +278,9 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			$wp_customize->add_section(
 				'cover_template_options',
 				array(
-					'title'       => __( 'Cover Template', 'twentytwenty' ),
+					'title'       => __( 'Cover Template', 'wilbur' ),
 					'capability'  => 'edit_theme_options',
-					'description' => __( 'Settings for the "Cover Template" page template. Add a featured image to use as background.', 'twentytwenty' ),
+					'description' => __( 'Settings for the "Cover Template" page template. Add a featured image to use as background.', 'wilbur' ),
 					'priority'    => 42,
 				)
 			);
@@ -302,8 +302,8 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 				array(
 					'type'        => 'checkbox',
 					'section'     => 'cover_template_options',
-					'label'       => __( 'Fixed Background Image', 'twentytwenty' ),
-					'description' => __( 'Creates a parallax effect when the visitor scrolls.', 'twentytwenty' ),
+					'label'       => __( 'Fixed Background Image', 'wilbur' ),
+					'description' => __( 'Creates a parallax effect when the visitor scrolls.', 'wilbur' ),
 				)
 			);
 
@@ -349,8 +349,8 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					$wp_customize,
 					'cover_template_overlay_background_color',
 					array(
-						'label'       => __( 'Overlay Background Color', 'twentytwenty' ),
-						'description' => __( 'The color used for the overlay. Defaults to the accent color.', 'twentytwenty' ),
+						'label'       => __( 'Overlay Background Color', 'wilbur' ),
+						'description' => __( 'The color used for the overlay. Defaults to the accent color.', 'wilbur' ),
 						'section'     => 'cover_template_options',
 					)
 				)
@@ -371,8 +371,8 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					$wp_customize,
 					'cover_template_overlay_text_color',
 					array(
-						'label'       => __( 'Overlay Text Color', 'twentytwenty' ),
-						'description' => __( 'The color used for the text in the overlay.', 'twentytwenty' ),
+						'label'       => __( 'Overlay Text Color', 'wilbur' ),
+						'description' => __( 'The color used for the text in the overlay.', 'wilbur' ),
 						'section'     => 'cover_template_options',
 					)
 				)
@@ -392,8 +392,8 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			$wp_customize->add_control(
 				'cover_template_overlay_opacity',
 				array(
-					'label'       => __( 'Overlay Opacity', 'twentytwenty' ),
-					'description' => __( 'Make sure that the contrast is high enough so that the text is readable.', 'twentytwenty' ),
+					'label'       => __( 'Overlay Opacity', 'wilbur' ),
+					'description' => __( 'Make sure that the contrast is high enough so that the text is readable.', 'wilbur' ),
 					'section'     => 'cover_template_options',
 					'type'        => 'range',
 					'input_attrs' => twentytwenty_customize_opacity_range(),
