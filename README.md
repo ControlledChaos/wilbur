@@ -1,2 +1,3 @@
-# wilbur
-Theme for Sturtevant Camp.
+# Wilbur
+
+A modern theme for the Sturtevant Camp website.
