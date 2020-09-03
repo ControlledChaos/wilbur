@@ -1,10 +1,11 @@
 <?php
 /**
  * Template Name: Cover Template
- * Template Post Type: post, page, product, project, snippet, site
+ * Template Post Type: post, page
  *
- * @package Hindsight
- * @since   1.0.0
+ * @package WordPress
+ * @subpackage Wilbur
+ * @since Wilbur 1.0
  */
 
 get_header();

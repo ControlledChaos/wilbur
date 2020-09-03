@@ -1,178 +1,218 @@
 <?php
 /**
- * Hindsight starter content
- *
- * @package    Hindsight
- * @subpackage Includes
- * @category   Content
- * @since      1.0.0
+ * Wilbur Starter Content
  *
  * @link https://make.wordpress.org/core/2016/11/30/starter-content-for-themes-in-4-7/
+ *
+ * @package WordPress
+ * @subpackage Wilbur
+ * @since Wilbur 1.0
  */
-
-// Theme file namespace.
-namespace Hindsight\Includes;
-
-// Restrict direct access.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /**
  * Function to return the array of starter content for the theme.
  *
- * Passes it through the `twentytwenty_starter_content` filter before returning.
+ * Passes it through the `wilbur_starter_content` filter before returning.
  *
- * @since  Twenty Twenty 1.0.0
- * @return array a filtered array of args for the starter_content.
+ * @since Wilbur 1.0
+ *
+ * @return array A filtered array of args for the starter_content.
  */
-function starter_content() {
+function wilbur_get_starter_content() {
 
 	// Define and register starter content to showcase the theme on new sites.
 	$starter_content = array(
-		'widgets'     => [
+		'widgets'     => array(
 			// Place one core-defined widgets in the first footer widget area.
-			'sidebar-1' => [
-				'search',
+			'sidebar-1' => array(
 				'text_about',
-			],
+			),
 			// Place one core-defined widgets in the second footer widget area.
-			'sidebar-2' => [
-				'meta',
-			],
-		],
+			'sidebar-2' => array(
+				'text_business_info',
+			),
+		),
 
 		// Create the custom image attachments used as post thumbnails for pages.
-		'attachments' => [
-			'image-opening' => [
-				'post_title' => _x( 'They Say Twenty Twenty Is Hindsight', 'Theme starter content', 'hindsight' ),
-				'file'       => 'assets/images/hindsight.jpg', // URL relative to the template directory.
-			],
-		],
+		'attachments' => array(
+			'image-opening' => array(
+				'post_title' => _x( 'The New UMoMA Opens its Doors', 'Theme starter content', 'wilbur' ),
+				'file'       => 'assets/images/2020-landscape-1.png', // URL relative to the template directory.
+			),
+		),
 
 		// Specify the core-defined pages to create and add custom thumbnails to some of them.
-		'posts' => [
-			'front' => [
+		'posts'       => array(
+			'front' => array(
 				'post_type'    => 'page',
-				'post_title'   => __( 'They Say Twenty Twenty Is Hindsight', 'hindsight' ),
+				'post_title'   => __( 'The New UMoMA Opens its Doors', 'wilbur' ),
 				// Use the above featured image with the predefined about page.
 				'thumbnail'    => '{{image-opening}}',
 				'post_content' => join(
 					'',
-					[
-						'<!-- wp:paragraph -->',
-						sprintf(
-							'<p>%1s</p>',
-							__( 'Hindsight augments and enhances the WordPress Twenty Twenty theme.', 'hindsight' )
-						),
-						'<!-- /wp:paragraph -->',
+					array(
+						'<!-- wp:group {"align":"wide"} -->',
+						'<div class="wp-block-group alignwide"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center"} -->',
+						'<h2 class="has-text-align-center">' . __( 'The premier destination for modern art in Northern Sweden. Open from 10 AM to 6 PM every day during the summer months.', 'wilbur' ) . '</h2>',
+						'<!-- /wp:heading --></div></div>',
+						'<!-- /wp:group -->',
+						'<!-- wp:columns {"align":"wide"} -->',
+						'<div class="wp-block-columns alignwide"><!-- wp:column -->',
+						'<div class="wp-block-column"><!-- wp:group -->',
+						'<div class="wp-block-group"><div class="wp-block-group__inner-container">',
+						'<!-- wp:image {"align":"full","id":37,"sizeSlug":"full"} -->',
+						'<figure class="wp-block-image alignfull size-full"><img src="' . get_theme_file_uri() . '/assets/images/2020-three-quarters-1.png" alt="" class="wp-image-37"/></figure>',
+						'<!-- /wp:image -->',
 						'<!-- wp:heading {"level":3} -->',
-						sprintf(
-							'<h3>%1s</h3>',
-							__( 'Theme Options', 'hindsight' )
-						),
+						'<h3>' . __( 'Works and Days', 'wilbur' ) . '</h3>',
 						'<!-- /wp:heading -->',
 						'<!-- wp:paragraph -->',
-						sprintf(
-							'<p>%1s</p>',
-							__( 'Section coming soon.', 'hindsight' )
-						),
+						'<p>' . __( 'August 1 -- December 1', 'wilbur' ) . '</p>',
 						'<!-- /wp:paragraph -->',
+						'<!-- wp:button {"className":"is-style-outline"} -->',
+						'<div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://make.wordpress.org/core/2019/09/27/block-editor-theme-related-updates-in-wordpress-5-3/">' . __( 'Read More', 'wilbur' ) . '</a></div>',
+						'<!-- /wp:button --></div></div>',
+						'<!-- /wp:group -->',
+						'<!-- wp:group -->',
+						'<div class="wp-block-group"><div class="wp-block-group__inner-container">',
+						'<!-- wp:image {"align":"full","id":37,"sizeSlug":"full"} -->',
+						'<figure class="wp-block-image alignfull size-full"><img src="' . get_theme_file_uri() . '/assets/images/2020-three-quarters-3.png" alt="" class="wp-image-37"/></figure>',
+						'<!-- /wp:image -->',
 						'<!-- wp:heading {"level":3} -->',
-						sprintf(
-							'<h3>%1s</h3>',
-							__( 'Credits', 'hindsight' )
-						),
+						'<h3>' . __( 'Theatre of Operations', 'wilbur' ) . '</h3>',
 						'<!-- /wp:heading -->',
 						'<!-- wp:paragraph -->',
-						sprintf(
-							'<p>%1s <a href="%2s" target="_blank" rel="noindex nofollow">%3s</a></p>',
-							__( 'The Hindsight child theme for Twenty Twenty is designed & developed by', 'hindsight' ),
-							esc_url( 'https://ccdzine.com' ),
-							__( 'Controlled Chaos Design.', 'hindsight' )
-						),
+						'<p>' . __( 'October 1 -- December 1', 'wilbur' ) . '</p>',
+						'<!-- /wp:paragraph -->',
+						'<!-- wp:button {"className":"is-style-outline"} -->',
+						'<div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://make.wordpress.org/core/2019/09/27/block-editor-theme-related-updates-in-wordpress-5-3/">' . __( 'Read More', 'wilbur' ) . '</a></div>',
+						'<!-- /wp:button --></div></div>',
+						'<!-- /wp:group --></div>',
+						'<!-- /wp:column -->',
+						'<!-- wp:column -->',
+						'<div class="wp-block-column"><!-- wp:group -->',
+						'<div class="wp-block-group"><div class="wp-block-group__inner-container">',
+						'<!-- wp:image {"align":"full","id":37,"sizeSlug":"full"} -->',
+						'<figure class="wp-block-image alignfull size-full"><img src="' . get_theme_file_uri() . '/assets/images/2020-three-quarters-2.png" alt="" class="wp-image-37"/></figure>',
+						'<!-- /wp:image -->',
+						'<!-- wp:heading {"level":3} -->',
+						'<h3>' . __( 'The Life I Deserve', 'wilbur' ) . '</h3>',
+						'<!-- /wp:heading -->',
+						'<!-- wp:paragraph -->',
+						'<p>' . __( 'August 1 -- December 1', 'wilbur' ) . '</p>',
+						'<!-- /wp:paragraph -->',
+						'<!-- wp:button {"className":"is-style-outline"} -->',
+						'<div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://make.wordpress.org/core/2019/09/27/block-editor-theme-related-updates-in-wordpress-5-3/">' . __( 'Read More', 'wilbur' ) . '</a></div>',
+						'<!-- /wp:button --></div></div>',
+						'<!-- /wp:group -->',
+						'<!-- wp:group -->',
+						'<div class="wp-block-group"><div class="wp-block-group__inner-container">',
+						'<!-- wp:image {"align":"full","id":37,"sizeSlug":"full"} -->',
+						'<figure class="wp-block-image alignfull size-full"><img src="' . get_theme_file_uri() . '/assets/images/2020-three-quarters-4.png" alt="" class="wp-image-37"/></figure>',
+						'<!-- /wp:image -->',
+						'<!-- wp:heading {"level":3} -->',
+						'<h3>' . __( 'From Signac to Matisse', 'wilbur' ) . '</h3>',
+						'<!-- /wp:heading -->',
+						'<!-- wp:paragraph -->',
+						'<p>' . __( 'October 1 -- December 1', 'wilbur' ) . '</p>',
+						'<!-- /wp:paragraph -->',
+						'<!-- wp:button {"className":"is-style-outline"} -->',
+						'<div class="wp-block-button is-style-outline"><a class="wp-block-button__link" href="https://make.wordpress.org/core/2019/09/27/block-editor-theme-related-updates-in-wordpress-5-3/">' . __( 'Read More', 'wilbur' ) . '</a></div>',
+						'<!-- /wp:button --></div></div>',
+						'<!-- /wp:group --></div>',
+						'<!-- /wp:column --></div>',
+						'<!-- /wp:columns -->',
+						'<!-- wp:image {"align":"full","id":37,"sizeSlug":"full"} -->',
+						'<figure class="wp-block-image alignfull size-full"><img src="' . get_theme_file_uri() . '/assets/images/2020-landscape-2.png" alt="" class="wp-image-37"/></figure>',
+						'<!-- /wp:image -->',
+						'<!-- wp:group {"align":"wide"} -->',
+						'<div class="wp-block-group alignwide"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center","textColor":"accent"} -->',
+						'<h2 class="has-accent-color has-text-align-center">' . __( '&#8220;Cyborgs, as the philosopher Donna Haraway established, are not reverent. They do not remember the cosmos.&#8221;', 'wilbur' ) . '</h2>',
+						'<!-- /wp:heading --></div></div>',
+						'<!-- /wp:group -->',
+						'<!-- wp:paragraph {"dropCap":true} -->',
+						'<p class="has-drop-cap">' . __( 'With seven floors of striking architecture, UMoMA shows exhibitions of international contemporary art, sometimes along with art historical retrospectives. Existential, political and philosophical issues are intrinsic to our programme. As visitor you are invited to guided tours artist talks, lectures, film screenings and other events with free admission', 'wilbur' ) . '</p>',
 						'<!-- /wp:paragraph -->',
 						'<!-- wp:paragraph -->',
-						sprintf(
-							'<p>%1s <a href="%2s" target="_blank" rel="noindex nofollow">%3s</a></p>',
-							__( 'The Twenty Twenty parent theme is designed & developed by', 'hindsight' ),
-							esc_url( 'https://wordpress.org/themes/twentytwenty/' ),
-							__( 'the WordPress team.', 'hindsight' )
-						),
+						'<p>' . __( 'The exhibitions are produced by UMoMA in collaboration with artists and museums around the world and they often attract international attention. UMoMA has received a Special Commendation from the European Museum of the Year, and was among the top candidates for the Swedish Museum of the Year Award as well as for the Council of Europe Museum Prize.', 'wilbur' ) . '</p>',
 						'<!-- /wp:paragraph -->',
 						'<!-- wp:paragraph -->',
-						sprintf(
-							'<p>%1s <a href="%2s" target="_blank" rel="noindex nofollow">%3s</a></p>',
-							__( 'The image used for the theme cover and default header is made available by', 'hindsight' ),
-							esc_url( 'https://unsplash.com/@atn' ),
-							__( 'Etienne Desclides on Unsplash.', 'hindsight' )
-						),
-						'<!-- /wp:paragraph -->'
-					]
+						'<p></p>',
+						'<!-- /wp:paragraph -->',
+						'<!-- wp:group {"customBackgroundColor":"#ffffff","align":"wide"} -->',
+						'<div class="wp-block-group alignwide has-background" style="background-color:#ffffff"><div class="wp-block-group__inner-container"><!-- wp:group -->',
+						'<div class="wp-block-group"><div class="wp-block-group__inner-container"><!-- wp:heading {"align":"center"} -->',
+						'<h2 class="has-text-align-center">' . __( 'Become a Member and Get Exclusive Offers!', 'wilbur' ) . '</h2>',
+						'<!-- /wp:heading -->',
+						'<!-- wp:paragraph {"align":"center"} -->',
+						'<p class="has-text-align-center">' . __( 'Members get access to exclusive exhibits and sales. Our memberships cost $99.99 and are billed annually.', 'wilbur' ) . '</p>',
+						'<!-- /wp:paragraph -->',
+						'<!-- wp:button {"align":"center"} -->',
+						'<div class="wp-block-button aligncenter"><a class="wp-block-button__link" href="https://make.wordpress.org/core/2019/09/27/block-editor-theme-related-updates-in-wordpress-5-3/">' . __( 'Join the Club', 'wilbur' ) . '</a></div>',
+						'<!-- /wp:button --></div></div>',
+						'<!-- /wp:group --></div></div>',
+						'<!-- /wp:group -->',
+						'<!-- wp:gallery {"ids":[39,38],"align":"wide"} -->',
+						'<figure class="wp-block-gallery alignwide columns-2 is-cropped"><ul class="blocks-gallery-grid"><li class="blocks-gallery-item"><figure><img src="' . get_theme_file_uri() . '/assets/images/2020-square-2.png" alt="" data-id="39" data-full-url="' . get_theme_file_uri() . '/assets/images/2020-square-2.png" data-link="assets/images/2020-square-2/" class="wp-image-39"/></figure></li><li class="blocks-gallery-item"><figure><img src="' . get_theme_file_uri() . '/assets/images/2020-square-1.png" alt="" data-id="38" data-full-url="' . get_theme_file_uri() . '/assets/images/2020-square-1.png" data-link="' . get_theme_file_uri() . '/assets/images/2020-square-1/" class="wp-image-38"/></figure></li></ul></figure>',
+						'<!-- /wp:gallery -->',
+					)
 				),
-			],
+			),
 			'about',
 			'contact',
 			'blog',
-		],
+		),
 
 		// Default to a static front page and assign the front and posts pages.
-		'options' => [
+		'options'     => array(
 			'show_on_front'  => 'page',
 			'page_on_front'  => '{{front}}',
 			'page_for_posts' => '{{blog}}',
-		],
+		),
 
 		// Set up nav menus for each of the two areas registered in the theme.
-		'nav_menus' => [
+		'nav_menus'   => array(
 			// Assign a menu to the "primary" location.
-			'primary' => [
-				'name'  => __( 'Primary', 'hindsight' ),
-				'items' => [
+			'primary'  => array(
+				'name'  => __( 'Primary', 'wilbur' ),
+				'items' => array(
 					'link_home', // Note that the core "home" page is actually a link in case a static front page is not used.
-					'page_blog',
 					'page_about',
+					'page_blog',
 					'page_contact',
-				],
-			],
+				),
+			),
 			// This replicates primary just to demonstrate the expanded menu.
-			'expanded' => [
-				'name'  => __( 'Primary', 'hindsight' ),
-				'items' => [
+			'expanded' => array(
+				'name'  => __( 'Primary', 'wilbur' ),
+				'items' => array(
 					'link_home', // Note that the core "home" page is actually a link in case a static front page is not used.
-					'page_blog',
 					'page_about',
+					'page_blog',
 					'page_contact',
-				],
-			],
+				),
+			),
 			// Assign a menu to the "social" location.
-			'social' => [
-				'name'  => __( 'Social Links Menu', 'hindsight' ),
-				'items' => [
-					'link_github'  => [
-						'title' => _x( 'Hindsight on GitHub', 'Theme starter content', 'hindsight' ),
-						'url'   => 'https://github.com/ControlledChaos/hindsight'
-					],
-					'link_twitter' => [
-						'title' => _x( '@CCDzine on Twitter', 'Theme starter content', 'hindsight' ),
-						'url'   => 'https://www.twitter.com/CCDzine'
-					],
-					'link_email'   => [
-						'title' => _x( 'Join the Hindsight Newsletter', 'Theme starter content', 'hindsight' ),
-						'url'   => 'maito:hindsight@ccdzine.com'
-					],
-					'', // Blanks needed to prevent extraneous menu items when fewer than five.
-					''
-				]
-			]
-		]
+			'social'   => array(
+				'name'  => __( 'Social Links Menu', 'wilbur' ),
+				'items' => array(
+					'link_yelp',
+					'link_facebook',
+					'link_twitter',
+					'link_instagram',
+					'link_email',
+				),
+			),
+		),
 	);
 
 	/**
-	 * Filters Twenty Twenty array of starter content.
+	 * Filters Wilbur array of starter content.
 	 *
-	 * @since Twenty Twenty 1.0.0
+	 * @since Wilbur 1.0
 	 *
 	 * @param array $starter_content Array of starter content.
 	 */
-	return $starter_content;
+	return apply_filters( 'wilbur_starter_content', $starter_content );
 
 }
