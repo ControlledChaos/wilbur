@@ -30,7 +30,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 				'blogname',
 				array(
 					'selector'        => '.site-title a',
-					'render_callback' => 'twentytwenty_customize_partial_blogname',
+					'render_callback' => 'wilbur_customize_partial_blogname',
 				)
 			);
 
@@ -38,7 +38,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 				'blogdescription',
 				array(
 					'selector'        => '.site-description',
-					'render_callback' => 'twentytwenty_customize_partial_blogdescription',
+					'render_callback' => 'wilbur_customize_partial_blogdescription',
 				)
 			);
 
@@ -46,7 +46,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 				'custom_logo',
 				array(
 					'selector'        => '.header-titles [class*=site-]:not(.site-description)',
-					'render_callback' => 'twentytwenty_customize_partial_site_logo',
+					'render_callback' => 'wilbur_customize_partial_site_logo',
 				)
 			);
 
@@ -54,7 +54,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 				'retina_logo',
 				array(
 					'selector'        => '.header-titles [class*=site-]:not(.site-description)',
-					'render_callback' => 'twentytwenty_customize_partial_site_logo',
+					'render_callback' => 'wilbur_customize_partial_site_logo',
 				)
 			);
 
@@ -339,7 +339,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 			$wp_customize->add_setting(
 				'cover_template_overlay_background_color',
 				array(
-					'default'           => twentytwenty_get_color_for_area( 'content', 'accent' ),
+					'default'           => wilbur_get_color_for_area( 'content', 'accent' ),
 					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);
@@ -396,7 +396,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					'description' => __( 'Make sure that the contrast is high enough so that the text is readable.', 'wilbur' ),
 					'section'     => 'cover_template_options',
 					'type'        => 'range',
-					'input_attrs' => twentytwenty_customize_opacity_range(),
+					'input_attrs' => wilbur_customize_opacity_range(),
 				)
 			);
 
@@ -466,32 +466,32 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 /**
  * PARTIAL REFRESH FUNCTIONS
  * */
-if ( ! function_exists( 'twentytwenty_customize_partial_blogname' ) ) {
+if ( ! function_exists( 'wilbur_customize_partial_blogname' ) ) {
 	/**
 	 * Render the site title for the selective refresh partial.
 	 */
-	function twentytwenty_customize_partial_blogname() {
+	function wilbur_customize_partial_blogname() {
 		bloginfo( 'name' );
 	}
 }
 
-if ( ! function_exists( 'twentytwenty_customize_partial_blogdescription' ) ) {
+if ( ! function_exists( 'wilbur_customize_partial_blogdescription' ) ) {
 	/**
 	 * Render the site description for the selective refresh partial.
 	 */
-	function twentytwenty_customize_partial_blogdescription() {
+	function wilbur_customize_partial_blogdescription() {
 		bloginfo( 'description' );
 	}
 }
 
-if ( ! function_exists( 'twentytwenty_customize_partial_site_logo' ) ) {
+if ( ! function_exists( 'wilbur_customize_partial_site_logo' ) ) {
 	/**
 	 * Render the site logo for the selective refresh partial.
 	 *
 	 * Doing it this way so we don't have issues with `render_callback`'s arguments.
 	 */
-	function twentytwenty_customize_partial_site_logo() {
-		twentytwenty_site_logo();
+	function wilbur_customize_partial_site_logo() {
+		wilbur_site_logo();
 	}
 }
 
@@ -501,7 +501,7 @@ if ( ! function_exists( 'twentytwenty_customize_partial_site_logo' ) ) {
  *
  * @return array Array containing attribute names and their values.
  */
-function twentytwenty_customize_opacity_range() {
+function wilbur_customize_opacity_range() {
 	/**
 	 * Filters the input attributes for opacity
 	 *
@@ -514,7 +514,7 @@ function twentytwenty_customize_opacity_range() {
 	 * }
 	 */
 	return apply_filters(
-		'twentytwenty_customize_opacity_range',
+		'wilbur_customize_opacity_range',
 		array(
 			'min'  => 0,
 			'max'  => 90,
