@@ -50,7 +50,7 @@
 								<span class="toggle-icon">
 									<?php wilbur_the_theme_svg( 'search' ); ?>
 								</span>
-								<span class="toggle-text"><?php _e( 'Search', 'wilbur' ); ?></span>
+								<span class="toggle-text screen-reader-text"><?php _e( 'Search', 'wilbur' ); ?></span>
 							</span>
 						</button><!-- .search-toggle -->
 
@@ -154,7 +154,7 @@
 								<button class="toggle search-toggle desktop-search-toggle" data-toggle-target=".search-modal" data-toggle-body-class="showing-search-modal" data-set-focus=".search-modal .search-field" aria-expanded="false">
 									<span class="toggle-inner">
 										<?php wilbur_the_theme_svg( 'search' ); ?>
-										<span class="toggle-text"><?php _e( 'Search', 'wilbur' ); ?></span>
+										<span class="toggle-text screen-reader-text"><?php _e( 'Search', 'wilbur' ); ?></span>
 									</span>
 								</button><!-- .search-toggle -->
 
