@@ -23,7 +23,7 @@ define( 'WILBUR_PHP_VERSION', '7.0' );
  * Instantiate before the following version compare
  * to allow the deatcivation methods to run.
  */
-require get_theme_file_path( '/classes/class-activate.php' );
+require get_theme_file_path( '/includes/classes/class-activate.php' );
 
 // Stop here if the minimum PHP version is not met.
 if ( version_compare( phpversion(), WILBUR_PHP_VERSION, '<' ) ) {
@@ -51,19 +51,19 @@ function wilbur() {
 
 	// Instantiate theme classes.
 	Classes\Theme       :: instance();
-	Classes\Media       :: instance();
-	Classes\Customize   :: instance();
-	Classes\User_Colors :: instance();
+	// Classes\Media       :: instance();
+	// Classes\Customize   :: instance();
+	// Classes\User_Colors :: instance();
 
 	// Instantiate admin theme classes.
 	if ( is_admin() ) {
 
 		// Run the page header on all screens.
-		Classes\Admin_Pages :: instance();
+		// Classes\Admin_Pages :: instance();
 
 		// Run the dashboard only on the admin index screen.
 		if ( 'index.php' == $pagenow ) {
-			Classes\Dashboard :: instance();
+			// Classes\Dashboard :: instance();
 		}
 	}
 }
@@ -187,7 +187,6 @@ function wilbur_theme_support() {
 	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
 
 }
-
 add_action( 'after_setup_theme', 'wilbur_theme_support' );
 
 /**
