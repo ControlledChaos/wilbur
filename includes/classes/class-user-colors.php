@@ -121,7 +121,7 @@ class User_Colors {
 
 		wp_admin_css_color( 'hindsight_pink', _x( 'Pink', 'admin color scheme' ),
 			get_theme_file_uri( "/assets/css/colors/pink/colors$suffix.min.css" ),
-			[ '#f5efe0', '#d7d2c5', '#cd2653', '#5f1b29' ],
+			[ '#f0eddb', '#d7d2c5', '#cd2653', '#5f1b29' ],
 			[ 'base' => '#999999', 'focus' => '#cccccc', 'current' => '#cccccc' ]
 		);
 
