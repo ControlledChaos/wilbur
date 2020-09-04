@@ -7,12 +7,12 @@
  * @since Wilbur 1.0
  */
 
-if ( ! class_exists( 'TwentyTwenty_Walker_Page' ) ) {
+if ( ! class_exists( 'Wilbur_Walker_Page' ) ) {
 	/**
 	 * CUSTOM PAGE WALKER
 	 * A custom walker for pages.
 	 */
-	class TwentyTwenty_Walker_Page extends Walker_Page {
+	class Wilbur_Walker_Page extends Walker_Page {
 
 		/**
 		 * Outputs the beginning of the current element in the tree.

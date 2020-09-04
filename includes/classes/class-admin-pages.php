@@ -251,9 +251,9 @@ class Admin_Pages {
 	/**
 	 * Add a sub nav aoggle to the admin-header menu
 	 *
-	 * Adapted from the `twentytwenty_add_sub_toggles_to_main_menu` function.
+	 * Adapted from the `wilbur_add_sub_toggles_to_main_menu` function.
 	 *
-	 * @see twentytwenty/inc/template-tags.php
+	 * @see wilbur/inc/template-tags.php
 	 *
 	 * @since  1.0.0
 	 * @access public

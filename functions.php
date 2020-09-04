@@ -183,7 +183,7 @@ function wilbur_theme_support() {
 	 * Adds `async` and `defer` support for scripts registered or enqueued
 	 * by the theme.
 	 */
-	$loader = new TwentyTwenty_Script_Loader();
+	$loader = new Wilbur_Script_Loader();
 	add_filter( 'script_loader_tag', array( $loader, 'filter_script_loader_tag' ), 10, 2 );
 
 }
@@ -283,7 +283,7 @@ add_action( 'wp_print_footer_scripts', 'wilbur_skip_link_focus_fix' );
  * @return void
  */
 function wilbur_non_latin_languages() {
-	$custom_css = TwentyTwenty_Non_Latin_Languages::get_non_latin_css( 'front-end' );
+	$custom_css = Wilbur_Non_Latin_Languages::get_non_latin_css( 'front-end' );
 
 	if ( $custom_css ) {
 		wp_add_inline_style( 'wilbur-style', $custom_css );
@@ -441,7 +441,7 @@ function wilbur_block_editor_styles() {
 	wp_add_inline_style( 'wilbur-block-editor-styles', wilbur_get_customizer_css( 'block-editor' ) );
 
 	// Add inline style for non-latin fonts.
-	wp_add_inline_style( 'wilbur-block-editor-styles', TwentyTwenty_Non_Latin_Languages::get_non_latin_css( 'block-editor' ) );
+	wp_add_inline_style( 'wilbur-block-editor-styles', Wilbur_Non_Latin_Languages::get_non_latin_css( 'block-editor' ) );
 
 	// Enqueue the editor script.
 	wp_enqueue_script( 'wilbur-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), array( 'wp-blocks', 'wp-dom' ), wp_get_theme()->get( 'Version' ), true );
@@ -496,7 +496,7 @@ add_filter( 'tiny_mce_before_init', 'wilbur_add_classic_editor_customizer_styles
  */
 function wilbur_add_classic_editor_non_latin_styles( $mce_init ) {
 
-	$styles = TwentyTwenty_Non_Latin_Languages::get_non_latin_css( 'classic-editor' );
+	$styles = Wilbur_Non_Latin_Languages::get_non_latin_css( 'classic-editor' );
 
 	// Return if there are no styles to add.
 	if ( ! $styles ) {

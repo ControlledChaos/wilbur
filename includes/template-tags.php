@@ -589,7 +589,7 @@ add_filter( 'nav_menu_item_args', 'wilbur_add_sub_toggles_to_main_menu', 10, 3 )
 function wilbur_nav_menu_social_icons( $item_output, $item, $depth, $args ) {
 	// Change SVG icon inside social links menu if there is supported URL.
 	if ( 'social' === $args->theme_location ) {
-		$svg = TwentyTwenty_SVG_Icons::get_social_link_svg( $item->url );
+		$svg = Wilbur_SVG_Icons::get_social_link_svg( $item->url );
 		if ( empty( $svg ) ) {
 			$svg = wilbur_get_theme_svg( 'link' );
 		}

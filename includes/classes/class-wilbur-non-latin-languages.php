@@ -9,11 +9,11 @@
  * @since Wilbur 1.0
  */
 
-if ( ! class_exists( 'TwentyTwenty_Non_Latin_Languages' ) ) {
+if ( ! class_exists( 'Wilbur_Non_Latin_Languages' ) ) {
 	/**
 	 * Language handling.
 	 */
-	class TwentyTwenty_Non_Latin_Languages {
+	class Wilbur_Non_Latin_Languages {
 
 		/**
 		 * Get custom CSS.

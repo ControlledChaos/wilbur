@@ -86,16 +86,6 @@ class Activate {
 			// Switch back to the previous theme.
 			switch_theme( get_option( 'theme_switched' ) );
 
-		// If the Options for Twenty Twenty plugin is active.
-		elseif ( is_plugin_active( 'options-for-twenty-twenty/options-for-twenty-twenty.php' ) ) :
-
-			// Add admin notices that the theme was not activated.
-			add_action( 'admin_notices', array( $this, 'options_plugin_deactivate_notice' ) );
-			add_action( 'network_admin_notices', array( $this, 'options_plugin_deactivate_notice' ) );
-
-			// Switch back to the previous theme.
-			switch_theme( get_option( 'theme_switched' ) );
-
 		// If the required minimum is met.
 		else :
 
@@ -128,29 +118,6 @@ class Activate {
 	<?php
 
 	}
-
-	/**
-	 * Options plugin deactivation notice
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return string Returns the markup of the admin notice.
-	 */
-	public function options_plugin_deactivate_notice() {
-
-		?>
-			<div id="wilbur-options-plugin-notice" class="notice notice-error is-dismissible">
-				<?php echo sprintf(
-					'<p>%1s <a href="%2s">%3s</a> %4s</p>',
-					__( 'The Wilbur theme could not be activated because it conflicts with the Options for Twenty Twenty plugin. Please', 'wilbur' ),
-					esc_url( admin_url( 'plugins.php?s=Options for Twenty Twenty&plugin_status=active' ) ),
-					__( 'deactivate the plugin', 'wilbur' ),
-					__( 'before activating Wilbur.', 'wilbur' )
-				); ?>
-			</div>
-		<?php
-
-		}
 
     /**
 	 * Redirect to the theme page

@@ -5,7 +5,7 @@
  * Registers customizer controls.
  *
  * Uses sanitization methods in the parent theme.
- * @see wp-content/twentytwenty/classes/class-twentytwenty-customize.php
+ * @see wp-content/wilbur/classes/class-wilbur-customize.php
  *
  * @package    Wilbur
  * @subpackage Classes

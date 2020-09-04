@@ -10,7 +10,7 @@
 if ( ! function_exists( 'wilbur_the_theme_svg' ) ) {
 	/**
 	 * Output and Get Theme SVG.
-	 * Output and get the SVG markup for an icon in the TwentyTwenty_SVG_Icons class.
+	 * Output and get the SVG markup for an icon in the Wilbur_SVG_Icons class.
 	 *
 	 * @param string $svg_name The name of the icon.
 	 * @param string $group The group the icon belongs to.
@@ -34,7 +34,7 @@ if ( ! function_exists( 'wilbur_get_theme_svg' ) ) {
 
 		// Make sure that only our allowed tags and attributes are included.
 		$svg = wp_kses(
-			TwentyTwenty_SVG_Icons::get_svg( $svg_name, $group, $color ),
+			Wilbur_SVG_Icons::get_svg( $svg_name, $group, $color ),
 			array(
 				'svg'     => array(
 					'class'       => true,

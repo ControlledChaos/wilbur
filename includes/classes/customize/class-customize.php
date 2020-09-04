@@ -5,7 +5,7 @@
  * Registers settings and controls.
  *
  * Uses sanitization methods in the parent theme.
- * @see wp-content/twentytwenty/classes/class-twentytwenty-customize.php
+ * @see wp-content/wilbur/classes/class-wilbur-customize.php
  *
  * @package    Wilbur
  * @subpackage Classes
@@ -100,7 +100,7 @@ class Customize {
 				'description' => sprintf(
 					'<p>%1s <a href="%2s">%3s</a> %4s</p>',
 					__( 'These options enhance those included with the', 'wilbur' ),
-					esc_url( admin_url( 'customize.php?url=' . site_url() . '&theme=twentytwenty' ) ),
+					esc_url( admin_url( 'customize.php?url=' . site_url() . '&theme=wilbur' ) ),
 					__( 'Twenty Twenty', 'wilbur' ),
 					__( 'parent theme.', 'wilbur' )
 				),
@@ -206,7 +206,7 @@ class Customize {
 			[
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => [ '\TwentyTwenty_Customize', 'sanitize_checkbox' ],
+				'sanitize_callback' => [ '\Wilbur_Customize', 'sanitize_checkbox' ],
 			]
 		);
 
@@ -321,7 +321,7 @@ class Customize {
 			[
 				'default'           => 'none',
 				'transport'         => 'postMessage',
-				'sanitize_callback' => [ '\TwentyTwenty_Customize', 'sanitize_select' ],
+				'sanitize_callback' => [ '\Wilbur_Customize', 'sanitize_select' ],
 			]
 		);
 
@@ -360,7 +360,7 @@ class Customize {
 			[
 				'capability'        => 'manage_options',
 				'default'           => true,
-				'sanitize_callback' => [ '\TwentyTwenty_Customize', 'sanitize_checkbox' ],
+				'sanitize_callback' => [ '\Wilbur_Customize', 'sanitize_checkbox' ],
 			]
 		);
 
@@ -393,7 +393,7 @@ class Customize {
 			[
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => [ '\TwentyTwenty_Customize', 'sanitize_checkbox' ],
+				'sanitize_callback' => [ '\Wilbur_Customize', 'sanitize_checkbox' ],
 			]
 		);
 

@@ -7,12 +7,12 @@
  * @since Wilbur 1.0
  */
 
-if ( ! class_exists( 'TwentyTwenty_SVG_Icons' ) ) {
+if ( ! class_exists( 'Wilbur_SVG_Icons' ) ) {
 	/**
 	 * SVG ICONS CLASS
 	 * Retrieve the SVG code for the specified icon. Based on a solution in Twenty Nineteen.
 	 */
-	class TwentyTwenty_SVG_Icons {
+	class Wilbur_SVG_Icons {
 		/**
 		 * GET SVG CODE
 		 * Get the SVG code for the specified icon

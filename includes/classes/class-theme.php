@@ -17,15 +17,6 @@ namespace Wilbur\Classes;
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-/**
- * Define the URL to report issues
- *
- * Used in the contextual help tab on the theme page.
- */
-if ( ! defined( 'WILBUR_ISSUES' ) ) {
-	define( 'WILBUR_ISSUES', 'https://github.com/ControlledChaos/wilbur/issues' );
-}
-
 class Theme {
 
 	/**
@@ -91,7 +82,7 @@ class Theme {
 
 		// Filter the parent theme starter content.
 		if ( is_customize_preview() ) {
-			add_filter( 'twentytwenty_starter_content', [ $this, 'starter_content' ] );
+			add_filter( 'wilbur_starter_content', [ $this, 'starter_content' ] );
 		}
 	}
 
@@ -104,8 +95,23 @@ class Theme {
 	 */
 	public function setup() {
 
-		// Set the post thumbnail size, 16:9 HD Video aspect ratio.
-		set_post_thumbnail_size( 1920, 1080, [ 'center', 'center' ] );
+		// Add default posts and comments RSS feed links to head.
+		add_theme_support( 'automatic-feed-links' );
+
+		// Set content-width.
+		global $content_width;
+		if ( ! isset( $content_width ) ) {
+			$content_width = 1280;
+		}
+
+		// Enable support for Post Thumbnails on posts and pages.
+		add_theme_support( 'post-thumbnails' );
+
+		// Set post thumbnail size.
+		set_post_thumbnail_size( 1280, 720, [ 'center', 'center' ] );
+
+		// Add custom image size used in Cover Template.
+		add_image_size( 'wilbur-fullscreen', 1920, 1080, true );
 
 		/**
 		 * Custom background
@@ -121,7 +127,7 @@ class Theme {
 			'default-size'           => 'auto',
 			'default-repeat'         => 'repeat',
 			'default-attachment'     => 'scroll',
-			'default-color'          => 'ffffff',
+			'default-color'          => 'f0eddb',
 			'wp-head-callback'       => '_custom_background_cb',
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => '',
@@ -145,6 +151,7 @@ class Theme {
 			)
 		);
 
+		// Custom header support.
 		add_theme_support(
 			'custom-header',
 			apply_filters(
@@ -167,6 +174,85 @@ class Theme {
 				]
 			)
 		);
+
+		// Custom logo.
+		$logo_width  = 120;
+		$logo_height = 90;
+
+		// If the retina setting is active, double the recommended width and height.
+		if ( get_theme_mod( 'retina_logo', false ) ) {
+			$logo_width  = floor( $logo_width * 2 );
+			$logo_height = floor( $logo_height * 2 );
+		}
+
+		add_theme_support(
+			'custom-logo',
+			[
+				'height'      => $logo_height,
+				'width'       => $logo_width,
+				'flex-height' => true,
+				'flex-width'  => true,
+			]
+		);
+
+		/*
+		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
+		 */
+		add_theme_support( 'title-tag' );
+
+		/*
+		 * Switch default core markup for search form, comment form, and comments
+		 * to output valid HTML5.
+		 */
+		add_theme_support(
+			'html5',
+			[
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+				'script',
+				'style',
+			]
+		);
+
+		/*
+		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on Wilbur, use a find and replace
+		 * to change 'wilbur' to the name of your theme in all the template files.
+		 */
+		load_theme_textdomain( 'wilbur' );
+
+		// Add support for full and wide align images.
+		add_theme_support( 'align-wide' );
+
+		// Add support for responsive embeds.
+		add_theme_support( 'responsive-embeds' );
+
+		/*
+		 * Adds starter content to highlight the theme on fresh sites.
+		 * This is done conditionally to avoid loading the starter content on every
+		 * page load, as it is a one-off operation only needed once in the customizer.
+		 */
+		if ( is_customize_preview() ) {
+			require get_theme_file_path( '/includes/starter-content.php' );
+			add_theme_support( 'starter-content', wilbur_get_starter_content() );
+		}
+
+		// Add theme support for selective refresh for widgets.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/*
+		 * Adds `async` and `defer` support for scripts registered or enqueued
+		 * by the theme.
+		 */
+		$loader = new \Wilbur_Script_Loader();
+		add_filter( 'script_loader_tag', [ $loader, 'filter_script_loader_tag' ], 10, 2 );
 	}
 
 	/**
@@ -178,13 +264,8 @@ class Theme {
 	 */
 	public function frontend_styles() {
 
-		// Get theme versions.
+		// Get theme version.
 		$theme_version  = wp_get_theme()->get( 'Version' );
-		$parent_version = wp_get_theme( 'twentytwenty' )->get( 'Version' );
-
-		// Parent theme stylesheet.
-		$parent_style = 'twentytwenty';
-		wp_enqueue_style( $parent_style, get_parent_theme_file_uri( 'style.css' ), [], $parent_version, 'all' );
 
 		/**
 		 * Theme sylesheet
@@ -193,7 +274,7 @@ class Theme {
 		 * The main stylesheet, in the root directory, only contains the theme header but
 		 * it is necessary for theme activation. DO NOT delete the main stylesheet!
 		 */
-		wp_enqueue_style( 'wilbur', get_theme_file_uri( 'assets/css/style.min.css' ), [ $parent_style ], $theme_version, 'all' );
+		wp_enqueue_style( 'wilbur', get_theme_file_uri( 'assets/css/style.min.css' ), [], $theme_version, 'all' );
 
 		// Right-to-left languages.
 		if ( is_rtl() ) {
@@ -351,9 +432,6 @@ class Theme {
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
-	 *
-	 * @link https://developer.wordpress.org/reference/functions/add_theme_page/
-	 * @link https://codex.wordpress.org/Class_Reference/WP_Screen/add_help_tab
 	 */
 	public function theme_page() {
 
@@ -385,35 +463,6 @@ class Theme {
 		if ( $screen->id != $this->theme_page ) {
 			return;
 		}
-
-		// Report Issues tab.
-		$screen->add_help_tab( [
-			'id'       => 'theme_issues',
-			'title'    => __( 'Report Issues', 'wilbur' ),
-			'content'  => null,
-			'callback' => [ $this, 'help_theme_issues' ]
-		] );
-	}
-
-	/**
-     * Report Issues help tab content
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
-     */
-	public function help_theme_issues() {
-
-		?>
-		<h3><?php _e( 'Report Theme Issues', 'wilbur' ); ?></h3>
-		<?php echo sprintf(
-			'<p>%1s <a href="%2s" target="_blank">%3s</a></p>',
-			__( 'Please report issues with the Wilbur theme to:', 'wilbur' ),
-			esc_attr( esc_url( WILBUR_ISSUES ) ),
-			esc_url( WILBUR_ISSUES )
-		); ?>
-
-		<?php
 	}
 
 	/**
@@ -434,7 +483,7 @@ class Theme {
 	 * This is done conditionally to avoid loading the starter content on every
 	 * page load, as it is a one-off operation only needed once in the customizer.
 	 *
-	 * Passes through the `twentytwenty_starter_content` filter before returning.
+	 * Passes through the `wilbur_starter_content` filter before returning.
 	 *
 	 * @since  1.0.0
 	 * @access public
