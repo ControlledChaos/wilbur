@@ -78,6 +78,16 @@
 
 							the_title( '<h1 class="entry-title">', '</h1>' );
 
+							if ( has_excerpt() && is_singular() ) {
+								?>
+
+								<div class="intro-text section-inner max-percentage<?php echo $intro_text_width; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>">
+									<?php the_excerpt(); ?>
+								</div>
+
+								<?php
+							}
+
 							if ( is_page() ) {
 								?>
 
