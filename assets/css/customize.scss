@@ -1,8 +1,9 @@
 /**
  * Styles for the Customizer user interface
  */
-@import '_colors';
-@import '_typography';
+ @import 'modules/_colors';
+ @import 'modules/_typography';
+ @import 'partials/_typography';
 
 body {
 	font-family: $sans;

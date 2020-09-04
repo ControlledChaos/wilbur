@@ -2,8 +2,9 @@
  * User toolbar
  */
 
-@import '_colors';
-@import '_typography';
+@import 'modules/_colors';
+@import 'modules/_typography';
+@import 'partials/_typography';
 
 #wpadminbar {
 	color: $white;

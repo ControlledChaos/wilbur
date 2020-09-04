@@ -65,58 +65,6 @@
 }
 
 /**
- * Font stack variables
- *
- * The $sans and $serif stacks are default. The $inter and $crimson
- * stacks are used in @supports( font-variation-settings ) queries.
- */
-$sans :
-	-apple-system,
-	BlinkMacSystemFont,
-	'Helvetica Neue',
-	Helvetica,
-	sans-serif;
-
-$inter :
-	'Inter',
-	-apple-system,
-	BlinkMacSystemFont,
-	'Helvetica Neue',
-	Helvetica,
-	sans-serif;
-
-$serif :
-	NonBreakingSpaceOverride,
-	'Hoefler Text',
-	Garamond,
-	'Lucida Bright',
-	Lucidabright,
-	'Lucida Serif',
-	Lucida,
-	'Liberation Serif',
-	'Times New Roman',
-	Constantia,
-	Times,
-	Georgia,
-	serif;
-
-$crimson :
-	'Crimson Pro',
-	NonBreakingSpaceOverride,
-	'Hoefler Text',
-	Garamond,
-	'Lucida Bright',
-	Lucidabright,
-	'Lucida Serif',
-	Lucida,
-	'Liberation Serif',
-	'Times New Roman',
-	Constantia,
-	Times,
-	Georgia,
-	serif;
-
-/**
  * Default theme typography styles ane
  * parent theme overrides.
  */

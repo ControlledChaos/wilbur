@@ -2,8 +2,9 @@
  * Editor styles for version 5.4 and later
  */
 
-@import '_colors';
-@import '_typography';
+ @import 'modules/_colors';
+ @import 'modules/_typography';
+ @import 'partials/_typography';
 
 // Body class. Try to keep editor elements fixed.
 .block-editor-page {

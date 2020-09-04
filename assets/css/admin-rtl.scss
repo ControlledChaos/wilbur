@@ -2,8 +2,9 @@
  * Backend styles for right-to-left languages
  */
 
-@import '_colors';
-@import '_typography';
+ @import 'modules/_colors';
+ @import 'modules/_typography';
+ @import 'partials/_typography';
 
 body.rtl,
 body.rtl .press-this a.wp-switch-editor {
