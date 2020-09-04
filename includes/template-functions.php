@@ -2,14 +2,14 @@
 /**
  * Template functions
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Includes
  * @category   Functions
  * @since      1.0.0
  */
 
  // Theme file namespace.
-namespace Hindsight\Functions;
+namespace Wilbur\Functions;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -70,7 +70,7 @@ function twentyseventeen_panel_count() {
 	 *
 	 * @param int $num_sections Number of front page sections.
 	 */
-	$num_sections = apply_filters( 'hindsight_front_page_sections', 5 );
+	$num_sections = apply_filters( 'wilbur_front_page_sections', 5 );
 
 	// Create a setting and control for each of the sections available in the theme.
 	for ( $i = 1; $i < ( 1 + $num_sections ); $i++ ) {
@@ -87,6 +87,6 @@ function twentyseventeen_panel_count() {
  *
  * Checks to see if we're on the front page or not.
  */
-function is_hindsight_frontpage() {
+function is_wilbur_frontpage() {
 	return ( is_front_page() && ! is_home() );
 }

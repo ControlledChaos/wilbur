@@ -4,7 +4,7 @@
  *
  * Adds a custom dashboard panel.
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Classes
  * @category   Administration
  * @access     public
@@ -12,7 +12,7 @@
  */
 
 // Theme file namespace.
-namespace Hindsight\Classes;
+namespace Wilbur\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -100,8 +100,8 @@ class Dashboard {
 
 		echo sprintf(
 			'<p><a class="button button-primary glance-theme-button" href="%1s">%2s</a></p>',
-			esc_url( admin_url( 'themes.php?page="hindsight' ) ),
-			__( 'Hindsight Theme Page', 'hindsight' )
+			esc_url( admin_url( 'themes.php?page="wilbur' ) ),
+			__( 'Wilbur Theme Page', 'wilbur' )
 		);
 
 	}

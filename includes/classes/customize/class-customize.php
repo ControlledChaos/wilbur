@@ -7,7 +7,7 @@
  * Uses sanitization methods in the parent theme.
  * @see wp-content/twentytwenty/classes/class-twentytwenty-customize.php
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Classes
  * @category   Customizer
  * @access     public
@@ -15,7 +15,7 @@
  */
 
 // Theme file namespace.
-namespace Hindsight\Classes;
+namespace Wilbur\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -77,10 +77,10 @@ class Customize {
 		$wp_customize->add_panel(
 			'theme_header',
 			[
-				'title'       => __( 'Headers', 'hindsight' ),
+				'title'       => __( 'Headers', 'wilbur' ),
 				'description' => sprintf(
 					'<p>%1s</p>',
-					__( '', 'hindsight' )
+					__( '', 'wilbur' )
 				),
 				'priority'    => 21,
 				'capability'  => 'edit_theme_options',
@@ -96,13 +96,13 @@ class Customize {
 		$wp_customize->add_panel(
 			'theme_options',
 			[
-				'title'       => __( 'Appearance', 'hindsight' ),
+				'title'       => __( 'Appearance', 'wilbur' ),
 				'description' => sprintf(
 					'<p>%1s <a href="%2s">%3s</a> %4s</p>',
-					__( 'These options enhance those included with the', 'hindsight' ),
+					__( 'These options enhance those included with the', 'wilbur' ),
 					esc_url( admin_url( 'customize.php?url=' . site_url() . '&theme=twentytwenty' ) ),
-					__( 'Twenty Twenty', 'hindsight' ),
-					__( 'parent theme.', 'hindsight' )
+					__( 'Twenty Twenty', 'wilbur' ),
+					__( 'parent theme.', 'wilbur' )
 				),
 				'priority'    => 22,
 				'capability'  => 'edit_theme_options',
@@ -117,10 +117,10 @@ class Customize {
 		$wp_customize->add_panel(
 			'content_options',
 			[
-				'title'      => __( 'Content', 'hindsight' ),
+				'title'      => __( 'Content', 'wilbur' ),
 				'description' => sprintf(
 					'<p>%1s</p>',
-					__( '', 'hindsight' )
+					__( '', 'wilbur' )
 				),
 				'priority'   => 23,
 				'capability' => 'edit_theme_options',
@@ -136,19 +136,19 @@ class Customize {
 		// Header image, rename & move to Headers panel.
 		$wp_customize->get_section( 'header_image' )->panel    = 'theme_header';
 		$wp_customize->get_section( 'header_image' )->priority = 11;
-		$wp_customize->get_section( 'header_image' )->title    = __( 'Header Images', 'hindsight' );
+		$wp_customize->get_section( 'header_image' )->title    = __( 'Header Images', 'wilbur' );
 
 		// Twenty Twenty cover image template, rename & move to Headers panel.
 		$wp_customize->get_section( 'cover_template_options' )->section  = '';
 		$wp_customize->get_section( 'cover_template_options' )->panel    = 'theme_header';
 		$wp_customize->get_section( 'cover_template_options' )->priority = 12;
-		$wp_customize->get_section( 'cover_template_options' )->title    = __( 'Cover Images', 'hindsight' );
+		$wp_customize->get_section( 'cover_template_options' )->title    = __( 'Cover Images', 'wilbur' );
 
 		// Theme colors, rename & move to Theme Options panel.
 		$wp_customize->get_section( 'colors' )->section  = '';
 		$wp_customize->get_section( 'colors' )->panel    = 'theme_options';
 		$wp_customize->get_section( 'colors' )->priority = 25;
-		$wp_customize->get_section( 'colors' )->title    = __( 'Theme Colors', 'hindsight' );
+		$wp_customize->get_section( 'colors' )->title    = __( 'Theme Colors', 'wilbur' );
 
 		// Background image, move to Theme Options panel.
 		$wp_customize->get_section( 'background_image' )->section  = '';
@@ -157,8 +157,8 @@ class Customize {
 
 		// Home page settings, rename & move to Content panel.
 		$wp_customize->get_section( 'static_front_page' )->panel       = 'content_options';
-		$wp_customize->get_section( 'static_front_page' )->title       = __( 'Home Page', 'hindsight' );
-		$wp_customize->get_section( 'static_front_page' )->description = __( 'Choose how to greet visitors.', 'hindsight' );
+		$wp_customize->get_section( 'static_front_page' )->title       = __( 'Home Page', 'wilbur' );
+		$wp_customize->get_section( 'static_front_page' )->description = __( 'Choose how to greet visitors.', 'wilbur' );
 		$wp_customize->get_section( 'static_front_page' )->priority    = 1;
 
 		// Site identity, rarely needed so move it down the list.
@@ -169,7 +169,7 @@ class Customize {
 			'header_options',
 			[
 				'panel'      => 'theme_header',
-				'title'      => __( 'Header Options', 'hindsight' ),
+				'title'      => __( 'Header Options', 'wilbur' ),
 				'priority'   => 10,
 				'capability' => 'edit_theme_options',
 			]
@@ -178,13 +178,13 @@ class Customize {
 		// Description for the blog options section, first paragraph.
 		$description = sprintf(
 			'<h4>%1s</h4>',
-			__( 'Content Display Options', 'hindsight' )
+			__( 'Content Display Options', 'wilbur' )
 		);
 
 		// Second paragraph.
 		$description .= sprintf(
 			'<p>%1s</p>',
-			__( 'Choose which content to display on main blog pages, on archive pages (categories, tags, dates, etc), and on individual posts.', 'hindsight' )
+			__( 'Choose which content to display on main blog pages, on archive pages (categories, tags, dates, etc), and on individual posts.', 'wilbur' )
 		);
 
 		// Blog options section, add to Content panel.
@@ -192,7 +192,7 @@ class Customize {
 			'blog_options',
 			[
 				'panel'       => 'content_options',
-				'title'       => __( 'Blog & Archives', 'hindsight' ),
+				'title'       => __( 'Blog & Archives', 'wilbur' ),
 				'description' => $description,
 				'priority'    => 10,
 				'capability'  => 'edit_theme_options',
@@ -216,7 +216,7 @@ class Customize {
 				'type'     => 'checkbox',
 				'section'  => 'header_options',
 				'priority' => 1,
-				'label'    => __( 'Display header on the first page of the blog.', 'hindsight' ),
+				'label'    => __( 'Display header on the first page of the blog.', 'wilbur' ),
 			]
 		);
 
@@ -235,7 +235,7 @@ class Customize {
 				$wp_customize,
 				'header_text_color',
 				[
-					'label'   => __( 'Header text color', 'hindsight' ),
+					'label'   => __( 'Header text color', 'wilbur' ),
 					'section' => 'colors',
 					'priority'   => 9
 				]
@@ -247,8 +247,8 @@ class Customize {
 
 		// Show author bio on individual posts.
 		$wp_customize->get_control( 'show_author_bio' )->section     = 'blog_options';
-		$wp_customize->get_control( 'show_author_bio' )->label       = __( 'Show author bio on individual posts.', 'hindsight' );
-		$wp_customize->get_control( 'show_author_bio' )->description = __( 'Authors edit their bio information on the user profile screen.', 'hindsight' );
+		$wp_customize->get_control( 'show_author_bio' )->label       = __( 'Show author bio on individual posts.', 'wilbur' );
+		$wp_customize->get_control( 'show_author_bio' )->description = __( 'Authors edit their bio information on the user profile screen.', 'wilbur' );
 
 		/**
 		 * Home Page Display
@@ -259,29 +259,29 @@ class Customize {
 		 // Description/info for the control, first paragraph.
 		$description = sprintf(
 			'<p>%1s</p>',
-			__( 'The home page can be dynamic content with a list of posts (default order is from newest to oldest) or static content that displays a single page.', 'hindsight' )
+			__( 'The home page can be dynamic content with a list of posts (default order is from newest to oldest) or static content that displays a single page.', 'wilbur' )
 		);
 
 		// Second paragraph.
 		$description .= sprintf(
 			'<p>%1s</p>',
-			__( 'To set a static home page you first need to create two pages. One will become the home page and the other will be where your posts are displayed.', 'hindsight' )
+			__( 'To set a static home page you first need to create two pages. One will become the home page and the other will be where your posts are displayed.', 'wilbur' )
 		);
 
 		// Array options for the control.
-		$wp_customize->get_control( 'show_on_front' )->label       = __( 'Home Page Display', 'hindsight' );
+		$wp_customize->get_control( 'show_on_front' )->label       = __( 'Home Page Display', 'wilbur' );
 		$wp_customize->get_control( 'show_on_front' )->description = $description;
 		$wp_customize->get_control( 'show_on_front' )->choices     = [
-			'posts' => __( 'Latest Posts', 'hindsight' ),
-			'page'  => __( 'Static Content', 'hindsight' ),
+			'posts' => __( 'Latest Posts', 'wilbur' ),
+			'page'  => __( 'Static Content', 'wilbur' ),
 		];
 		unset( $description );
 
 		// Text for the static home page control.
-		$wp_customize->get_control( 'page_on_front' )->label = __( 'Home Page', 'hindsight' );
+		$wp_customize->get_control( 'page_on_front' )->label = __( 'Home Page', 'wilbur' );
 
 		// Text for the blog posts page control.
-		$wp_customize->get_control( 'page_for_posts' )->label = __( 'Posts Page', 'hindsight' );
+		$wp_customize->get_control( 'page_for_posts' )->label = __( 'Posts Page', 'wilbur' );
 
 		/**
 		 * Blog Content Display
@@ -293,23 +293,23 @@ class Customize {
 		// Description/info for the Blog Content Display control, first paragraph.
 		$description = sprintf(
 			'<p>%1s</p>',
-			__( 'Display the full text of each post in the list or disply a summary of the post.', 'hindsight' )
+			__( 'Display the full text of each post in the list or disply a summary of the post.', 'wilbur' )
 		);
 
 		// Second paragraph.
 		$description .= sprintf(
 			'<p>%1s</p>',
-			__( 'The summary option looks first for a manual excerpt, which can be added on the post edit screen. If no manual excerpt is found then one will be automatically generated from the beginning text of the post.', 'hindsight' )
+			__( 'The summary option looks first for a manual excerpt, which can be added on the post edit screen. If no manual excerpt is found then one will be automatically generated from the beginning text of the post.', 'wilbur' )
 		);
 
 		// Array options for the control.
 		$wp_customize->get_control( 'blog_content' )->section     = 'blog_options';
-		$wp_customize->get_control( 'blog_content' )->label       = __( 'Blog Content Display', 'hindsight' );
+		$wp_customize->get_control( 'blog_content' )->label       = __( 'Blog Content Display', 'wilbur' );
 		$wp_customize->get_control( 'blog_content' )->description = $description;
 		$wp_customize->get_control( 'blog_content' )->priority    = 1;
 		$wp_customize->get_control( 'blog_content' )->choices     = [
-			'full'    => __( 'Full Text', 'hindsight' ),
-			'summary' => __( 'Summary', 'hindsight' ),
+			'full'    => __( 'Full Text', 'wilbur' ),
+			'summary' => __( 'Summary', 'wilbur' ),
 		];
 		unset( $description );
 
@@ -338,16 +338,16 @@ class Customize {
 			'color_scheme',
 			[
 				'type'        => 'radio',
-				'label'       => __( 'Color Scheme', 'hindsight' ),
-				'description' => __( 'Set the overall color scheme of the site, including image overlays.', 'hindsight' ),
-				'choices'     => apply_filters( 'hindsight_color_schemes', [
-					'none'   => __( 'None', 'hindsight' ),
-					'light'  => __( 'Light', 'hindsight' ),
-					'dark'   => __( 'Dark', 'hindsight' ),
-					'pink'   => __( 'Pink', 'hindsight' ),
-					'blue'   => __( 'Blue', 'hindsight' ),
-					'violet' => __( 'Violet', 'hindsight' ),
-					'custom' => __( 'Custom', 'hindsight' ),
+				'label'       => __( 'Color Scheme', 'wilbur' ),
+				'description' => __( 'Set the overall color scheme of the site, including image overlays.', 'wilbur' ),
+				'choices'     => apply_filters( 'wilbur_color_schemes', [
+					'none'   => __( 'None', 'wilbur' ),
+					'light'  => __( 'Light', 'wilbur' ),
+					'dark'   => __( 'Dark', 'wilbur' ),
+					'pink'   => __( 'Pink', 'wilbur' ),
+					'blue'   => __( 'Blue', 'wilbur' ),
+					'violet' => __( 'Violet', 'wilbur' ),
+					'custom' => __( 'Custom', 'wilbur' ),
 				] ),
 				'section'     => 'colors',
 				'priority'    => 5,
@@ -370,8 +370,8 @@ class Customize {
 				'type'     => 'checkbox',
 				'section'  => 'colors',
 				'priority' => 5,
-				'label'    => __( 'Force use of the color scheme on admin pages.', 'hindsight' ),
-				'description'    => __( 'This will remove the option for users to choose a color scheme for their admin experience.', 'hindsight' ),
+				'label'    => __( 'Force use of the color scheme on admin pages.', 'wilbur' ),
+				'description'    => __( 'This will remove the option for users to choose a color scheme for their admin experience.', 'wilbur' ),
 			]
 		);
 
@@ -403,7 +403,7 @@ class Customize {
 				'type'     => 'checkbox',
 				'section'  => 'background_image',
 				'priority' => 10,
-				'label'    => __( 'Display the background on the user login screen.', 'hindsight' ),
+				'label'    => __( 'Display the background on the user login screen.', 'wilbur' ),
 			]
 		);
 
@@ -414,7 +414,7 @@ class Customize {
 			'typography_options',
 			[
 				'panel'      => 'theme_options',
-				'title'      => __( 'Typography', 'hindsight' ),
+				'title'      => __( 'Typography', 'wilbur' ),
 				'priority'   => 50,
 				'capability' => 'edit_theme_options',
 			]
@@ -435,7 +435,7 @@ class Customize {
 				'type'     => 'checkbox',
 				'section'  => 'typography_options',
 				'priority' => 10,
-				'label'    => __( 'Placeholder for the section.', 'hindsight' ),
+				'label'    => __( 'Placeholder for the section.', 'wilbur' ),
 			]
 		);
 

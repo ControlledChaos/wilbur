@@ -1,14 +1,14 @@
 <?php
 /**
- * Hindsight theme page info content
+ * Wilbur theme page info content
  *
- * @package  Hindsight
+ * @package  Wilbur
  * @category Administration
  * @since    1.0.0
  */
 
  // Theme file namespace.
-namespace Hindsight\Includes;
+namespace Wilbur\Includes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -33,13 +33,13 @@ $screenshot_src   = $get_theme->get_screenshot();
 wp_enqueue_style( 'theme-page', get_theme_file_uri( 'assets/css/theme-page.min.css' ), [], $get_theme_vers, 'all' );
 
 // Text if data is not provided by the theme.
-$not_provided = __( 'Not provided in the stylesheet header', 'hindsight' );
+$not_provided = __( 'Not provided in the stylesheet header', 'wilbur' );
 
 // PHP version.
 if ( $php_version ) {
 	$php_version = $php_version;
 } else {
-	$php_version = HINDSIGHT_PHP_VERSION;
+	$php_version = WILBUR_PHP_VERSION;
 }
 
 // WordPress version.
@@ -101,28 +101,28 @@ if ( $get_theme_tags ) {
 // Begin page output.
 ?>
 <div id="theme-info" class="ui-tabs-panel">
-	<h2><?php esc_html_e( 'Theme Requirements', 'hindsight' ); ?></h2>
+	<h2><?php esc_html_e( 'Theme Requirements', 'wilbur' ); ?></h2>
 
 	<ul class="theme-details">
 		<?php if ( $get_template ) : ?>
-		<li><strong><?php _e( 'Parent Theme: ', 'hindsight' ); ?></strong><?php echo $parent_name; ?></li>
+		<li><strong><?php _e( 'Parent Theme: ', 'wilbur' ); ?></strong><?php echo $parent_name; ?></li>
 		<?php endif; ?>
-		<li><strong><?php esc_html_e( 'Minimum PHP Version: ', 'hindsight' ); ?></strong><?php echo $php_version; ?></li>
-		<li><strong><?php esc_html_e( 'Minimum WordPress Version: ', 'hindsight' ); ?></strong><?php echo $wp_version; ?></li>
+		<li><strong><?php esc_html_e( 'Minimum PHP Version: ', 'wilbur' ); ?></strong><?php echo $php_version; ?></li>
+		<li><strong><?php esc_html_e( 'Minimum WordPress Version: ', 'wilbur' ); ?></strong><?php echo $wp_version; ?></li>
 	</ul>
 
-	<h2><?php esc_html_e( 'Theme Details', 'hindsight' ); ?></h2>
+	<h2><?php esc_html_e( 'Theme Details', 'wilbur' ); ?></h2>
 
 	<ul class="theme-details">
-		<li><strong><?php esc_html_e( 'Theme Website: ', 'hindsight' ); ?></strong><?php echo $theme_uri; ?></li>
-		<li><strong><?php esc_html_e( 'Author: ', 'hindsight' ); ?></strong><?php echo $author; ?></li>
-		<li><strong><?php esc_html_e( 'Author Website: ', 'hindsight' ); ?></strong><?php echo $author_uri; ?></li>
-		<li><strong><?php esc_html_e( 'Version: ', 'hindsight' ); ?></strong><?php echo $version; ?></li>
-		<li><strong><?php esc_html_e( 'Text Domain: ', 'hindsight' ); ?></strong><?php echo $domain; ?></li>
-		<li><strong><?php esc_html_e( 'Tags: ', 'hindsight' ); ?></strong><?php echo implode( ', ', $tags ); ?></li>
+		<li><strong><?php esc_html_e( 'Theme Website: ', 'wilbur' ); ?></strong><?php echo $theme_uri; ?></li>
+		<li><strong><?php esc_html_e( 'Author: ', 'wilbur' ); ?></strong><?php echo $author; ?></li>
+		<li><strong><?php esc_html_e( 'Author Website: ', 'wilbur' ); ?></strong><?php echo $author_uri; ?></li>
+		<li><strong><?php esc_html_e( 'Version: ', 'wilbur' ); ?></strong><?php echo $version; ?></li>
+		<li><strong><?php esc_html_e( 'Text Domain: ', 'wilbur' ); ?></strong><?php echo $domain; ?></li>
+		<li><strong><?php esc_html_e( 'Tags: ', 'wilbur' ); ?></strong><?php echo implode( ', ', $tags ); ?></li>
 
 	<?php if ( $screenshot_src ) : ?>
-		<li class="theme-cover-image"><strong><?php _e( 'Cover image: ', 'hindsight' ); ?></strong><br />
+		<li class="theme-cover-image"><strong><?php _e( 'Cover image: ', 'wilbur' ); ?></strong><br />
 		<img src="<?php echo esc_url( $screenshot_src ); ?>" /></li>
 	<?php endif; ?>
 	</ul>

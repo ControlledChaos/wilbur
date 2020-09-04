@@ -7,7 +7,7 @@
  * Uses sanitization methods in the parent theme.
  * @see wp-content/twentytwenty/classes/class-twentytwenty-customize.php
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Classes
  * @category   Customizer
  * @access     public
@@ -15,7 +15,7 @@
  */
 
 // Theme file namespace.
-namespace Hindsight\Classes;
+namespace Wilbur\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }

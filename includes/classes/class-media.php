@@ -4,7 +4,7 @@
  *
  * Registers image options.
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Classes
  * @category   Media
  * @access     public
@@ -12,7 +12,7 @@
  */
 
 // Theme file namespace.
-namespace Hindsight\Classes;
+namespace Wilbur\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -72,11 +72,11 @@ class Media {
         // Crop medium size images.
 		add_settings_field(
 			'medium_crop',
-			__( 'Medium size crop', 'hindsight' ),
+			__( 'Medium size crop', 'wilbur' ),
 			[ $this, 'medium_crop' ],
 			'media',
 			'default',
-			[ __( 'Crop medium size images to exact dimensions (normally proportional)', 'hindsight' ) ]
+			[ __( 'Crop medium size images to exact dimensions (normally proportional)', 'wilbur' ) ]
 		);
 
 		register_setting(
@@ -87,11 +87,11 @@ class Media {
 		// Crop large size images.
         add_settings_field(
 			'large_crop',
-			__( 'Large size crop', 'hindsight' ),
+			__( 'Large size crop', 'wilbur' ),
 			[ $this, 'large_crop' ],
 			'media',
 			'default',
-			[ __( 'Crop large size images to exact dimensions (normally proportional)', 'hindsight' ) ]
+			[ __( 'Crop large size images to exact dimensions (normally proportional)', 'wilbur' ) ]
 		);
 
         register_setting(

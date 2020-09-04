@@ -1,14 +1,14 @@
 <?php
 /**
- * Hindsight theme page
+ * Wilbur theme page
  *
- * @package  Hindsight
+ * @package  Wilbur
  * @category Administration
  * @since    1.0.0
  */
 
  // Theme file namespace.
-namespace Hindsight\Includes;
+namespace Wilbur\Includes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -23,20 +23,20 @@ $theme_name = $get_theme->get( 'Name' );
  * The customize panel is only available
  * to user who can customize themes.
  */
-$tabs = apply_filters( 'hindsight_theme_page_tabs', [
+$tabs = apply_filters( 'wilbur_theme_page_tabs', [
 
 	// Theme dashboard tab.
 	sprintf(
 		'<li class="ui-tabs-item"><a href="%1s"><span class="dashicons dashicons-dashboard"></span> %2s</a></li>',
 		'#theme-dashboard',
-		esc_html__( 'Dashboard', 'hindsight' )
+		esc_html__( 'Dashboard', 'wilbur' )
 	),
 
     // Theme info tab.
     sprintf(
         '<li class="ui-tabs-item"><a href="%1s"><span class="dashicons dashicons-info"></span> %2s</a></li>',
         '#theme-info',
-        esc_html__( 'Info', 'hindsight' )
+        esc_html__( 'Info', 'wilbur' )
 	)
 ] );
 

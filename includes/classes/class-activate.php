@@ -1,6 +1,6 @@
 <?php
 /**
- * Hindsight theme activation class
+ * Wilbur theme activation class
  *
  * Redirects to the Theme Info page upon activation,
  * if the user can customize themes.
@@ -8,7 +8,7 @@
  * Not using the short array syntax because this needs
  * to be read by PHP versions lower than 5.4.
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Classes
  * @category   Administration
  * @access     public
@@ -16,7 +16,7 @@
  */
 
 // Theme file namespace.
-namespace Hindsight\Classes;
+namespace Wilbur\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -68,7 +68,7 @@ class Activate {
 		global $wp_customize;
 
 		// Variable for version lower than required.
-		$needs_update = version_compare( phpversion(), HINDSIGHT_PHP_VERSION, '<' );
+		$needs_update = version_compare( phpversion(), WILBUR_PHP_VERSION, '<' );
 
 		// If in the Customizer and less than the required minimum PHP version.
 		if ( isset( $wp_customize ) && $needs_update ) :
@@ -116,12 +116,12 @@ class Activate {
 	public function php_deactivate_notice() {
 
 	?>
-		<div id="hindsight-php-notice" class="notice notice-error is-dismissible">
+		<div id="wilbur-php-notice" class="notice notice-error is-dismissible">
 			<?php echo sprintf(
 				'<p>%1s %2s %3s %4s</p>',
-				__( 'The Hindsight theme could not be activated because it requires PHP version', 'hindsight' ),
-				HINDSIGHT_PHP_VERSION,
-				__( 'or greater. Your system is running PHP version', 'hindsight' ),
+				__( 'The Wilbur theme could not be activated because it requires PHP version', 'wilbur' ),
+				WILBUR_PHP_VERSION,
+				__( 'or greater. Your system is running PHP version', 'wilbur' ),
 				phpversion()
 			); ?>
 		</div>
@@ -139,13 +139,13 @@ class Activate {
 	public function options_plugin_deactivate_notice() {
 
 		?>
-			<div id="hindsight-options-plugin-notice" class="notice notice-error is-dismissible">
+			<div id="wilbur-options-plugin-notice" class="notice notice-error is-dismissible">
 				<?php echo sprintf(
 					'<p>%1s <a href="%2s">%3s</a> %4s</p>',
-					__( 'The Hindsight theme could not be activated because it conflicts with the Options for Twenty Twenty plugin. Please', 'hindsight' ),
+					__( 'The Wilbur theme could not be activated because it conflicts with the Options for Twenty Twenty plugin. Please', 'wilbur' ),
 					esc_url( admin_url( 'plugins.php?s=Options for Twenty Twenty&plugin_status=active' ) ),
-					__( 'deactivate the plugin', 'hindsight' ),
-					__( 'before activating Hindsight.', 'hindsight' )
+					__( 'deactivate the plugin', 'wilbur' ),
+					__( 'before activating Wilbur.', 'wilbur' )
 				); ?>
 			</div>
 		<?php
@@ -175,7 +175,7 @@ class Activate {
 			 * Only if the current user can customize themes.
 			 */
 			if ( current_user_can( 'customize' ) ) {
-				wp_redirect( admin_url( 'themes.php' ) . '?page=hindsight' );
+				wp_redirect( admin_url( 'themes.php' ) . '?page=wilbur' );
 			}
 		}
 

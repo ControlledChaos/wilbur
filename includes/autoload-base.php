@@ -2,30 +2,30 @@
 /**
  * Register theme classes
  *
- * @package  Hindsight
+ * @package  Wilbur
  * @category General
  * @access   public
  * @since    1.0.0
  */
 
 // Theme file namespace.
-namespace Hindsight;
+namespace Wilbur;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // Define the `classes` directory.
-define( 'HINDSIGHT_CLASS', get_theme_file_path() . '/classes/class-' );
+define( 'WILBUR_CLASS', get_theme_file_path() . '/classes/class-' );
 
 // Array of classes to register.
 const CLASSES = [
-	'Hindsight\Classes\Theme'            => HINDSIGHT_CLASS . 'theme.php',
-	'Hindsight\Classes\Media'            => HINDSIGHT_CLASS . 'media.php',
-	'Hindsight\Classes\Dark_Mode_Widget' => HINDSIGHT_CLASS . 'dark-mode-widget.php',
-	'Hindsight\Classes\User_Bio'         => HINDSIGHT_CLASS . 'user-bio.php',
-	'Hindsight\Classes\User_Colors'      => HINDSIGHT_CLASS . 'user-colors.php',
-	'Hindsight\Classes\Admin_Pages'      => HINDSIGHT_CLASS . 'admin-pages.php',
-	'Hindsight\Classes\Dashboard'        => HINDSIGHT_CLASS . 'dashboard.php'
+	'Wilbur\Classes\Theme'            => WILBUR_CLASS . 'theme.php',
+	'Wilbur\Classes\Media'            => WILBUR_CLASS . 'media.php',
+	'Wilbur\Classes\Dark_Mode_Widget' => WILBUR_CLASS . 'dark-mode-widget.php',
+	'Wilbur\Classes\User_Bio'         => WILBUR_CLASS . 'user-bio.php',
+	'Wilbur\Classes\User_Colors'      => WILBUR_CLASS . 'user-colors.php',
+	'Wilbur\Classes\Admin_Pages'      => WILBUR_CLASS . 'admin-pages.php',
+	'Wilbur\Classes\Dashboard'        => WILBUR_CLASS . 'dashboard.php'
 ];
 
 // Autoload class files.

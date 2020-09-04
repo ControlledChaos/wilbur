@@ -2,7 +2,7 @@
 /**
  * Admin header template
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Template Parts
  * @category   Administration
  * @since      1.0.0
@@ -43,7 +43,7 @@ if ( ! empty( $description ) ) {
  * @see classes/class-admin-pages.php
  */
 $menu_args = apply_filters(
-	'hindsight_admin_header_menu',
+	'wilbur_admin_header_menu',
 	[
 		'theme_location' => 'admin-header',
 		'container'      => false,
@@ -51,25 +51,25 @@ $menu_args = apply_filters(
 		'menu_class'     => 'primary-menu admin-header-menu reset-list-style',
 		'before'         => '',
 		'after'          => '',
-		'fallback_cb'    => [ 'Hindsight\Classes\Admin_Pages', 'admin_menu_fallback' ]
+		'fallback_cb'    => [ 'Wilbur\Classes\Admin_Pages', 'admin_menu_fallback' ]
 	]
 );
 
 ?>
-<?php do_action( 'hindsight_before_admin_header' ); ?>
+<?php do_action( 'wilbur_before_admin_header' ); ?>
 <header id="admin-site-header" class="site-header admin-site-header header-footer-group" role="banner">
 	<div class="header-inner section-inner admin-header-inner">
 		<div class="header-titles-wrapper admin-header-titles-wrapper">
 			<div class="header-titles admin-header-titles">
-				<?php echo apply_filters( 'hindsight_admin_header_name', $name ); ?>
-				<?php echo apply_filters( 'hindsight_admin_header_description', $description ); ?>
+				<?php echo apply_filters( 'wilbur_admin_header_name', $name ); ?>
+				<?php echo apply_filters( 'wilbur_admin_header_description', $description ); ?>
 			</div>
 		</div>
 		<div class="header-navigation-wrapper admin-header-navigation-wrapper">
 			<nav class="primary-menu-wrapper admin-menu-wrapper" aria-label="Horizontal" role="navigation">
 				<?php wp_nav_menu( $menu_args ); ?>
 			</nav>
-			<?php if ( get_option( 'hindsight_admin_menu' ) ) : ?>
+			<?php if ( get_option( 'wilbur_admin_menu' ) ) : ?>
 			<div class="header-toggles hide-no-js">
 				<div class="toggle-wrapper nav-toggle-wrapper has-expanded-menu">
 					<button class="toggle nav-toggle desktop-nav-toggle" data-toggle-target=".menu-modal" data-toggle-body-class="showing-menu-modal" aria-expanded="false" data-set-focus=".close-nav-toggle">
@@ -86,4 +86,4 @@ $menu_args = apply_filters(
 		</div>
 	</div>
 </header>
-<?php do_action( 'hindsight_after_admin_header' ); ?>
+<?php do_action( 'wilbur_after_admin_header' ); ?>

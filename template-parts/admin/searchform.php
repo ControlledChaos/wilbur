@@ -19,8 +19,8 @@ $aria_label = ! empty( $args['label'] ) ? 'aria-label="' . esc_attr( $args['labe
 ?>
 <form role="search" <?php echo $aria_label; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above. ?> method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 	<label for="<?php echo esc_attr( $unique_id ); ?>">
-		<span class="screen-reader-text"><?php _e( 'Search for:', 'hindsight' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
-		<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'hindsight' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+		<span class="screen-reader-text"><?php _e( 'Search for:', 'wilbur' ); // phpcs:ignore: WordPress.Security.EscapeOutput.UnsafePrintingFunction -- core trusts translations ?></span>
+		<input type="search" id="<?php echo esc_attr( $unique_id ); ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Search &hellip;', 'placeholder', 'wilbur' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
 	</label>
-	<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'hindsight' ); ?>" />
+	<input type="submit" class="search-submit" value="<?php echo esc_attr_x( 'Search', 'submit button', 'wilbur' ); ?>" />
 </form>

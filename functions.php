@@ -1,28 +1,72 @@
 <?php
 /**
- * Wilbur functions and definitions
+ * Core theme functions file
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package WordPress
- * @subpackage Wilbur
- * @since Wilbur 1.0
+ * @package  Wilbur
+ * @category General
+ * @access   public
+ * @since    1.0.0
  */
 
+// Theme file namespace.
+// namespace Wilbur;
+
+// Restrict direct access.
+if ( ! defined( 'ABSPATH' ) ) { exit; }
+
+// Define the minimum required PHP version.
+define( 'WILBUR_PHP_VERSION', '7.0' );
+
 /**
- * Table of Contents:
- * Theme Support
- * Required Files
- * Register Styles
- * Register Scripts
- * Register Menus
- * Custom Logo
- * WP Body Open
- * Register Sidebars
- * Enqueue Block Editor Assets
- * Enqueue Classic Editor Styles
- * Block Editor Settings
+ * Get the theme activation class
+ *
+ * Instantiate before the following version compare
+ * to allow the deatcivation methods to run.
  */
+require get_theme_file_path( '/classes/class-activate.php' );
+
+// Stop here if the minimum PHP version is not met.
+if ( version_compare( phpversion(), WILBUR_PHP_VERSION, '<' ) ) {
+	return;
+}
+
+/**
+ * Core theme function
+ *
+ * Loads PHP classes.
+ *
+ * @since  1.0.0
+ * @access public
+ * @global string $pagenow Gets the filename of the current page.
+ * @return void
+ */
+function wilbur() {
+
+	// Register theme classes.
+	require get_theme_file_path( '/includes/autoload-base.php' );
+	require get_theme_file_path( '/includes/autoload-customize.php' );
+
+	// Get the filename of the current page.
+	global $pagenow;
+
+	// Instantiate theme classes.
+	Classes\Theme       :: instance();
+	Classes\Media       :: instance();
+	Classes\Customize   :: instance();
+	Classes\User_Colors :: instance();
+
+	// Instantiate admin theme classes.
+	if ( is_admin() ) {
+
+		// Run the page header on all screens.
+		Classes\Admin_Pages :: instance();
+
+		// Run the dashboard only on the admin index screen.
+		if ( 'index.php' == $pagenow ) {
+			Classes\Dashboard :: instance();
+		}
+	}
+}
 
 /**
  * Sets up theme defaults and registers support for various WordPress features.
@@ -58,10 +102,10 @@ function wilbur_theme_support() {
 	add_theme_support( 'post-thumbnails' );
 
 	// Set post thumbnail size.
-	set_post_thumbnail_size( 1200, 9999 );
+	set_post_thumbnail_size( 1280, 720, [ 'center', 'center' ] );
 
 	// Add custom image size used in Cover Template.
-	add_image_size( 'wilbur-fullscreen', 1980, 9999 );
+	add_image_size( 'wilbur-fullscreen', 1920, 1080, true );
 
 	// Custom logo.
 	$logo_width  = 120;

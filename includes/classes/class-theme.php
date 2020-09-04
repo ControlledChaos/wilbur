@@ -1,18 +1,18 @@
 <?php
 /**
- * Hindsight theme class file
+ * Wilbur theme class file
  *
  * Adds theme support, enqueues styles & scripts, registers
  * navigation menus & widget areas, all the typical theme stuff.
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Classes
  * @category   General
  * @since      1.0.0
  */
 
  // Theme file namespace.
-namespace Hindsight\Classes;
+namespace Wilbur\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -22,8 +22,8 @@ if ( ! defined( 'ABSPATH' ) ) { exit; }
  *
  * Used in the contextual help tab on the theme page.
  */
-if ( ! defined( 'HINDSIGHT_ISSUES' ) ) {
-	define( 'HINDSIGHT_ISSUES', 'https://github.com/ControlledChaos/hindsight/issues' );
+if ( ! defined( 'WILBUR_ISSUES' ) ) {
+	define( 'WILBUR_ISSUES', 'https://github.com/ControlledChaos/wilbur/issues' );
 }
 
 class Theme {
@@ -83,7 +83,7 @@ class Theme {
         // Show excerpt metabox by default.
         add_filter( 'default_hidden_meta_boxes', [ $this, 'show_excerpt_metabox' ], 10, 2 );
 
-		// Hindsight theme page.
+		// Wilbur theme page.
 		add_action( 'admin_menu', [ $this, 'theme_page' ] );
 
 		// Tabbed theme page scripts.
@@ -113,7 +113,7 @@ class Theme {
 		 * @since 1.0.0
 		 */
 		remove_theme_support( 'custom-background' );
-		add_theme_support( 'custom-background', apply_filters( 'hindsight_background', [
+		add_theme_support( 'custom-background', apply_filters( 'wilbur_background', [
 			'default-image'          => '',
 			'default-preset'         => 'default',
 			'default-position-x'     => 'left',
@@ -134,12 +134,12 @@ class Theme {
 		 */
 		register_default_headers(
 			apply_filters(
-				'hindsight_header_images',
+				'wilbur_header_images',
 				[
-					'hindsight' => [
-						'url'           => get_theme_file_uri( 'assets/images/hindsight.jpg' ),
-						'thumbnail_url' => get_theme_file_uri( 'assets/images/hindsight-thumb.jpg' ),
-						'description'   => __( 'Hindsight Image', 'hindsight' ),
+					'wilbur' => [
+						'url'           => get_theme_file_uri( 'assets/images/wilbur.jpg' ),
+						'thumbnail_url' => get_theme_file_uri( 'assets/images/wilbur-thumb.jpg' ),
+						'description'   => __( 'Wilbur Image', 'wilbur' ),
 					],
 				]
 			)
@@ -148,14 +148,14 @@ class Theme {
 		add_theme_support(
 			'custom-header',
 			apply_filters(
-				'hindsight_header',
+				'wilbur_header',
 				[
 					'width'                  => 1920,
 					'height'                 => 1080,
 					'flex-height'            => true,
 					'flex-width'             => false,
 					'default-text-color'     => 'ffffff',
-					'default-image'          => 'hindsight',
+					'default-image'          => 'wilbur',
 					'random-default'         => false,
 					'header-text'            => false,
 					'uploads'                => true,
@@ -193,11 +193,11 @@ class Theme {
 		 * The main stylesheet, in the root directory, only contains the theme header but
 		 * it is necessary for theme activation. DO NOT delete the main stylesheet!
 		 */
-		wp_enqueue_style( 'hindsight', get_theme_file_uri( 'assets/css/style.min.css' ), [ $parent_style ], $theme_version, 'all' );
+		wp_enqueue_style( 'wilbur', get_theme_file_uri( 'assets/css/style.min.css' ), [ $parent_style ], $theme_version, 'all' );
 
 		// Right-to-left languages.
 		if ( is_rtl() ) {
-			wp_enqueue_style( 'hindsight-rtl', get_theme_file_uri( 'assets/css/rtl.min.css' ), [ 'hindsight' ], $theme_version, 'all' );
+			wp_enqueue_style( 'wilbur-rtl', get_theme_file_uri( 'assets/css/rtl.min.css' ), [ 'wilbur' ], $theme_version, 'all' );
 		}
 
 		/**
@@ -206,10 +206,10 @@ class Theme {
 		 * These syles are enqueued if the user's device prefers dark mode.
 		 * Same as the dark mode option in the Customizer.
 		 */
-		wp_enqueue_style( 'hindsight-dark', get_theme_file_uri( 'assets/css/dark-mode.min.css' ), [ 'hindsight' ], $theme_version, '(prefers-color-scheme: dark)' );
+		wp_enqueue_style( 'wilbur-dark', get_theme_file_uri( 'assets/css/dark-mode.min.css' ), [ 'wilbur' ], $theme_version, '(prefers-color-scheme: dark)' );
 
 		// Toolbar styles.
-		wp_enqueue_style( 'hindsight-toolbar', get_theme_file_uri( 'assets/css/toolbar.min.css' ), [ 'hindsight' ], $theme_version, 'all' );
+		wp_enqueue_style( 'wilbur-toolbar', get_theme_file_uri( 'assets/css/toolbar.min.css' ), [ 'wilbur' ], $theme_version, 'all' );
 	}
 
 	/**
@@ -228,22 +228,22 @@ class Theme {
 		$theme_version  = wp_get_theme()->get( 'Version' );
 
 		// Admin page styles.
-		wp_enqueue_style( 'hindsight-admin', get_theme_file_uri( 'assets/css/admin.css' ), [], $theme_version, 'all' );
+		wp_enqueue_style( 'wilbur-admin', get_theme_file_uri( 'assets/css/admin.css' ), [], $theme_version, 'all' );
 
 		// WordPress 5.4 + styles.
 		if ( version_compare( $wp_version, '5.4', '>=' ) ) {
-			wp_enqueue_style( 'hindsight-edit-page', get_theme_file_uri( 'assets/css/edit-page.css' ), [], $theme_version, 'all' );
+			wp_enqueue_style( 'wilbur-edit-page', get_theme_file_uri( 'assets/css/edit-page.css' ), [], $theme_version, 'all' );
 		} else {
-			wp_enqueue_style( 'hindsight-edit-page', get_theme_file_uri( 'assets/css/edit-page-early.css' ), [], $theme_version, 'all' );
+			wp_enqueue_style( 'wilbur-edit-page', get_theme_file_uri( 'assets/css/edit-page-early.css' ), [], $theme_version, 'all' );
 		}
 
 		// Right-to-left languages.
 		if ( is_rtl() ) {
-			wp_enqueue_style( 'hindsight-admin-rtl', get_theme_file_uri( 'assets/css/admin-rtl.css' ), [ 'hindsight-admin' ], $theme_version, 'all' );
+			wp_enqueue_style( 'wilbur-admin-rtl', get_theme_file_uri( 'assets/css/admin-rtl.css' ), [ 'wilbur-admin' ], $theme_version, 'all' );
 		}
 
 		// Toolbar styles.
-		wp_enqueue_style( 'hindsight-toolbar', get_theme_file_uri( 'assets/css/toolbar.css' ), [ 'admin-bar' ], $theme_version, 'all' );
+		wp_enqueue_style( 'wilbur-toolbar', get_theme_file_uri( 'assets/css/toolbar.css' ), [ 'admin-bar' ], $theme_version, 'all' );
 	}
 
 	/**
@@ -258,7 +258,7 @@ class Theme {
 		// Get theme versions.
 		$theme_version  = wp_get_theme()->get( 'Version' );
 
-		wp_enqueue_script( 'hindsight-customize', get_theme_file_uri( 'assets/js/customize.min.js' ), [], $theme_version, true );
+		wp_enqueue_script( 'wilbur-customize', get_theme_file_uri( 'assets/js/customize.min.js' ), [], $theme_version, true );
 	}
 
 	/**
@@ -273,7 +273,7 @@ class Theme {
 		// Get theme versions.
 		$theme_version  = wp_get_theme()->get( 'Version' );
 
-		wp_enqueue_style( 'hindsight-customize', get_theme_file_uri( 'assets/css/customize.min.css' ), [], $theme_version, 'all' );
+		wp_enqueue_style( 'wilbur-customize', get_theme_file_uri( 'assets/css/customize.min.css' ), [], $theme_version, 'all' );
 	}
 
 	/**
@@ -288,7 +288,7 @@ class Theme {
 		// Get theme versions.
 		$theme_version  = wp_get_theme()->get( 'Version' );
 
-		wp_enqueue_style( 'hindsight-login', get_theme_file_uri( 'assets/css/login.min.css' ), [], $theme_version, 'all' );
+		wp_enqueue_style( 'wilbur-login', get_theme_file_uri( 'assets/css/login.min.css' ), [], $theme_version, 'all' );
 	}
 
 	/**
@@ -346,7 +346,7 @@ class Theme {
 	}
 
 	/**
-	 * Hindsight theme page
+	 * Wilbur theme page
 	 *
 	 * @since  1.0.0
 	 * @access public
@@ -359,10 +359,10 @@ class Theme {
 
 		// Add a submenu page under Themes.
 		$this->theme_page = add_theme_page(
-			__( 'Hindsight Theme Information', 'hindsight' ),
-			__( 'Hindsight Theme', 'hindsight' ),
+			__( 'Wilbur Theme Information', 'wilbur' ),
+			__( 'Wilbur Theme', 'wilbur' ),
 			'manage_options',
-			'hindsight',
+			'wilbur',
 			[ $this, 'theme_page_output' ],
 			-1
 		);
@@ -389,7 +389,7 @@ class Theme {
 		// Report Issues tab.
 		$screen->add_help_tab( [
 			'id'       => 'theme_issues',
-			'title'    => __( 'Report Issues', 'hindsight' ),
+			'title'    => __( 'Report Issues', 'wilbur' ),
 			'content'  => null,
 			'callback' => [ $this, 'help_theme_issues' ]
 		] );
@@ -405,12 +405,12 @@ class Theme {
 	public function help_theme_issues() {
 
 		?>
-		<h3><?php _e( 'Report Theme Issues', 'hindsight' ); ?></h3>
+		<h3><?php _e( 'Report Theme Issues', 'wilbur' ); ?></h3>
 		<?php echo sprintf(
 			'<p>%1s <a href="%2s" target="_blank">%3s</a></p>',
-			__( 'Please report issues with the Hindsight theme to:', 'hindsight' ),
-			esc_attr( esc_url( HINDSIGHT_ISSUES ) ),
-			esc_url( HINDSIGHT_ISSUES )
+			__( 'Please report issues with the Wilbur theme to:', 'wilbur' ),
+			esc_attr( esc_url( WILBUR_ISSUES ) ),
+			esc_url( WILBUR_ISSUES )
 		); ?>
 
 		<?php
@@ -445,7 +445,7 @@ class Theme {
 
 		// Define and register starter content to showcase the theme on new sites.
 		require get_theme_file_path( '/inc/starter-content.php' );
-		$starter_content = \Hindsight\Includes\starter_content();
+		$starter_content = \Wilbur\Includes\starter_content();
 
 		return $starter_content;
 	}

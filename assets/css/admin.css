@@ -17,7 +17,7 @@
 /**
  * Sans-serif font
  *
- * The Hindsight theme uses Inter variable as a sans-serif font,
+ * The Wilbur theme uses Inter variable as a sans-serif font,
  * same as the Twenty Twenty parent theme.
  *
  * @link https://github.com/rsms/inter
@@ -41,7 +41,7 @@
 /**
  * Serif font
  *
- * The Hindsight theme uses Crimson Pro variable as a serif font.
+ * The Wilbur theme uses Crimson Pro variable as a serif font.
  *
  * Chosen to supercede Hoefler Text, Garamond in the Twenty Twenty
  * parent theme because of its variable weight, like Inter.
@@ -2321,7 +2321,7 @@ html .tabbed-content .ui-button.ui-state-disabled:hover {
   line-height: 1.25;
 }
 
-.hindsight-color-picker {
+.wilbur-color-picker {
   max-width: 960px;
 }
 
@@ -2386,7 +2386,7 @@ html .tabbed-content .ui-button.ui-state-disabled:hover {
   border: solid 1px rgba(0, 0, 0, 0.35);
 }
 
-.color-palette li.hindsight-color-picker-entry {
+.color-palette li.wilbur-color-picker-entry {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
 }
 

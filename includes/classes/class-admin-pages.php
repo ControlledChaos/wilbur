@@ -5,7 +5,7 @@
  * Adds a header with site branding and navigation
  * to admin screens.
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Classes
  * @category   Administration
  * @access     public
@@ -13,7 +13,7 @@
  */
 
 // Theme file namespace.
-namespace Hindsight\Classes;
+namespace Wilbur\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -93,8 +93,8 @@ class Admin_Pages {
 	public function admin_menus() {
 
 		register_nav_menus( [
-			'admin-header' => __( 'Admin Header Menu', 'hindsight' ),
-			'admin-footer' => __( 'Admin Footer Menu', 'hindsight' )
+			'admin-header' => __( 'Admin Header Menu', 'wilbur' ),
+			'admin-footer' => __( 'Admin Footer Menu', 'wilbur' )
 		] );
 	}
 
@@ -114,14 +114,14 @@ class Admin_Pages {
 		$html .= sprintf(
 			'<li><a href="%1s">%2s</a></li>',
 			esc_url( admin_url( 'nav-menus.php' ) ),
-			__( 'Add Menu Here', 'hindsight' )
+			__( 'Add Menu Here', 'wilbur' )
 		);
 
-		// Link to Hindsight theme page.
+		// Link to Wilbur theme page.
 		$html .= sprintf(
 			'<li><a href="%1s">%2s</a></li>',
-			esc_url( admin_url( 'themes.php?page=hindsight' ) ),
-			__( 'Hindsight Theme', 'hindsight' )
+			esc_url( admin_url( 'themes.php?page=wilbur' ) ),
+			__( 'Wilbur Theme', 'wilbur' )
 		);
 
 		// End the list.
@@ -206,9 +206,9 @@ class Admin_Pages {
 			array_merge(
 				$shared_args,
 				[
-					'name'        => __( 'Admin Footer #1', 'hindsight' ),
+					'name'        => __( 'Admin Footer #1', 'wilbur' ),
 					'id'          => 'footer-sidebar-1',
-					'description' => __( 'Widgets in this area will be displayed in the first column in the admin footer.', 'hindsight' ),
+					'description' => __( 'Widgets in this area will be displayed in the first column in the admin footer.', 'wilbur' ),
 				]
 			)
 		);
@@ -218,9 +218,9 @@ class Admin_Pages {
 			array_merge(
 				$shared_args,
 				[
-					'name'        => __( 'Admin Footer #2', 'hindsight' ),
+					'name'        => __( 'Admin Footer #2', 'wilbur' ),
 					'id'          => 'footer-sidebar-2',
-					'description' => __( 'Widgets in this area will be displayed in the second column in the admin footer.', 'hindsight' ),
+					'description' => __( 'Widgets in this area will be displayed in the second column in the admin footer.', 'wilbur' ),
 				]
 			)
 		);

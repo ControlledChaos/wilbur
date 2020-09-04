@@ -9,14 +9,14 @@
  * the author biography on single posts. A content editor is
  * included here to enhance that feature.
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Classes
  * @category   Users
  * @since      1.0.0
  */
 
  // Theme file namespace.
-namespace Hindsight\Classes;
+namespace Wilbur\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
@@ -69,13 +69,13 @@ class User_Bio {
 		?>
 		<table class="form-table">
 			<tr>
-				<th><label for="description"><?php _e( 'Biographical Info', 'hindsight' ); ?></label></th>
+				<th><label for="description"><?php _e( 'Biographical Info', 'wilbur' ); ?></label></th>
 				<td>
 					<?php
 					$description = get_user_meta( $user->ID, 'description', true );
 					wp_editor( $description, 'description' );
 					?>
-					<p class="description"><?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.', 'hindsight' ); ?></p>
+					<p class="description"><?php _e( 'Share a little biographical information to fill out your profile. This may be shown publicly.', 'wilbur' ); ?></p>
 				</td>
 			</tr>
 		</table>

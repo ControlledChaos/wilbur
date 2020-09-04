@@ -5,7 +5,7 @@
  * Creates a widget for users to toggle
  * light and dark theme modes.
  *
- * @package    Hindsight
+ * @package    Wilbur
  * @subpackage Classes
  * @category   Widgets
  * @access     public
@@ -13,13 +13,13 @@
  */
 
 // Theme file namespace.
-namespace Hindsight\Classes;
+namespace Wilbur\Classes;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // Register the widget from the following class.
-add_action( 'widgets_init', [ 'Hindsight\Classes\Dark_Mode_Widget', 'register' ] );
+add_action( 'widgets_init', [ 'Wilbur\Classes\Dark_Mode_Widget', 'register' ] );
 
 class Dark_Mode_Widget extends \WP_Widget {
 
@@ -39,7 +39,7 @@ class Dark_Mode_Widget extends \WP_Widget {
      * @return object WP_Widget A new instance of the widget object.
      */
     public static function register() {
-        return register_widget( 'Hindsight\Classes\Dark_Mode_Widget' );
+        return register_widget( 'Wilbur\Classes\Dark_Mode_Widget' );
     }
 
 	/**
@@ -53,10 +53,10 @@ class Dark_Mode_Widget extends \WP_Widget {
 
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'Dark/Light Mode Toggle', 'hindsight' ),
+			__( 'Dark/Light Mode Toggle', 'wilbur' ),
 			[
 				'classname'   => $this->get_widget_slug() . '-class',
-				'description' => __( 'Add a button to toggle dark and light modes of the Hindsight theme.', 'hindsight' )
+				'description' => __( 'Add a button to toggle dark and light modes of the Wilbur theme.', 'wilbur' )
 			]
 		);
 
@@ -171,15 +171,15 @@ class Dark_Mode_Widget extends \WP_Widget {
 		$title    = $instance['title'];
 		?>
 		<p class="description"><?php _e( 'Add a button for users to toggle dark & light modes.' ); ?></p>
-		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Heading:' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php _e( 'Theme Mode', 'hindsight' ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Heading:' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php _e( 'Theme Mode', 'wilbur' ); ?>" /></label></p>
 
-		<p><label for="<?php echo $this->get_field_id( 'label' ); ?>"><?php _e( 'Label:' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'label' ); ?>" name="<?php echo $this->get_field_name( 'label' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php _e( 'Toggle lights off/on', 'hindsight' ); ?>" /></label></p>
+		<p><label for="<?php echo $this->get_field_id( 'label' ); ?>"><?php _e( 'Label:' ); ?> <input class="widefat" id="<?php echo $this->get_field_id( 'label' ); ?>" name="<?php echo $this->get_field_name( 'label' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" placeholder="<?php _e( 'Toggle lights off/on', 'wilbur' ); ?>" /></label></p>
 
 		<p><label for="<?php echo $this->get_field_id( 'icons' ); ?>"><?php _e( 'Icons:' ); ?></label>
 			<br />
 			<select class="widefat" id="<?php echo $this->get_field_id( 'icons' ); ?>" name="<?php echo $this->get_field_name( 'icons' ); ?>">
-				<option value="<?php echo 'light-bulb'; ?>" selected="selected"><?php _e( 'Light Bulb', 'hindsight' ); ?></option>
-				<option value="<?php echo 'sun-moon'; ?>"><?php _e( 'Sun/Moon', 'hindsight' ); ?></option>
+				<option value="<?php echo 'light-bulb'; ?>" selected="selected"><?php _e( 'Light Bulb', 'wilbur' ); ?></option>
+				<option value="<?php echo 'sun-moon'; ?>"><?php _e( 'Sun/Moon', 'wilbur' ); ?></option>
 			</select>
 		</p>
 

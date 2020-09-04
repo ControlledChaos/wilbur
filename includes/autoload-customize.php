@@ -2,26 +2,26 @@
 /**
  * Register theme classes
  *
- * @package  Hindsight
+ * @package  Wilbur
  * @category General
  * @access   public
  * @since    1.0.0
  */
 
 // Theme file namespace.
-namespace Hindsight;
+namespace Wilbur;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // Define the `classes` directory.
-define( 'HINDSIGHT_CUSTOMIZE_CLASS', get_theme_file_path() . '/classes/customize/class-' );
+define( 'WILBUR_CUSTOMIZE_CLASS', get_theme_file_path() . '/classes/customize/class-' );
 
 // Array of classes to register.
 const CUSTOMIZE_CLASSES = [
-	'Hindsight\Classes\Customize'          => HINDSIGHT_CUSTOMIZE_CLASS . 'customize.php',
-	'Hindsight\Classes\Customize_Controls' => HINDSIGHT_CUSTOMIZE_CLASS . 'customize-controls.php',
-	'Hindsight\Classes\Customize_Sanitize' => HINDSIGHT_CUSTOMIZE_CLASS . 'customize-sanitize.php',
+	'Wilbur\Classes\Customize'          => WILBUR_CUSTOMIZE_CLASS . 'customize.php',
+	'Wilbur\Classes\Customize_Controls' => WILBUR_CUSTOMIZE_CLASS . 'customize-controls.php',
+	'Wilbur\Classes\Customize_Sanitize' => WILBUR_CUSTOMIZE_CLASS . 'customize-sanitize.php',
 ];
 
 // Autoload class files.
