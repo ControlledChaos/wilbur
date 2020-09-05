@@ -155,26 +155,6 @@ button.close-nav-toggle .toggle-text {
   color: rgba(0, 0, 0, 0.75);
 }
 
-.primary-menu ul {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.primary-menu ul :after {
-  border-bottom-color: rgba(0, 0, 0, 0.7);
-}
-
-body:not(.overlay-header) .primary-menu ul {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-body:not(.overlay-header) .primary-menu ul :after {
-  border-bottom-color: rgba(0, 0, 0, 0.7);
-}
-
-body:not(.overlay-header) .primary-menu > li > ul:after {
-  border-bottom-color: rgba(0, 0, 0, 0.7);
-}
-
 .footer-widgets ul,
 .footer-widgets ol {
   margin: 0;
