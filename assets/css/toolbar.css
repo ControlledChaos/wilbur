@@ -162,7 +162,7 @@
 #wpadminbar.nojs .ab-top-menu > li.menupop:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.menupop.hover > .ab-item {
   color: #ffffff;
-  background: #cd2653;
+  background: #9b392c;
 }
 
 #wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
@@ -225,7 +225,7 @@
 #wpadminbar li.hover .ab-item:before,
 #wpadminbar li:hover #adminbarsearch:before,
 #wpadminbar li #adminbarsearch.adminbar-focused:before {
-  background: #cd2653;
+  background: #9b392c;
   color: #ffffff;
 }
 
@@ -248,13 +248,13 @@
 }
 
 #wpadminbar > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
-  color: #cd2653;
+  color: #9b392c;
   background: #eee;
 }
 
 #wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
   border: none;
-  background-color: #cd2653;
+  background-color: #9b392c;
 }
 
 #wpadminbar #wp-admin-bar-user-info .display-name {
@@ -288,7 +288,7 @@
 }
 
 .wp-responsive-open #wpadminbar #wp-admin-bar-menu-toggle a {
-  background-color: #cd2653;
+  background-color: #9b392c;
 }
 
 .wp-responsive-open #wpadminbar #wp-admin-bar-menu-toggle .ab-icon:before {

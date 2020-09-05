@@ -196,13 +196,13 @@ class Customize {
 				'default'           => array(
 					'content'       => array(
 						'text'      => '#000000',
-						'accent'    => '#cd2653',
+						'accent'    => '#9b392c',
 						'secondary' => '#6d6d6d',
 						'borders'   => '#dcd7ca',
 					),
 					'header-footer' => array(
 						'text'      => '#000000',
-						'accent'    => '#cd2653',
+						'accent'    => '#9b392c',
 						'secondary' => '#6d6d6d',
 						'borders'   => '#dcd7ca',
 					),
@@ -424,7 +424,7 @@ class Customize {
 		$wp_customize->add_setting(
 			'cover_template_overlay_opacity',
 			array(
-				'default'           => 80,
+				'default'           => 50,
 				'sanitize_callback' => 'absint',
 				'transport'         => 'postMessage',
 			)

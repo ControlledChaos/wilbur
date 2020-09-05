@@ -760,14 +760,20 @@ class Theme {
 			'accent_accessible_colors',
 			[
 				'content'       => [
-					'text'      => '#000000',
-					'accent'    => '#cd2653',
+					'text'      => '#2e281d',
+					'accent'    => '#9b392c',
+					'secondary' => '#6d6d6d',
+					'borders'   => '#dcd7ca',
+				],
+				'headings'       => [
+					'text'      => '#302a1e',
+					'accent'    => '#9b392c',
 					'secondary' => '#6d6d6d',
 					'borders'   => '#dcd7ca',
 				],
 				'header-footer' => [
-					'text'      => '#000000',
-					'accent'    => '#cd2653',
+					'text'      => '#302a1e',
+					'accent'    => '#9b392c',
 					'secondary' => '#6d6d6d',
 					'borders'   => '#dcd7ca',
 				],
@@ -842,6 +848,11 @@ class Theme {
 					'color'               => array( ':root .has-subtle-background-color' ),
 				),
 			),
+			'headings' => [
+				'text' => [
+					'color' => [ '.entry-content h2', '.entry-content h3', '.entry-content h4' ],
+				],
+			],
 			'header-footer' => array(
 				'accent'     => array(
 					'color'            => array( 'body:not(.overlay-header) .primary-menu > li > a', 'body:not(.overlay-header) .primary-menu > li > .icon', '.modal-menu a', '.footer-menu a, .footer-widgets a', '#site-footer .wp-block-button.is-style-outline', '.wp-block-pullquote:before', '.singular:not(.overlay-header) .entry-header a', '.archive-header a', '.header-footer-group .color-accent', '.header-footer-group .color-accent-hover:hover' ),

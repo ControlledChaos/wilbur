@@ -20,7 +20,7 @@ body {
 }
 
 a {
-	color: #cd2653;
+	color: #9b392c;
 }
 
 .wp-full-overlay-sidebar,
@@ -54,7 +54,7 @@ a {
 .customize-controls-close:hover,
 .customize-controls-preview-toggle:focus,
 .customize-controls-preview-toggle:hover {
-    background: #cd2653;
+    background: #9b392c;
 	color: $white;
     outline: 0;
     box-shadow: none;
@@ -107,7 +107,7 @@ a {
 .wp-core-ui .button-secondary {
 	padding: 1em;
 	line-height: 1;
-	background: #cd2653;
+	background: #9b392c;
 	border: none;
 	border-radius: 0px;
 	box-shadow: none;
@@ -141,7 +141,7 @@ a {
 .customize-save-button-wrapper {
 	display: -webkit-box;
 	display: flex;
-	background: #cd2653;
+	background: #9b392c;
 }
 
 #publish-settings {
@@ -154,7 +154,7 @@ a {
 
 	&:hover,
 	&:focus {
-		color: #cd2653;
+		color: #9b392c;
 	}
 }
 
@@ -175,12 +175,12 @@ a {
 #customize-controls .customize-info .customize-help-toggle:focus,
 #customize-controls .customize-info .customize-help-toggle:hover,
 #customize-controls .customize-info.open .customize-help-toggle {
-	color: #cd2653;
+	color: #9b392c;
 }
 
 .wp-full-overlay-footer .devices button.active:hover,
 .wp-full-overlay-footer .devices button:focus {
-	border-bottom-color: #cd2653;
+	border-bottom-color: #9b392c;
 }
 
 .wp-core-ui .button:focus,
@@ -193,7 +193,7 @@ a {
 .adding-menu-items .add-new-menu-item:hover,
 body.adding-widget .add-new-widget,
 body.adding-widget .add-new-widget:hover {
-	background: #cd2653;
+	background: #9b392c;
 	color: $white;
 }
 
@@ -244,7 +244,7 @@ body.adding-widget .add-new-widget:hover {
 	border: none;
 	font-size: 1.5625rem;
 	font-weight: 650;
-	color: #cd2653;
+	color: #9b392c;
 
 	&:hover,
 	&:focus {
@@ -277,7 +277,7 @@ body.adding-widget .add-new-widget:hover {
 #customize-theme-controls .control-section .accordion-section-title:hover:after,
 #customize-theme-controls .control-section.open .accordion-section-title:after,
 #customize-theme-controls .control-section:hover > .accordion-section-title:after {
-	color: #cd2653;
+	color: #9b392c;
 }
 
 .customize-control-header button.random .dice {

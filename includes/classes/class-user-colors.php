@@ -110,7 +110,7 @@ class User_Colors {
 
 		wp_admin_css_color( 'wilbur_pink', _x( 'Pink', 'admin color scheme' ),
 			get_theme_file_uri( "/assets/css/colors/pink/colors$suffix.min.css" ),
-			[ '#f0eddb', '#d7d2c5', '#cd2653', '#5f1b29' ],
+			[ '#f0eddb', '#d7d2c5', '#9b392c', '#5f1b29' ],
 			[ 'base' => '#999999', 'focus' => '#cccccc', 'current' => '#cccccc' ]
 		);
 
@@ -128,7 +128,7 @@ class User_Colors {
 
 		wp_admin_css_color( 'wilbur_dark_pink', _x( 'Dark Pink', 'admin color scheme' ),
 			get_theme_file_uri( "/assets/css/colors/dark-pink/colors$suffix.min.css" ),
-			[ '#222222', '#ffffff', '#cd2653', '#5f1b29' ],
+			[ '#222222', '#ffffff', '#9b392c', '#5f1b29' ],
 			[ 'base' => '#999999', 'focus' => '#cccccc', 'current' => '#cccccc' ]
 		);
 
