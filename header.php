@@ -105,7 +105,7 @@
 											'match_menu_classes' => true,
 											'show_sub_menu_icons' => true,
 											'title_li' => false,
-											'walker'   => new Wilbur_Walker_Page(),
+											'walker'   => new \Wilbur\Classes\Walker_Page(),
 										)
 									);
 

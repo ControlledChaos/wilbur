@@ -93,7 +93,7 @@
 									'match_menu_classes' => true,
 									'show_toggles'       => true,
 									'title_li'           => false,
-									'walker'             => new Wilbur_Walker_Page(),
+									'walker'             => new \Wilbur\Classes\Walker_Page(),
 								)
 							);
 

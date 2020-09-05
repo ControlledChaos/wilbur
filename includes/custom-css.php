@@ -101,7 +101,7 @@ if ( ! function_exists( 'wilbur_get_customizer_css' ) ) {
 		if ( 'front-end' === $type ) {
 
 			// Auto-calculated colors.
-			$elements_definitions = wilbur_get_elements_array();
+			$elements_definitions = $theme->get_elements_array();
 			foreach ( $elements_definitions as $context => $props ) {
 				foreach ( $props as $key => $definitions ) {
 					foreach ( $definitions as $property => $elements ) {

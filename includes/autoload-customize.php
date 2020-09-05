@@ -21,6 +21,7 @@ define( 'WILBUR_CUSTOMIZE_CLASS', get_theme_file_path() . '/includes/classes/cus
 const CUSTOMIZE_CLASSES = [
 	'Wilbur\Classes\Customize'          => WILBUR_CUSTOMIZE_CLASS . 'customize.php',
 	'Wilbur\Classes\Customize_Controls' => WILBUR_CUSTOMIZE_CLASS . 'customize-controls.php',
+	'Wilbur\Classes\Separator_Control'  => WILBUR_CUSTOMIZE_CLASS . 'separator-control.php',
 	'Wilbur\Classes\Customize_Sanitize' => WILBUR_CUSTOMIZE_CLASS . 'customize-sanitize.php',
 ];
 
