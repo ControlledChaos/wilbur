@@ -600,7 +600,7 @@ class Customize {
 			]
 		);
 
-		// Header text color.
+		/* Header text color.
 		$wp_customize->add_setting(
 			'header_text_color',
 			[
@@ -621,6 +621,7 @@ class Customize {
 				]
 			)
 		);
+		*/
 
 		$wp_customize->get_setting( 'enable_header_search' )->section = 'header_options';
 		$wp_customize->get_control( 'enable_header_search' )->section = 'header_options';
