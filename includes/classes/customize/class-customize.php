@@ -72,6 +72,7 @@ class Customize {
 
 		// New instance of the core theme class.
 		$theme = new Theme;
+		new Customize_Sanitize;
 
 		/**
 		 * Site Title & Description.
@@ -120,7 +121,7 @@ class Customize {
 			'retina_logo',
 			array(
 				'capability'        => 'edit_theme_options',
-				'sanitize_callback' => array( 'Customize_Sanitize', 'sanitize_checkbox' ),
+				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ),
 				'transport'         => 'postMessage',
 			)
 		);
@@ -162,7 +163,7 @@ class Customize {
 			'accent_hue_active',
 			array(
 				'capability'        => 'edit_theme_options',
-				'sanitize_callback' => array( 'Customize_Sanitize', 'sanitize_select' ),
+				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_select' ),
 				'transport'         => 'postMessage',
 				'default'           => 'default',
 			)
@@ -221,7 +222,7 @@ class Customize {
 				),
 				'type'              => 'theme_mod',
 				'transport'         => 'postMessage',
-				'sanitize_callback' => array( 'Customize_Sanitize', 'sanitize_accent_accessible_colors' ),
+				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_accent_accessible_colors' ),
 			)
 		);
 
@@ -265,7 +266,7 @@ class Customize {
 			array(
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => array( 'Customize_Sanitize', 'sanitize_checkbox' ),
+				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ),
 			)
 		);
 
@@ -286,7 +287,7 @@ class Customize {
 			array(
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => array( 'Customize_Sanitize', 'sanitize_checkbox' ),
+				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ),
 			)
 		);
 
@@ -307,7 +308,7 @@ class Customize {
 			array(
 				'capability'        => 'edit_theme_options',
 				'default'           => 'full',
-				'sanitize_callback' => array( 'Customize_Sanitize', 'sanitize_select' ),
+				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_select' ),
 			)
 		);
 
@@ -345,7 +346,7 @@ class Customize {
 			array(
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => array( 'Customize_Sanitize', 'sanitize_checkbox' ),
+				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ),
 				'transport'         => 'postMessage',
 			)
 		);
@@ -598,7 +599,7 @@ class Customize {
 			[
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => [ 'Customize_Sanitize', 'sanitize_checkbox' ],
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ],
 			]
 		);
 
@@ -713,7 +714,7 @@ class Customize {
 			[
 				'default'           => 'none',
 				'transport'         => 'postMessage',
-				'sanitize_callback' => [ 'Customize_Sanitize', 'sanitize_select' ],
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_select' ],
 			]
 		);
 
@@ -752,7 +753,7 @@ class Customize {
 			[
 				'capability'        => 'manage_options',
 				'default'           => true,
-				'sanitize_callback' => [ 'Customize_Sanitize', 'sanitize_checkbox' ],
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ],
 			]
 		);
 
@@ -785,7 +786,7 @@ class Customize {
 			[
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => [ 'Customize_Sanitize', 'sanitize_checkbox' ],
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ],
 			]
 		);
 
