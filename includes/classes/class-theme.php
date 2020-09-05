@@ -787,7 +787,7 @@ class Theme {
 			'accent_accessible_colors',
 			[
 				'content'       => [
-					'text'      => '#2e281d',
+					'text'      => '#2b2b21',
 					'accent'    => '#b52712',
 					'secondary' => '#6d6d6d',
 					'borders'   => '#dcd7ca',
