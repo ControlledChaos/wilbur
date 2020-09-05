@@ -464,7 +464,7 @@ class Theme {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		wp_enqueue_script( 'wilbur-js', get_template_directory_uri() . '/assets/js/index.js', [], $theme_version, false );
+		wp_enqueue_script( 'wilbur-js', get_theme_file_uri( 'assets/js/index.js' ), [], $theme_version, false );
 		wp_script_add_data( 'wilbur-js', 'async', true );
 	}
 
@@ -525,7 +525,7 @@ class Theme {
 		}
 
 		// Add print CSS.
-		wp_enqueue_style( 'wilbur-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
+		wp_enqueue_style( 'wilbur-print-style', get_theme_file_uri( 'print.css' ), null, $theme_version, 'print' );
 
 		/**
 		 * Dark mode styles
