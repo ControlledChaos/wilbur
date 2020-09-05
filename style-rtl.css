@@ -1643,7 +1643,7 @@ ul.primary-menu {
 /* SUB MENU */
 
 .primary-menu ul {
-	background: #000;
+	background: #2e281d;
 	border-radius: 0.4rem;
 	color: #fff;
 	font-size: 1.7rem;
@@ -1683,7 +1683,7 @@ ul.primary-menu {
 
 .primary-menu ul::after {
 	border: 0.8rem solid transparent;
-	border-bottom-color: #000;
+	border-bottom-color: #2e281d;
 	left: 1.8rem;
 }
 
@@ -1730,7 +1730,7 @@ ul.primary-menu {
 
 .primary-menu ul ul::after {
 	border-bottom-color: transparent;
-	border-left-color: #000;
+	border-left-color: #2e281d;
 	bottom: auto;
 	left: -1.6rem;
 	top: 2rem;
