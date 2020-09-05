@@ -4450,15 +4450,6 @@ ul.footer-social li {
 	color: inherit;
 }
 
-.to-the-top {
-	position: fixed;
-	top: auto;
-	left: auto;
-	right: 3rem;
-	bottom: 3rem;
-	color: #6d6d6d;
-}
-
 a.to-the-top > * {
 	pointer-events: none;
 }

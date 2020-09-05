@@ -188,30 +188,34 @@ button.close-nav-toggle .toggle-text {
 }
 
 .to-the-top {
+  display: none;
+  z-index: 1000;
   position: fixed;
   top: auto;
   left: auto;
-  right: 3rem;
+  right: 1rem;
   bottom: 3rem;
+  padding: 0.5em 0.7em 0.35em;
+  -webkit-transition: none;
+  transition: none;
+  background: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+}
+
+@media screen and (max-width: 600px) {
+  .to-the-top {
+    display: none !important;
+  }
 }
 
 .to-the-top .arrow {
   display: inline-block;
   -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .to-the-top .arrow svg {
   fill: currentColor;
-  -webkit-transition: -webkit-transform 0.15s linear;
-  transition: -webkit-transform 0.15s linear;
-  transition: transform 0.15s linear;
-  transition: transform 0.15s linear, -webkit-transform 0.15s linear;
-}
-
-.to-the-top:hover .arrow svg {
-  -webkit-transform: translateY(20%);
-  transform: translateY(20%);
 }
 
 @media (min-width: 700px) {

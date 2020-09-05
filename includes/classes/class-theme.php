@@ -498,6 +498,15 @@ class Theme {
 				$( 'html, body' ).stop().animate( { scrollTop: $( 'html' ).offset().top }, 'fast' );
 				window.history.replaceState( '', document.title, noHash );
 			});
+
+			// Check to see if the window is top if not then display button.
+			$( window ).scroll( function() {
+				if ( $(this).scrollTop() > 450 ) {
+					$( '.to-the-top' ).fadeIn( '250' );
+				} else {
+					$( '.to-the-top' ).fadeOut( '250' );
+				}
+			});
 		});
 		</script>
 		<?php
@@ -886,7 +895,7 @@ class Theme {
 			],
 			'header-footer' => [
 				'accent' => [
-					'color' => [ 'body:not(.overlay-header) .primary-menu > li', 'body:not(.overlay-header) .primary-menu > li > .icon', '.modal-menu a', '.footer-menu a, .footer-widgets a', '#site-footer .wp-block-button.is-style-outline', '.wp-block-pullquote:before', '.singular:not(.overlay-header) .entry-header a', '.archive-header a', '.header-footer-group .color-accent', '.header-footer-group .color-accent-hover:hover', '.to-the-top' ],
+					'color' => [ 'body:not(.overlay-header) .primary-menu > li', 'body:not(.overlay-header) .primary-menu > li > .icon', '.modal-menu a', '.footer-menu a, .footer-widgets a', '#site-footer .wp-block-button.is-style-outline', '.wp-block-pullquote:before', '.singular:not(.overlay-header) .entry-header a', '.archive-header a', '.header-footer-group .color-accent', '.header-footer-group .color-accent-hover:hover' ],
 
 					'background-color' => [ '.social-icons a', '#site-footer button:not(.toggle)', '#site-footer .button', '#site-footer .faux-button', '#site-footer .wp-block-button__link', '#site-footer .wp-block-file__button', '#site-footer input[type="button"]', '#site-footer input[type="reset"]', '#site-footer input[type="submit"]' ],
 				],
