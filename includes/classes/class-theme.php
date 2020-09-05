@@ -869,7 +869,9 @@ class Theme {
 
 					'color' => [ 'body', '.entry-title a', ':root .has-primary-color' ],
 
-					'background-color' => [ ':root .has-primary-background-color' ],
+					'background-color'    => [ 'body:not(.overlay-header) .primary-menu ul', ':root .has-primary-background-color' ],
+					'border-bottom-color' => [ 'body:not(.overlay-header) .primary-menu > li > ul:after' ],
+					'border-left-color'   => [ 'body:not(.overlay-header) .primary-menu ul ul:after' ],
 				],
 				'secondary' => [
 
@@ -901,15 +903,12 @@ class Theme {
 				],
 				'background' => [
 
-					'color' => [ '.social-icons a', 'body:not(.overlay-header) .primary-menu ul', '.header-footer-group button', '.header-footer-group .button', '.header-footer-group .faux-button', '.header-footer-group .wp-block-button:not(.is-style-outline) .wp-block-button__link', '.header-footer-group .wp-block-file__button', '.header-footer-group input[type="button"]', '.header-footer-group input[type="reset"]', '.header-footer-group input[type="submit"]' ],
+					'color' => [ '.social-icons a', '.header-footer-group button', '.header-footer-group .button', '.header-footer-group .faux-button', '.header-footer-group .wp-block-button:not(.is-style-outline) .wp-block-button__link', '.header-footer-group .wp-block-file__button', '.header-footer-group input[type="button"]', '.header-footer-group input[type="reset"]', '.header-footer-group input[type="submit"]' ],
 
 					'background-color' => [ '#site-header', '.footer-nav-widgets-wrapper', '#site-footer', '.menu-modal', '.menu-modal-inner', '.search-modal-inner', '.archive-header', '.singular .entry-header', '.singular .featured-media:before', '.wp-block-pullquote:before' ],
 				],
 				'text' => [
 					'color'               => [ '.header-footer-group', 'body:not(.overlay-header) #site-header .toggle', '.menu-modal .toggle' ],
-					'background-color'    => [ 'body:not(.overlay-header) .primary-menu ul' ],
-					'border-bottom-color' => [ 'body:not(.overlay-header) .primary-menu > li > ul:after' ],
-					'border-left-color'   => [ 'body:not(.overlay-header) .primary-menu ul ul:after' ],
 				],
 				'secondary'  => [
 

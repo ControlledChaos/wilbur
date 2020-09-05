@@ -200,6 +200,12 @@ class Customize {
 						'secondary' => '#6d6d6d',
 						'borders'   => '#dcd7ca',
 					],
+					'headings'       => [
+						'text'      => '#302a1e',
+						'accent'    => '#b52712',
+						'secondary' => '#6d6d6d',
+						'borders'   => '#dcd7ca',
+					],
 					'header-footer' => [
 						'text'      => '#302a1e',
 						'accent'    => '#b52712',
