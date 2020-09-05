@@ -11,7 +11,7 @@
  * @since      1.0.0
  */
 
- // Theme file namespace.
+// Theme file namespace.
 namespace Wilbur\Classes;
 
 // Restrict direct access.
@@ -45,19 +45,46 @@ class Theme {
 	 * Constructor method
 	 *
 	 * @since  1.0.0
-	 * @access private
+	 * @access public
 	 * @return self
 	 */
-	private function __construct() {
+	public function __construct() {
+
+		// Remove unpopular meta tags.
+		add_action( 'init', [ $this, 'head_cleanup' ] );
 
 		// Theme setup.
 		add_action( 'after_setup_theme', [ $this, 'setup' ], 11 );
+
+		// Add navigation menus.
+		add_action( 'init', [ $this, 'menus' ] );
+
+		// Register widget areas.
+		add_action( 'widgets_init', [ $this, 'widgets' ] );
+
+		// Frontend scripts.
+		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
+
+		// Print frontend scripts.
+		add_action( 'wp_print_footer_scripts', [ $this, 'print_frontend_scripts' ] );
 
 		// Frontend styles.
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_styles' ] );
 
 		// Backend styles.
 		add_action( 'admin_enqueue_scripts', [ $this, 'backend_styles' ], 99 );
+
+		// Editor styles.
+		add_action( 'init', [ $this, 'editor_styles' ] );
+
+		// Editor styles from Customizer.
+		add_filter( 'tiny_mce_before_init', [ $this, 'editor_customizer_styles' ] );
+
+		// Editor non-latin styles.
+		add_filter( 'tiny_mce_before_init',  [ $this, 'editor_non_latin_styles' ] );
+
+		// Block editor styles.
+		add_action( 'enqueue_block_editor_assets', [ $this, 'block_editor_styles' ], 1, 1 );
 
 		// Customizer scripts.
 		add_action( 'customize_controls_print_footer_scripts', [ $this, 'customize_scripts' ] );
@@ -67,6 +94,15 @@ class Theme {
 
 		// Login styles.
 		add_action( 'login_enqueue_scripts', [ $this, 'login_styles' ] );
+
+		// Get the information about the logo.
+		add_filter( 'get_custom_logo', [ $this, 'custom_logo' ] );
+
+		// Skiip link.
+		add_action( 'wilbur_body_open', [ $this, 'skip_link' ], 5 );
+
+		// Read more link.
+		add_filter( 'the_content_more_link', 'read_more' );
 
 		// Add excerpts to pages for use in meta data.
         add_action( 'init', [ $this, 'add_page_excerpts' ] );
@@ -84,6 +120,20 @@ class Theme {
 		if ( is_customize_preview() ) {
 			add_filter( 'wilbur_starter_content', [ $this, 'starter_content' ] );
 		}
+	}
+
+	/**
+	 * Clean up meta tags from the <head>
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function head_cleanup() {
+
+		remove_action( 'wp_head', 'rsd_link' );
+		remove_action( 'wp_head', 'wlwmanifest_link' );
+		remove_action( 'wp_head', 'wp_generator' );
 	}
 
 	/**
@@ -240,8 +290,8 @@ class Theme {
 		 * page load, as it is a one-off operation only needed once in the customizer.
 		 */
 		if ( is_customize_preview() ) {
-			require get_theme_file_path( '/includes/starter-content.php' );
-			add_theme_support( 'starter-content', wilbur_get_starter_content() );
+			// require get_theme_file_path( '/includes/starter-content.php' );
+			// add_theme_support( 'starter-content', wilbur_get_starter_content() );
 		}
 
 		// Add theme support for selective refresh for widgets.
@@ -253,6 +303,194 @@ class Theme {
 		 */
 		$loader = new \Wilbur_Script_Loader();
 		add_filter( 'script_loader_tag', [ $loader, 'filter_script_loader_tag' ], 10, 2 );
+
+		/**
+		 * Block editor settings
+		 *
+		 * Add custom colors and font sizes to the block editor.
+		 */
+		$accent    = $this->get_color_for_area( 'content', 'accent' );
+		$primary   = $this->get_color_for_area( 'content', 'text' );
+		$secondary = $this->get_color_for_area( 'content', 'secondary' );
+		$subtle    = $this->get_color_for_area( 'content', 'borders' );
+
+		// Block Editor Palette.
+		$editor_color_palette = [
+			[
+				'name'  => __( 'Accent Color', 'wilbur' ),
+				'slug'  => 'accent',
+				'color' => $accent,
+			],
+			[
+				'name'  => __( 'Primary', 'wilbur' ),
+				'slug'  => 'primary',
+				'color' => $primary,
+			],
+			[
+				'name'  => __( 'Secondary', 'wilbur' ),
+				'slug'  => 'secondary',
+				'color' => $secondary,
+			],
+			[
+				'name'  => __( 'Subtle Background', 'wilbur' ),
+				'slug'  => 'subtle-background',
+				'color' => $subtle,
+			],
+		];
+
+		// Add the background option.
+		$background_color = get_theme_mod( 'background_color' );
+		if ( ! $background_color ) {
+			$background_color_arr = get_theme_support( 'custom-background' );
+			$background_color     = $background_color_arr[0]['default-color'];
+		}
+		$editor_color_palette[] = array(
+			'name'  => __( 'Background Color', 'wilbur' ),
+			'slug'  => 'background',
+			'color' => '#' . $background_color,
+		);
+
+		// If we have accent colors, add them to the block editor palette.
+		if ( $editor_color_palette ) {
+			add_theme_support( 'editor-color-palette', $editor_color_palette );
+		}
+
+		// Block Editor Font Sizes.
+		add_theme_support(
+			'editor-font-sizes',
+			array(
+				array(
+					'name'      => _x( 'Small', 'Name of the small font size in the block editor', 'wilbur' ),
+					'shortName' => _x( 'S', 'Short name of the small font size in the block editor.', 'wilbur' ),
+					'size'      => 18,
+					'slug'      => 'small',
+				),
+				array(
+					'name'      => _x( 'Regular', 'Name of the regular font size in the block editor', 'wilbur' ),
+					'shortName' => _x( 'M', 'Short name of the regular font size in the block editor.', 'wilbur' ),
+					'size'      => 21,
+					'slug'      => 'normal',
+				),
+				array(
+					'name'      => _x( 'Large', 'Name of the large font size in the block editor', 'wilbur' ),
+					'shortName' => _x( 'L', 'Short name of the large font size in the block editor.', 'wilbur' ),
+					'size'      => 26.25,
+					'slug'      => 'large',
+				),
+				array(
+					'name'      => _x( 'Larger', 'Name of the larger font size in the block editor', 'wilbur' ),
+					'shortName' => _x( 'XL', 'Short name of the larger font size in the block editor.', 'wilbur' ),
+					'size'      => 32,
+					'slug'      => 'larger',
+				),
+			)
+		);
+
+		add_theme_support( 'editor-styles' );
+
+		// If we have a dark background color then add support for dark editor style.
+		// We can determine if the background color is dark by checking if the text-color is white.
+		if ( '#ffffff' === strtolower( $this->get_color_for_area( 'content', 'text' ) ) ) {
+			add_theme_support( 'dark-editor-style' );
+		}
+	}
+
+	/**
+	 * Register navigation menus
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function menus() {
+
+		$locations = [
+			'primary'  => __( 'Desktop Horizontal Menu', 'wilbur' ),
+			'expanded' => __( 'Desktop Expanded Menu', 'wilbur' ),
+			'mobile'   => __( 'Mobile Menu', 'wilbur' ),
+			'footer'   => __( 'Footer Menu', 'wilbur' ),
+			'social'   => __( 'Social Menu', 'wilbur' ),
+		];
+
+		register_nav_menus( $locations );
+	}
+
+	/**
+	 * Register widget areas
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function widgets() {
+
+		// Arguments used in all register_sidebar() calls.
+		$shared_args = [
+			'before_title'  => '<h2 class="widget-title subheading heading-size-3">',
+			'after_title'   => '</h2>',
+			'before_widget' => '<div class="widget %2$s"><div class="widget-content">',
+			'after_widget'  => '</div></div>',
+		];
+
+		// Footer #1.
+		register_sidebar(
+			array_merge(
+				$shared_args,
+				[
+					'name'        => __( 'Footer #1', 'wilbur' ),
+					'id'          => 'sidebar-1',
+					'description' => __( 'Widgets in this area will be displayed in the first column in the footer.', 'wilbur' ),
+				]
+			)
+		);
+
+		// Footer #2.
+		register_sidebar(
+			array_merge(
+				$shared_args,
+				[
+					'name'        => __( 'Footer #2', 'wilbur' ),
+					'id'          => 'sidebar-2',
+					'description' => __( 'Widgets in this area will be displayed in the second column in the footer.', 'wilbur' ),
+				]
+			)
+		);
+	}
+
+	/**
+	 * Enqueue frontend scripts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function frontend_scripts() {
+
+		$theme_version = wp_get_theme()->get( 'Version' );
+
+		if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
+
+		wp_enqueue_script( 'wilbur-js', get_template_directory_uri() . '/assets/js/index.js', [], $theme_version, false );
+		wp_script_add_data( 'wilbur-js', 'async', true );
+	}
+
+	/**
+	 * Enqueue frontend scripts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function print_frontend_scripts() {
+
+		// The following is minified via `terser --compress --mangle -- assets/js/skip-link-focus-fix.js`.
+		?>
+		<script>
+		/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+		</script>
+		<?php
 	}
 
 	/**
@@ -267,6 +505,9 @@ class Theme {
 		// Get theme version.
 		$theme_version  = wp_get_theme()->get( 'Version' );
 
+		// Get non-latin CSS.
+		$non_latin = Non_Latin :: get_non_latin_css( 'front-end' );
+
 		/**
 		 * Theme sylesheet
 		 *
@@ -280,6 +521,19 @@ class Theme {
 		if ( is_rtl() ) {
 			wp_enqueue_style( 'wilbur-rtl', get_theme_file_uri( 'assets/css/rtl.min.css' ), [ 'wilbur' ], $theme_version, 'all' );
 		}
+
+		wp_enqueue_style( 'wilbur-style', get_stylesheet_uri(), [], $theme_version );
+		wp_style_add_data( 'wilbur-style', 'rtl', 'replace' );
+
+		// Add output of Customizer settings as inline style.
+		wp_add_inline_style( 'wilbur-style', wilbur_get_customizer_css( 'front-end' ) );
+
+		if ( $non_latin ) {
+			wp_add_inline_style( 'wilbur-style', $non_latin );
+		}
+
+		// Add print CSS.
+		wp_enqueue_style( 'wilbur-print-style', get_template_directory_uri() . '/print.css', null, $theme_version, 'print' );
 
 		/**
 		 * Dark mode styles
@@ -328,6 +582,97 @@ class Theme {
 	}
 
 	/**
+	 * Editor styles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function editor_styles() {
+
+		$classic_editor_styles = [
+			'/assets/css/editor-style-classic.css',
+		];
+
+		add_editor_style( $classic_editor_styles );
+	}
+
+	/**
+	 * Editor styles from Customizer
+	 *
+	 * Adds styles to the head of the TinyMCE iframe.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  array $mce_init TinyMCE styles.
+	 * @return array TinyMCE styles.
+	 * @return void
+	 */
+	public function editor_customizer_styles( $mce_init ) {
+
+		$styles = wilbur_get_customizer_css( 'classic-editor' );
+
+		if ( ! isset( $mce_init['content_style'] ) ) {
+			$mce_init['content_style'] = $styles . ' ';
+		} else {
+			$mce_init['content_style'] .= ' ' . $styles . ' ';
+		}
+
+		return $mce_init;
+	}
+
+	/**
+	 * Editor non-latin styles
+	 *
+	 * Adds styles to the head of the TinyMCE iframe.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  array $mce_init TinyMCE styles.
+	 * @return array TinyMCE styles.
+	 */
+	public function editor_non_latin_styles( $mce_init ) {
+
+		$styles = Non_Latin :: get_non_latin_css( 'classic-editor' );
+
+		// Return if there are no styles to add.
+		if ( ! $styles ) {
+			return $mce_init;
+		}
+
+		if ( ! isset( $mce_init['content_style'] ) ) {
+			$mce_init['content_style'] = $styles . ' ';
+		} else {
+			$mce_init['content_style'] .= ' ' . $styles . ' ';
+		}
+
+		return $mce_init;
+	}
+
+	/**
+	 * Block editor styles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function block_editor_styles() {
+
+		// Enqueue the editor styles.
+		wp_enqueue_style( 'wilbur-block-editor-styles', get_theme_file_uri( '/assets/css/editor-style-block.css' ), [], wp_get_theme()->get( 'Version' ), 'all' );
+		wp_style_add_data( 'wilbur-block-editor-styles', 'rtl', 'replace' );
+
+		// Add inline style from the Customizer.
+		wp_add_inline_style( 'wilbur-block-editor-styles', wilbur_get_customizer_css( 'block-editor' ) );
+
+		// Add inline style for non-latin fonts.
+		wp_add_inline_style( 'wilbur-block-editor-styles', Non_Latin :: get_non_latin_css( 'block-editor' ) );
+
+		// Enqueue the editor script.
+		wp_enqueue_script( 'wilbur-block-editor-script', get_theme_file_uri( '/assets/js/editor-script-block.js' ), [ 'wp-blocks', 'wp-dom' ], wp_get_theme()->get( 'Version' ), true );
+	}
+
+	/**
 	 * Enqueue customizer scripts
 	 *
 	 * @since  1.0.0
@@ -354,6 +699,16 @@ class Theme {
 		// Get theme versions.
 		$theme_version  = wp_get_theme()->get( 'Version' );
 
+		// Add main customizer js file.
+		wp_enqueue_script( 'wilbur-customize', get_theme_file_uri( '/assets/js/customize.js' ), [ 'jquery' ], $theme_version, false );
+
+		// Add script for color calculations.
+		wp_enqueue_script( 'wilbur-color-calculations', get_theme_file_uri( '/assets/js/color-calculations.js' ), [ 'wp-color-picker' ], $theme_version, false );
+
+		// Add script for controls.
+		wp_enqueue_script( 'wilbur-customize-controls', get_theme_file_uri( '/assets/js/customize-controls.js' ), [ 'wilbur-color-calculations', 'customize-controls', 'underscore', 'jquery' ], $theme_version, false );
+		wp_localize_script( 'wilbur-customize-controls', 'twentyTwentyBgColors', wilbur_get_customizer_color_vars() );
+
 		wp_enqueue_style( 'wilbur-customize', get_theme_file_uri( 'assets/css/customize.min.css' ), [], $theme_version, 'all' );
 	}
 
@@ -370,6 +725,137 @@ class Theme {
 		$theme_version  = wp_get_theme()->get( 'Version' );
 
 		wp_enqueue_style( 'wilbur-login', get_theme_file_uri( 'assets/css/login.min.css' ), [], $theme_version, 'all' );
+	}
+
+	/**
+	 * Get accessible color for an area
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $area The area we want to get the colors for.
+	 * @param  string $context Can be 'text' or 'accent'.
+	 * @return string Returns a HEX color.
+	 */
+	public function get_color_for_area( $area = 'content', $context = 'text' ) {
+
+		// Get the value from the theme-mod.
+		$settings = get_theme_mod(
+			'accent_accessible_colors',
+			[
+				'content'       => [
+					'text'      => '#000000',
+					'accent'    => '#cd2653',
+					'secondary' => '#6d6d6d',
+					'borders'   => '#dcd7ca',
+				],
+				'header-footer' => [
+					'text'      => '#000000',
+					'accent'    => '#cd2653',
+					'secondary' => '#6d6d6d',
+					'borders'   => '#dcd7ca',
+				],
+			]
+		);
+
+		// If we have a value return it.
+		if ( isset( $settings[ $area ] ) && isset( $settings[ $area ][ $context ] ) ) {
+			return $settings[ $area ][ $context ];
+		}
+
+		// Return false if the option doesn't exist.
+		return false;
+	}
+
+	/**
+	 * Get the information about the logo.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $html The HTML output from get_custom_logo (core function).
+	 * @return string
+	 */
+	public function custom_logo( $html ) {
+
+		$logo_id = get_theme_mod( 'custom_logo' );
+
+		if ( ! $logo_id ) {
+			return $html;
+		}
+
+		$logo = wp_get_attachment_image_src( $logo_id, 'full' );
+
+		if ( $logo ) {
+			// For clarity.
+			$logo_width  = esc_attr( $logo[1] );
+			$logo_height = esc_attr( $logo[2] );
+
+			// If the retina logo setting is active, reduce the width/height by half.
+			if ( get_theme_mod( 'retina_logo', false ) ) {
+				$logo_width  = floor( $logo_width / 2 );
+				$logo_height = floor( $logo_height / 2 );
+
+				$search = [
+					'/width=\"\d+\"/iU',
+					'/height=\"\d+\"/iU',
+				];
+
+				$replace = [
+					"width=\"{$logo_width}\"",
+					"height=\"{$logo_height}\"",
+				];
+
+				// Add a style attribute with the height, or append the height to the style attribute if the style attribute already exists.
+				if ( strpos( $html, ' style=' ) === false ) {
+					$search[]  = '/(src=)/';
+					$replace[] = "style=\"height: {$logo_height}px;\" src=";
+				} else {
+					$search[]  = '/(style="[^"]*)/';
+					$replace[] = "$1 height: {$logo_height}px;";
+				}
+
+				$html = preg_replace( $search, $replace, $html );
+
+			}
+		}
+
+		return $html;
+
+	}
+
+	/**
+	 * Skip link
+	 *
+	 * Includes a skip to content link at the top of the page
+	 * so that users can bypass the menu.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the markup of the link.
+	 */
+	public function skip_link() {
+		echo '<a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'wilbur' ) . '</a>';
+	}
+
+	/**
+	 * Read more link
+	 *
+	 * Overwrites the default more tag with styling and screen reader markup.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string $html The default output HTML for the more tag.
+	 * @return string
+	 */
+	public function read_more( $html ) {
+
+		return preg_replace(
+			'/<a(.*)>(.*)<\/a>/iU',
+			sprintf(
+				'<div class="read-more-button-wrap"><a$1><span class="faux-button">$2</span> <span class="screen-reader-text">"%1$s"</span></a></div>',
+				get_the_title( get_the_ID() )
+			),
+			$html
+		);
 	}
 
 	/**
@@ -493,7 +979,7 @@ class Theme {
 	public function starter_content( $starter_content ) {
 
 		// Define and register starter content to showcase the theme on new sites.
-		require get_theme_file_path( '/inc/starter-content.php' );
+		require get_theme_file_path( '/includes/starter-content.php' );
 		$starter_content = \Wilbur\Includes\starter_content();
 
 		return $starter_content;

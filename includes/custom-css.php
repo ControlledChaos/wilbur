@@ -54,18 +54,27 @@ if ( ! function_exists( 'wilbur_get_customizer_css' ) ) {
 	 */
 	function wilbur_get_customizer_css( $type = 'front-end' ) {
 
+		// New instance of the core theme class.
+		$theme = new \Wilbur\Classes\Theme;
+
 		// Get variables.
-		$body              = sanitize_hex_color( wilbur_get_color_for_area( 'content', 'text' ) );
+		$accent     = $theme->get_color_for_area( 'content', 'accent' );
+		$body       = $theme->get_color_for_area( 'content', 'text' );
+		$secondary  = $theme->get_color_for_area( 'content', 'secondary' );
+		$background = $theme->get_color_for_area( 'content', 'background' );
+		$borders    = $theme->get_color_for_area( 'content', 'borders' );
+
+		$body              = sanitize_hex_color( $body );
 		$body_default      = '#000000';
-		$secondary         = sanitize_hex_color( wilbur_get_color_for_area( 'content', 'secondary' ) );
+		$secondary         = sanitize_hex_color( $secondary );
 		$secondary_default = '#6d6d6d';
-		$borders           = sanitize_hex_color( wilbur_get_color_for_area( 'content', 'borders' ) );
+		$borders           = sanitize_hex_color( $borders );
 		$borders_default   = '#dcd7ca';
-		$accent            = sanitize_hex_color( wilbur_get_color_for_area( 'content', 'accent' ) );
+		$accent            = sanitize_hex_color( $accent );
 		$accent_default    = '#cd2653';
 
 		// Header.
-		$header_footer_background         = sanitize_hex_color( wilbur_get_color_for_area( 'header-footer', 'background' ) );
+		$header_footer_background         = sanitize_hex_color( $background );
 		$header_footer_background_default = '#ffffff';
 
 		// Cover.
@@ -103,7 +112,7 @@ if ( ! function_exists( 'wilbur_get_customizer_css' ) ) {
 						if ( ! is_array( $elements ) || empty( $elements ) ) {
 							continue;
 						}
-						$val = wilbur_get_color_for_area( $context, $key );
+						$val = $theme->get_color_for_area( $context, $key );
 						if ( $val ) {
 							wilbur_generate_css( implode( ',', $elements ), $property, $val );
 						}

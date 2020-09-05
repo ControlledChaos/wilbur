@@ -52,7 +52,7 @@ function twentynineteen_post_thumbnail_sizes_attr( $attr ) {
 
 	return $attr;
 }
-add_filter( 'wp_get_attachment_image_attributes', 'twentynineteen_post_thumbnail_sizes_attr', 10, 1 );
+// add_filter( 'wp_get_attachment_image_attributes', 'twentynineteen_post_thumbnail_sizes_attr', 10, 1 );
 
 /**
  * Count our number of active panels.

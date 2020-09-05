@@ -15,7 +15,7 @@ namespace Wilbur;
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // Define the `classes` directory.
-define( 'WILBUR_CUSTOMIZE_CLASS', get_theme_file_path() . '/classes/customize/class-' );
+define( 'WILBUR_CUSTOMIZE_CLASS', get_theme_file_path() . '/includes/classes/customize/class-' );
 
 // Array of classes to register.
 const CUSTOMIZE_CLASSES = [

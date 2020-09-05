@@ -253,7 +253,7 @@ class Admin_Pages {
 	 *
 	 * Adapted from the `wilbur_add_sub_toggles_to_main_menu` function.
 	 *
-	 * @see wilbur/inc/template-tags.php
+	 * @see wilbur/includes/template-tags.php
 	 *
 	 * @since  1.0.0
 	 * @access public

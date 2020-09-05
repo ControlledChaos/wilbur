@@ -20,6 +20,9 @@ if ( ! class_exists( 'Wilbur_Customize' ) ) {
 		 */
 		public static function register( $wp_customize ) {
 
+			// New instance of the core theme class.
+			$theme = new \Wilbur\Classes\Theme;
+
 			/**
 			 * Site Title & Description.
 			 * */
@@ -335,11 +338,11 @@ if ( ! class_exists( 'Wilbur_Customize' ) ) {
 			);
 
 			/* Overlay Background Color ------ */
-
+			$accent = $theme->get_color_for_area( 'content', 'accent' );
 			$wp_customize->add_setting(
 				'cover_template_overlay_background_color',
 				array(
-					'default'           => wilbur_get_color_for_area( 'content', 'accent' ),
+					'default'           => $accent,
 					'sanitize_callback' => 'sanitize_hex_color',
 				)
 			);

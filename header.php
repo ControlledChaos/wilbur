@@ -26,9 +26,7 @@
 
 	<body <?php body_class(); ?>>
 
-		<?php
-		wp_body_open();
-		?>
+		<?php do_action( 'wilbur_body_open' ); ?>
 
 		<header id="site-header" class="header-footer-group" role="banner">
 

@@ -122,7 +122,7 @@ class Dark_Mode_Widget extends \WP_Widget {
 
 		// TODO: Here is where you manipulate your widget's values based on their input fields
 		ob_start();
-		include( get_theme_file_path( '/inc/views/dark-mode-widget-frontend.php' ) );
+		include( get_theme_file_path( '/includes/views/dark-mode-widget-frontend.php' ) );
 		$widget_string .= ob_get_clean();
 		$widget_string .= $after_widget;
 
@@ -186,7 +186,7 @@ class Dark_Mode_Widget extends \WP_Widget {
 		<?php
 
 		// Display the admin form
-		include( get_theme_file_path( '/inc/views/dark-mode-widget-admin.php' ) );
+		include( get_theme_file_path( '/includes/views/dark-mode-widget-admin.php' ) );
 
 	}
 
