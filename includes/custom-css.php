@@ -71,7 +71,7 @@ if ( ! function_exists( 'wilbur_get_customizer_css' ) ) {
 		$borders           = sanitize_hex_color( $borders );
 		$borders_default   = '#dcd7ca';
 		$accent            = sanitize_hex_color( $accent );
-		$accent_default    = '#9b392c';
+		$accent_default    = '#b52712';
 
 		// Header.
 		$header_footer_background         = sanitize_hex_color( $background );

@@ -446,7 +446,7 @@ hr.styled-separator::after {
 }
 
 a {
-	color: #9b392c;
+	color: #b52712;
 	text-decoration: underline;
 }
 
@@ -529,7 +529,7 @@ dd + dt {
 /* Quotes ------------------------------------ */
 
 blockquote {
-	border-color: #9b392c;
+	border-color: #b52712;
 	border-style: solid;
 
 	/*rtl:ignore*/
@@ -826,7 +826,7 @@ input[type="reset"],
 input[type="submit"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	background: #9b392c;
+	background: #b52712;
 	border: none;
 	border-radius: 0;
 	color: #fff;
@@ -1082,7 +1082,7 @@ button.toggle {
 .color-accent,
 .color-accent-hover:focus,
 .color-accent-hover:hover {
-	color: #9b392c;
+	color: #b52712;
 }
 
 /* BACKGROUND COLOR */
@@ -1090,7 +1090,7 @@ button.toggle {
 .bg-accent,
 .bg-accent-hover:focus,
 .bg-accent-hover:hover {
-	background-color: #9b392c;
+	background-color: #b52712;
 }
 
 /* BORDER COLOR */
@@ -1098,14 +1098,14 @@ button.toggle {
 .border-color-accent,
 .border-color-accent-hover:focus,
 .border-color-accent-hover:hover {
-	border-color: #9b392c;
+	border-color: #b52712;
 }
 
 /* FILL COLOR */
 
 .fill-children-accent,
 .fill-children-accent * {
-	fill: #9b392c;
+	fill: #b52712;
 }
 
 .fill-children-current-color,
@@ -1295,7 +1295,7 @@ ul.social-icons li {
 
 .social-icons a {
 	align-items: center;
-	background: #9b392c;
+	background: #b52712;
 	border-radius: 50%;
 	color: #fff;
 	display: flex;
@@ -2734,11 +2734,11 @@ h2.entry-title {
 /* CUSTOM COLORS */
 
 :root .has-accent-color {
-	color: #9b392c;
+	color: #b52712;
 }
 
 :root .has-accent-background-color {
-	background-color: #9b392c;
+	background-color: #b52712;
 	color: #fff;
 }
 
@@ -2796,7 +2796,7 @@ h2.entry-title {
 }
 
 .has-drop-cap:not(:focus)::first-letter {
-	color: #9b392c;
+	color: #b52712;
 	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
 	font-size: 5.1em;
 	font-weight: 800;
@@ -3015,7 +3015,7 @@ h2.entry-title {
 }
 
 .wp-block-button.is-style-outline {
-	color: #9b392c;
+	color: #b52712;
 }
 
 .is-style-outline .wp-block-button__link:not(.has-text-color) {
@@ -3201,7 +3201,7 @@ figure.wp-block-gallery.alignfull {
 .wp-block-pullquote::before {
 	background: #fff;
 	border-radius: 50%;
-	color: #9b392c;
+	color: #b52712;
 	content: "”";
 	display: block;
 	font-size: 6.2rem;
@@ -3825,7 +3825,7 @@ div.comment:first-of-type {
 }
 
 .comment-reply-link {
-	background-color: #9b392c;
+	background-color: #b52712;
 	color: #fff;
 	display: block;
 	padding: 0.7rem;
@@ -4440,7 +4440,7 @@ ul.footer-social li {
 }
 
 .footer-social a {
-	background-color: #9b392c;
+	background-color: #b52712;
 	height: 3.6rem;
 	width: 3.6rem;
 }
