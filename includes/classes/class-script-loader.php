@@ -31,7 +31,7 @@ class Script_Loader {
 	 * @return string Script HTML string.
 	 */
 	public function filter_script_loader_tag( $tag, $handle ) {
-		foreach ( array( 'async', 'defer' ) as $attr ) {
+		foreach ( [ 'async', 'defer' ] as $attr ) {
 			if ( ! wp_scripts()->get_data( $handle, $attr ) ) {
 				continue;
 			}

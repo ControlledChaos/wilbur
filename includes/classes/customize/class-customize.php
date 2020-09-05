@@ -69,34 +69,34 @@ class Customize {
 
 		$wp_customize->selective_refresh->add_partial(
 			'blogname',
-			array(
+			[
 				'selector'        => '.site-title a',
 				'render_callback' => 'wilbur_customize_partial_blogname',
-			)
+			]
 		);
 
 		$wp_customize->selective_refresh->add_partial(
 			'blogdescription',
-			array(
+			[
 				'selector'        => '.site-description',
 				'render_callback' => 'wilbur_customize_partial_blogdescription',
-			)
+			]
 		);
 
 		$wp_customize->selective_refresh->add_partial(
 			'custom_logo',
-			array(
+			[
 				'selector'        => '.header-titles [class*=site-]:not(.site-description)',
 				'render_callback' => 'wilbur_customize_partial_site_logo',
-			)
+			]
 		);
 
 		$wp_customize->selective_refresh->add_partial(
 			'retina_logo',
-			array(
+			[
 				'selector'        => '.header-titles [class*=site-]:not(.site-description)',
 				'render_callback' => 'wilbur_customize_partial_site_logo',
-			)
+			]
 		);
 
 		/**
@@ -106,67 +106,67 @@ class Customize {
 		/* 2X Header Logo ---------------- */
 		$wp_customize->add_setting(
 			'retina_logo',
-			array(
+			[
 				'capability'        => 'edit_theme_options',
-				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ),
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ],
 				'transport'         => 'postMessage',
-			)
+			]
 		);
 
 		$wp_customize->add_control(
 			'retina_logo',
-			array(
+			[
 				'type'        => 'checkbox',
 				'section'     => 'title_tagline',
 				'priority'    => 10,
 				'label'       => __( 'Retina logo', 'wilbur' ),
 				'description' => __( 'Scales the logo to half its uploaded size, making it sharp on high-res screens.', 'wilbur' ),
-			)
+			]
 		);
 
 		// Header & Footer Background Color.
 		$wp_customize->add_setting(
 			'header_footer_background_color',
-			array(
+			[
 				'default'           => '#ffffff',
 				'sanitize_callback' => 'sanitize_hex_color',
 				'transport'         => 'postMessage',
-			)
+			]
 		);
 
 		$wp_customize->add_control(
 			new \WP_Customize_Color_Control(
 				$wp_customize,
 				'header_footer_background_color',
-				array(
+				[
 					'label'   => __( 'Header &amp; Footer Background Color', 'wilbur' ),
 					'section' => 'colors',
-				)
+				]
 			)
 		);
 
 		// Enable picking an accent color.
 		$wp_customize->add_setting(
 			'accent_hue_active',
-			array(
+			[
 				'capability'        => 'edit_theme_options',
-				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_select' ),
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_select' ],
 				'transport'         => 'postMessage',
 				'default'           => 'default',
-			)
+			]
 		);
 
 		$wp_customize->add_control(
 			'accent_hue_active',
-			array(
+			[
 				'type'    => 'radio',
 				'section' => 'colors',
 				'label'   => __( 'Primary Color', 'wilbur' ),
-				'choices' => array(
+				'choices' => [
 					'default' => __( 'Default', 'wilbur' ),
 					'custom'  => __( 'Custom', 'wilbur' ),
-				),
-			)
+				],
+			]
 		);
 
 		/**
@@ -181,36 +181,36 @@ class Customize {
 		// Add the setting for the hue colorpicker.
 		$wp_customize->add_setting(
 			'accent_hue',
-			array(
+			[
 				'default'           => 344,
 				'type'              => 'theme_mod',
 				'sanitize_callback' => 'absint',
 				'transport'         => 'postMessage',
-			)
+			]
 		);
 
 		// Add setting to hold colors derived from the accent hue.
 		$wp_customize->add_setting(
 			'accent_accessible_colors',
-			array(
-				'default'           => array(
-					'content'       => array(
-						'text'      => '#000000',
+			[
+				'default'           => [
+					'content'       => [
+						'text'      => '#2e281d',
 						'accent'    => '#b52712',
 						'secondary' => '#6d6d6d',
 						'borders'   => '#dcd7ca',
-					),
-					'header-footer' => array(
-						'text'      => '#000000',
+					],
+					'header-footer' => [
+						'text'      => '#302a1e',
 						'accent'    => '#b52712',
 						'secondary' => '#6d6d6d',
 						'borders'   => '#dcd7ca',
-					),
-				),
+					],
+				],
 				'type'              => 'theme_mod',
 				'transport'         => 'postMessage',
-				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_accent_accessible_colors' ),
-			)
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_accent_accessible_colors' ],
+			]
 		);
 
 		// Add the hue-only colorpicker for the accent color.
@@ -218,7 +218,7 @@ class Customize {
 			new \WP_Customize_Color_Control(
 				$wp_customize,
 				'accent_hue',
-				array(
+				[
 					'section'         => 'colors',
 					'settings'        => 'accent_hue',
 					'description'     => __( 'Apply a custom color for links, buttons, featured images.', 'wilbur' ),
@@ -226,7 +226,7 @@ class Customize {
 					'active_callback' => function() use ( $wp_customize ) {
 						return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
 					},
-				)
+				]
 			)
 		);
 
@@ -239,78 +239,78 @@ class Customize {
 
 		$wp_customize->add_section(
 			'options',
-			array(
+			[
 				'title'      => __( 'Theme Options', 'wilbur' ),
 				'priority'   => 40,
 				'capability' => 'edit_theme_options',
-			)
+			]
 		);
 
 		/* Enable Header Search ----------------------------------------------- */
 
 		$wp_customize->add_setting(
 			'enable_header_search',
-			array(
+			[
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ),
-			)
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ],
+			]
 		);
 
 		$wp_customize->add_control(
 			'enable_header_search',
-			array(
+			[
 				'type'     => 'checkbox',
 				'section'  => 'options',
 				'priority' => 10,
 				'label'    => __( 'Show search in header', 'wilbur' ),
-			)
+			]
 		);
 
 		/* Show author bio ---------------------------------------------------- */
 
 		$wp_customize->add_setting(
 			'show_author_bio',
-			array(
+			[
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ),
-			)
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ],
+			]
 		);
 
 		$wp_customize->add_control(
 			'show_author_bio',
-			array(
+			[
 				'type'     => 'checkbox',
 				'section'  => 'options',
 				'priority' => 10,
 				'label'    => __( 'Show author bio', 'wilbur' ),
-			)
+			]
 		);
 
 		/* Display full content or excerpts on the blog and archives --------- */
 
 		$wp_customize->add_setting(
 			'blog_content',
-			array(
+			[
 				'capability'        => 'edit_theme_options',
 				'default'           => 'full',
-				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_select' ),
-			)
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_select' ],
+			]
 		);
 
 		$wp_customize->add_control(
 			'blog_content',
-			array(
+			[
 				'type'     => 'radio',
 				'section'  => 'options',
 				'priority' => 10,
 				'label'    => __( 'On archive pages, posts show:', 'wilbur' ),
-				'choices'  => array(
+				'choices'  => [
 					'full'    => __( 'Full text', 'wilbur' ),
 					'summary' => __( 'Summary', 'wilbur' ),
-				),
-			)
+				],
+			]
 		);
 
 		/**
@@ -318,60 +318,60 @@ class Customize {
 		 */
 		$wp_customize->add_section(
 			'cover_template_options',
-			array(
+			[
 				'title'       => __( 'Cover Template', 'wilbur' ),
 				'capability'  => 'edit_theme_options',
 				'description' => __( 'Settings for the "Cover Template" page template. Add a featured image to use as background.', 'wilbur' ),
 				'priority'    => 42,
-			)
+			]
 		);
 
 		/* Overlay Fixed Background ------ */
 
 		$wp_customize->add_setting(
 			'cover_template_fixed_background',
-			array(
+			[
 				'capability'        => 'edit_theme_options',
 				'default'           => true,
-				'sanitize_callback' => array( 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ),
+				'sanitize_callback' => [ 'Wilbur\Classes\Customize_Sanitize', 'sanitize_checkbox' ],
 				'transport'         => 'postMessage',
-			)
+			]
 		);
 
 		$wp_customize->add_control(
 			'cover_template_fixed_background',
-			array(
+			[
 				'type'        => 'checkbox',
 				'section'     => 'cover_template_options',
 				'label'       => __( 'Fixed Background Image', 'wilbur' ),
 				'description' => __( 'Creates a parallax effect when the visitor scrolls.', 'wilbur' ),
-			)
+			]
 		);
 
 		$wp_customize->selective_refresh->add_partial(
 			'cover_template_fixed_background',
-			array(
+			[
 				'selector' => '.cover-header',
 				'type'     => 'cover_fixed',
-			)
+			]
 		);
 
 		/* Separator --------------------- */
 
 		$wp_customize->add_setting(
 			'cover_template_separator_1',
-			array(
+			[
 				'sanitize_callback' => 'wp_filter_nohtml_kses',
-			)
+			]
 		);
 
 		$wp_customize->add_control(
 			new \Wilbur\Classes\Separator_Control(
 				$wp_customize,
 				'cover_template_separator_1',
-				array(
+				[
 					'section' => 'cover_template_options',
-				)
+				]
 			)
 		);
 
@@ -379,21 +379,21 @@ class Customize {
 		$accent = $theme->get_color_for_area( 'content', 'accent' );
 		$wp_customize->add_setting(
 			'cover_template_overlay_background_color',
-			array(
+			[
 				'default'           => $accent,
 				'sanitize_callback' => 'sanitize_hex_color',
-			)
+			]
 		);
 
 		$wp_customize->add_control(
 			new \WP_Customize_Color_Control(
 				$wp_customize,
 				'cover_template_overlay_background_color',
-				array(
+				[
 					'label'       => __( 'Overlay Background Color', 'wilbur' ),
 					'description' => __( 'The color used for the overlay. Defaults to the accent color.', 'wilbur' ),
 					'section'     => 'cover_template_options',
-				)
+				]
 			)
 		);
 
@@ -401,21 +401,21 @@ class Customize {
 
 		$wp_customize->add_setting(
 			'cover_template_overlay_text_color',
-			array(
+			[
 				'default'           => '#ffffff',
 				'sanitize_callback' => 'sanitize_hex_color',
-			)
+			]
 		);
 
 		$wp_customize->add_control(
 			new \WP_Customize_Color_Control(
 				$wp_customize,
 				'cover_template_overlay_text_color',
-				array(
+				[
 					'label'       => __( 'Overlay Text Color', 'wilbur' ),
 					'description' => __( 'The color used for the text in the overlay.', 'wilbur' ),
 					'section'     => 'cover_template_options',
-				)
+				]
 			)
 		);
 
@@ -423,30 +423,30 @@ class Customize {
 
 		$wp_customize->add_setting(
 			'cover_template_overlay_opacity',
-			array(
+			[
 				'default'           => 50,
 				'sanitize_callback' => 'absint',
 				'transport'         => 'postMessage',
-			)
+			]
 		);
 
 		$wp_customize->add_control(
 			'cover_template_overlay_opacity',
-			array(
+			[
 				'label'       => __( 'Overlay Opacity', 'wilbur' ),
 				'description' => __( 'Make sure that the contrast is high enough so that the text is readable.', 'wilbur' ),
 				'section'     => 'cover_template_options',
 				'type'        => 'range',
 				'input_attrs' => wilbur_customize_opacity_range(),
-			)
+			]
 		);
 
 		$wp_customize->selective_refresh->add_partial(
 			'cover_template_overlay_opacity',
-			array(
+			[
 				'selector' => '.cover-color-overlay',
 				'type'     => 'cover_opacity',
-			)
+			]
 		);
 
 		/**
@@ -904,10 +904,10 @@ function wilbur_customize_opacity_range() {
 	 */
 	return apply_filters(
 		'wilbur_customize_opacity_range',
-		array(
+		[
 			'min'  => 0,
 			'max'  => 90,
 			'step' => 5,
-		)
+		]
 	);
 }

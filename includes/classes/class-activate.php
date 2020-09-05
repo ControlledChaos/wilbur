@@ -43,7 +43,7 @@ class Activate {
 		$activate = new self();
 
 		// Conditional activation methods.
-		add_action( 'after_switch_theme', array( $activate, 'theme_switch' ) );
+		add_action( 'after_switch_theme', [ $activate, 'theme_switch' ] );
 	}
 
 	/**
@@ -80,8 +80,8 @@ class Activate {
 		elseif ( $needs_update ) :
 
 			// Add admin notices that the theme was not activated.
-			add_action( 'admin_notices', array( $this, 'php_deactivate_notice' ) );
-			add_action( 'network_admin_notices', array( $this, 'php_deactivate_notice' ) );
+			add_action( 'admin_notices', [ $this, 'php_deactivate_notice' ] );
+			add_action( 'network_admin_notices', [ $this, 'php_deactivate_notice' ] );
 
 			// Switch back to the previous theme.
 			switch_theme( get_option( 'theme_switched' ) );

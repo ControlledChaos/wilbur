@@ -1,6 +1,8 @@
 <?php
 /**
- * Custom page walker for this theme.
+ * Page walker class
+ *
+ * A custom walker for pages.
  *
  * @package WordPress
  * @subpackage Wilbur
@@ -11,8 +13,7 @@
 namespace Wilbur\Classes;
 
 /**
- * CUSTOM PAGE WALKER
- * A custom walker for pages.
+ * Page walker class
  */
 class Walker_Page extends \Walker_Page {
 
@@ -20,15 +21,17 @@ class Walker_Page extends \Walker_Page {
 	 * Outputs the beginning of the current element in the tree.
 	 *
 	 * @see Walker::start_el()
-	 * @since 2.1.0
 	 *
-	 * @param string  $output       Used to append additional content. Passed by reference.
-	 * @param WP_Post $page         Page data object.
-	 * @param int     $depth        Optional. Depth of page. Used for padding. Default 0.
-	 * @param array   $args         Optional. Array of arguments. Default empty array.
-	 * @param int     $current_page Optional. Page ID. Default 0.
+	 * @since  1.0.0
+	 * @access public
+	 * @param  string  $output       Used to append additional content. Passed by reference.
+	 * @param  WP_Post $page         Page data object.
+	 * @param  int     $depth        Optional. Depth of page. Used for padding. Default 0.
+	 * @param  array   $args         Optional. Array of arguments. Default empty array.
+	 * @param  int     $current_page Optional. Page ID. Default 0.
+	 * @return void
 	 */
-	public function start_el( &$output, $page, $depth = 0, $args = array(), $current_page = 0 ) {
+	public function start_el( &$output, $page, $depth = 0, $args = [], $current_page = 0 ) {
 
 		if ( isset( $args['item_spacing'] ) && 'preserve' === $args['item_spacing'] ) {
 			$t = "\t";
@@ -43,13 +46,14 @@ class Walker_Page extends \Walker_Page {
 			$indent = '';
 		}
 
-		$css_class = array( 'page_item', 'page-item-' . $page->ID );
+		$css_class = [ 'page_item', 'page-item-' . $page->ID ];
 
 		if ( isset( $args['pages_with_children'][ $page->ID ] ) ) {
 			$css_class[] = 'page_item_has_children';
 		}
 
 		if ( ! empty( $current_page ) ) {
+
 			$_current_page = get_post( $current_page );
 			if ( $_current_page && in_array( $page->ID, $_current_page->ancestors, true ) ) {
 				$css_class[] = 'current_page_ancestor';
@@ -59,6 +63,7 @@ class Walker_Page extends \Walker_Page {
 			} elseif ( $_current_page && $page->ID === $_current_page->post_parent ) {
 				$css_class[] = 'current_page_parent';
 			}
+
 		} elseif ( get_option( 'page_for_posts' ) === $page->ID ) {
 			$css_class[] = 'current_page_parent';
 		}
@@ -75,7 +80,7 @@ class Walker_Page extends \Walker_Page {
 		$args['link_before'] = empty( $args['link_before'] ) ? '' : $args['link_before'];
 		$args['link_after']  = empty( $args['link_after'] ) ? '' : $args['link_after'];
 
-		$atts                 = array();
+		$atts                 = [];
 		$atts['href']         = get_permalink( $page->ID );
 		$atts['aria-current'] = ( $page->ID === $current_page ) ? 'page' : '';
 
@@ -95,6 +100,7 @@ class Walker_Page extends \Walker_Page {
 
 		// Wrap the link in a div and append a sub menu toggle.
 		if ( isset( $args['show_toggles'] ) && true === $args['show_toggles'] ) {
+
 			// Wrap the menu item link contents in a div, used for positioning.
 			$args['list_item_before'] = '<div class="ancestor-wrapper">';
 			$args['list_item_after']  = '';
@@ -116,6 +122,7 @@ class Walker_Page extends \Walker_Page {
 
 		// Add icons to menu items with children.
 		if ( isset( $args['show_sub_menu_icons'] ) && true === $args['show_sub_menu_icons'] ) {
+
 			if ( isset( $args['pages_with_children'][ $page->ID ] ) ) {
 				$args['list_item_after'] = '<span class="icon"></span>';
 			}
@@ -134,6 +141,7 @@ class Walker_Page extends \Walker_Page {
 		);
 
 		if ( ! empty( $args['show_date'] ) ) {
+
 			if ( 'modified' === $args['show_date'] ) {
 				$time = $page->post_modified;
 			} else {

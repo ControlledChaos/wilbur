@@ -164,7 +164,7 @@ function admin_color_scheme_picker( $user_id ) {
 		// Set Default ('fresh') and Light should go first.
 		$_wp_admin_css_colors = array_filter(
 			array_merge(
-				array(
+				[
 					'wilbur_pink' => '',
 					'wilbur_blue' => '',
 					'wilbur_violet' => '',
@@ -173,7 +173,7 @@ function admin_color_scheme_picker( $user_id ) {
 					'wilbur_dark_violet' => '',
 					'wilbur_light' => '',
 					'wilbur_dark' => ''
-				),
+				],
 				$_wp_admin_css_colors
 			)
 		);
@@ -201,7 +201,7 @@ function admin_color_scheme_picker( $user_id ) {
 				<div class="color-option <?php echo ( $color == $current_color ) ? 'selected' : ''; ?>">
 					<input name="admin_color" id="admin_color_<?php echo esc_attr( $color ); ?>" type="radio" value="<?php echo esc_attr( $color ); ?>" class="tog" <?php checked( $color, $current_color ); ?> />
 					<input type="hidden" class="css_url" value="<?php echo esc_url( $color_info->url ); ?>" />
-					<input type="hidden" class="icon_colors" value="<?php echo esc_attr( wp_json_encode( array( 'icons' => $color_info->icon_colors ) ) ); ?>" />
+					<input type="hidden" class="icon_colors" value="<?php echo esc_attr( wp_json_encode( [ 'icons' => $color_info->icon_colors ] ) ); ?>" />
 					<label for="admin_color_<?php echo esc_attr( $color ); ?>"><?php echo esc_html( $color_info->name ); ?></label>
 
 					<ul class="color-palette">

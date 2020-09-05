@@ -34,7 +34,7 @@ class Customize_Sanitize {
 	public static function sanitize_accent_accessible_colors( $value ) {
 
 		// Make sure the value is an array. Do not typecast, use empty array as fallback.
-		$value = is_array( $value ) ? $value : array();
+		$value = is_array( $value ) ? $value : [];
 
 		// Loop values.
 		foreach ( $value as $area => $values ) {
