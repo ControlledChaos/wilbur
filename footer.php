@@ -31,16 +31,12 @@
 
 					<a class="to-the-top" href="#site-header">
 						<span class="to-the-top-long">
-							<?php
-							/* translators: %s: HTML character for up arrow. */
-							printf( __( 'To the top %s', 'wilbur' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
-							?>
+							<span class="screen-reader-text"><?php _e( 'To the top', 'wilbur' ); ?></span>
+							<span class="arrow" aria-hidden="true"><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 22 24"><polygon points="721.105 856 721.105 874.315 728.083 867.313 730.204 869.41 719.59 880 709 869.41 711.074 867.313 718.076 874.315 718.076 856" transform="translate(-709 -856)" /></svg></span>
 						</span><!-- .to-the-top-long -->
 						<span class="to-the-top-short">
-							<?php
-							/* translators: %s: HTML character for up arrow. */
-							printf( __( 'Up %s', 'wilbur' ), '<span class="arrow" aria-hidden="true">&uarr;</span>' );
-							?>
+							<span class="screen-reader-text"><?php _e( 'Up', 'wilbur' ); ?></span>
+							<span class="arrow" aria-hidden="true"><svg class="svg-icon" aria-hidden="true" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" width="16" height="18" viewBox="0 0 22 24"><polygon points="721.105 856 721.105 874.315 728.083 867.313 730.204 869.41 719.59 880 709 869.41 711.074 867.313 718.076 874.315 718.076 856" transform="translate(-709 -856)" /></svg></span>
 						</span><!-- .to-the-top-short -->
 					</a><!-- .to-the-top -->
 

@@ -4480,14 +4480,16 @@ ul.footer-social li {
 	text-decoration: underline;
 }
 
-.footer-copyright a,
-.powered-by-wordpress a {
+.footer-copyright a {
 	color: inherit;
 }
 
-.powered-by-wordpress,
 .to-the-top {
-	color: #6d6d6d;
+	position: fixed;
+	top: auto;
+	left: auto;
+	right: 3rem;
+	bottom: 3rem;
 }
 
 a.to-the-top > * {
@@ -4497,11 +4499,6 @@ a.to-the-top > * {
 .footer-copyright {
 	font-weight: 600;
 	margin: 0;
-}
-
-.powered-by-wordpress {
-	display: none;
-	margin: 0 0 0 2.4rem;
 }
 
 .to-the-top-long {
@@ -5619,10 +5616,6 @@ a.to-the-top > * {
 
 	.footer-copyright {
 		font-weight: 700;
-	}
-
-	.powered-by-wordpress {
-		display: block;
 	}
 
 	.to-the-top-long {

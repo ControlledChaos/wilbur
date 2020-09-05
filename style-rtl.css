@@ -4446,13 +4446,16 @@ ul.footer-social li {
 	text-decoration: underline;
 }
 
-.footer-copyright a,
-.powered-by-wordpress a {
+.footer-copyright a {
 	color: inherit;
 }
 
-.powered-by-wordpress,
 .to-the-top {
+	position: fixed;
+	top: auto;
+	left: auto;
+	right: 3rem;
+	bottom: 3rem;
 	color: #6d6d6d;
 }
 
@@ -4463,11 +4466,6 @@ a.to-the-top > * {
 .footer-copyright {
 	font-weight: 600;
 	margin: 0;
-}
-
-.powered-by-wordpress {
-	display: none;
-	margin: 0 2.4rem 0 0;
 }
 
 .to-the-top-long {
@@ -5557,10 +5555,6 @@ a.to-the-top > * {
 
 	.footer-copyright {
 		font-weight: 700;
-	}
-
-	.powered-by-wordpress {
-		display: block;
 	}
 
 	.to-the-top-long {

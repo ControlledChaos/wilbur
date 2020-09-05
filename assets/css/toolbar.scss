@@ -6,9 +6,11 @@
 @import 'modules/_typography';
 @import 'partials/_typography';
 
+$toolbar_bg: #302a1e;
+
 #wpadminbar {
 	color: $white;
-	background: $black;
+	background: $toolbar_bg;
 
 	@media screen and ( max-width: 480px ) {
 		position: absolute !important;
@@ -76,12 +78,12 @@
 
 	// Admin Bar: submenu.
 	.menupop .ab-sub-wrapper {
-		background: $black;
+		background: $toolbar_bg;
 	}
 
 	.quicklinks .menupop ul.ab-sub-secondary,
 	.quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-		background: $black;
+		background: $toolbar_bg;
 	}
 
 	.ab-submenu .ab-item,

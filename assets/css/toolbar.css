@@ -105,7 +105,7 @@
 
 #wpadminbar {
   color: #ffffff;
-  background: #000000;
+  background: #302a1e;
 }
 
 @media screen and (max-width: 480px) {
@@ -179,12 +179,12 @@
 }
 
 #wpadminbar .menupop .ab-sub-wrapper {
-  background: #000000;
+  background: #302a1e;
 }
 
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-  background: #000000;
+  background: #302a1e;
 }
 
 #wpadminbar .ab-submenu .ab-item,

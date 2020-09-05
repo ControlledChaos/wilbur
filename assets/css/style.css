@@ -107,6 +107,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  position: relative;
 }
 
 /**
@@ -184,6 +185,14 @@ button.close-nav-toggle .toggle-text {
 
 .footer-message a {
   color: inherit;
+}
+
+.to-the-top {
+  position: fixed;
+  top: auto;
+  left: auto;
+  right: 3rem;
+  bottom: 3rem;
 }
 
 .to-the-top .arrow {
