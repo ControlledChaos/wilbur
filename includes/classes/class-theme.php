@@ -927,7 +927,7 @@ class Theme {
 		/**
 		* Filters Wilbur theme elements
 		*
-		* @since Wilbur 1.0
+		* @since 1.0.0
 		*
 		* @param array Array of elements
 		*/

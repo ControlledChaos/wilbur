@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Wilbur
- * @since Wilbur 1.0
+ * @since 1.0.0
  */
 
 ?>
@@ -57,7 +57,7 @@
 							/**
 							 * Allow child themes and plugins to filter the display of the categories in the article header.
 							 *
-							 * @since Wilbur 1.0
+							 * @since 1.0.0
 							 *
 							 * @param bool Whether to show the categories in article header, Default true.
 							 */

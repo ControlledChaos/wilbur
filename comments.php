@@ -5,7 +5,7 @@
  *
  * @package WordPress
  * @subpackage Wilbur
- * @since Wilbur 1.0
+ * @since 1.0.0
  */
 
 /*

@@ -27,7 +27,7 @@ class Customize_Sanitize {
 	 *
 	 * @static
 	 * @access public
-	 * @since Wilbur 1.0
+	 * @since 1.0.0
 	 * @param array $value The value we want to sanitize.
 	 * @return array Returns sanitized value. Each item in the array gets sanitized separately.
 	 */

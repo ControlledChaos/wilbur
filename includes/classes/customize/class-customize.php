@@ -175,7 +175,7 @@ class Customize {
 		 * The control is a hue-only colorpicker, and there is a separate setting that holds values
 		 * for other colors calculated based on the selected hue and various background-colors on the page.
 		 *
-		 * @since Wilbur 1.0
+		 * @since 1.0.0
 		 */
 
 		// Add the setting for the hue colorpicker.

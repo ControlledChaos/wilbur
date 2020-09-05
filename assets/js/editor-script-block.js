@@ -1,7 +1,7 @@
 /**
  * Remove squared button style
  *
- * @since Wilbur 1.0
+ * @since 1.0.0
  */
 /* global wp */
 wp.domReady( function() {
