@@ -28,18 +28,7 @@ class Admin_Pages {
 	 * @return object Returns the instance.
 	 */
 	public static function instance() {
-
-		// Varialbe for the instance to be used outside the class.
-		static $instance = null;
-
-		if ( is_null( $instance ) ) {
-
-			// Set variable for new instance.
-			$instance = new self;
-		}
-
-		// Return the instance.
-		return $instance;
+		return new self;
 	}
 
 	/**

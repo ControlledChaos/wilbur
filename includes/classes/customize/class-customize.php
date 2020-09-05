@@ -31,34 +31,21 @@ class Customize {
 	 * @return object Returns the instance.
 	 */
 	public static function instance() {
-
-		// Varialbe for the instance to be used outside the class.
-		static $instance = null;
-
-		if ( is_null( $instance ) ) {
-
-			// Set variable for new instance.
-			$instance = new self;
-
-			$instance->customize();
-		}
-
-		// Return the instance.
-		return $instance;
+		return new self;
 	}
 
 	/**
-	 * Add Customizer settings and controls
-	 *
-	 * Use priority 11 or later to run after the parent theme.
+	 * Constructor method
 	 *
 	 * @since  1.0.0
-	 * @access private
-	 * @return void
+	 * @access public
+	 * @return self
 	 */
-	private function customize() {
-        add_action( 'customize_register', [ $this, 'register' ], 11 );
-    }
+	public function __construct() {
+
+		// Add Customizer settings and controls
+		add_action( 'customize_register', [ $this, 'register' ], 11 );
+	}
 
 	/**
 	 * Register Customizer settings and controls
