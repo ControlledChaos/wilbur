@@ -93,7 +93,7 @@ class Theme {
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'customize_styles' ] );
 
 		// Customizer preview.
-		add_action( 'customize_preview_init', 'customize_preview_init' );
+		add_action( 'customize_preview_init', [ $this, 'customize_preview_init' ] );
 
 		// Login styles.
 		add_action( 'login_enqueue_scripts', [ $this, 'login_styles' ] );
