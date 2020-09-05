@@ -481,6 +481,24 @@ class Theme {
 		?>
 		<script>
 		/(trident|msie)/i.test(navigator.userAgent)&&document.getElementById&&window.addEventListener&&window.addEventListener("hashchange",function(){var t,e=location.hash.substring(1);/^[A-z0-9_-]+$/.test(e)&&(t=document.getElementById(e))&&(/^(?:a|select|input|button|textarea)$/i.test(t.tagName)||(t.tabIndex=-1),t.focus())},!1);
+
+		jQuery( document ).ready( function($) {
+
+			var href   = window.location.href,
+				noHash = window.location.href.replace( /#.*$/, '' );
+
+			$( '.to-the-content' ).click( function(event) {
+				event.preventDefault();
+				$( 'html, body' ).stop().animate( { scrollTop: $( '#post-inner' ).offset().top }, '250' );
+				window.history.replaceState( '', document.title, noHash );
+			});
+
+			$( '.to-the-top' ).click( function(event) {
+				event.preventDefault();
+				$( 'html, body' ).stop().animate( { scrollTop: $( 'html' ).offset().top }, 'fast' );
+				window.history.replaceState( '', document.title, noHash );
+			});
+		});
 		</script>
 		<?php
 	}
@@ -868,7 +886,7 @@ class Theme {
 			],
 			'header-footer' => [
 				'accent' => [
-					'color' => [ 'body:not(.overlay-header) .primary-menu > li > a', 'body:not(.overlay-header) .primary-menu > li > .icon', '.modal-menu a', '.footer-menu a, .footer-widgets a', '#site-footer .wp-block-button.is-style-outline', '.wp-block-pullquote:before', '.singular:not(.overlay-header) .entry-header a', '.archive-header a', '.header-footer-group .color-accent', '.header-footer-group .color-accent-hover:hover', '.to-the-top' ],
+					'color' => [ 'body:not(.overlay-header) .primary-menu > li', 'body:not(.overlay-header) .primary-menu > li > .icon', '.modal-menu a', '.footer-menu a, .footer-widgets a', '#site-footer .wp-block-button.is-style-outline', '.wp-block-pullquote:before', '.singular:not(.overlay-header) .entry-header a', '.archive-header a', '.header-footer-group .color-accent', '.header-footer-group .color-accent-hover:hover', '.to-the-top' ],
 
 					'background-color' => [ '.social-icons a', '#site-footer button:not(.toggle)', '#site-footer .button', '#site-footer .faux-button', '#site-footer .wp-block-button__link', '#site-footer .wp-block-file__button', '#site-footer input[type="button"]', '#site-footer input[type="reset"]', '#site-footer input[type="submit"]' ],
 				],
