@@ -143,7 +143,7 @@ class Theme {
 		// Set content-width.
 		global $content_width;
 		if ( ! isset( $content_width ) ) {
-			$content_width = 1280;
+			$content_width = 1024;
 		}
 
 		// Enable support for Post Thumbnails on posts and pages.
