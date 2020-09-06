@@ -152,8 +152,11 @@ class Theme {
 		// Set post thumbnail size.
 		set_post_thumbnail_size( 1280, 720, [ 'center', 'center' ] );
 
+		// Extra-large image the same as the content width.
+		add_image_size( 'extra-large', 1024, 768, true );
+
 		// Add custom image size used in Cover Template.
-		add_image_size( 'wilbur-fullscreen', 1920, 1080, true );
+		add_image_size( 'cover-image', 1920, 1080, true );
 
 		/**
 		 * Custom background
