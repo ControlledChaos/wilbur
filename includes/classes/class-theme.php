@@ -467,8 +467,11 @@ class Theme {
 			wp_enqueue_script( 'comment-reply' );
 		}
 
-		wp_enqueue_script( 'wilbur-js', get_theme_file_uri( 'assets/js/index.js' ), [], $theme_version, false );
+		wp_enqueue_script( 'wilbur-js', get_theme_file_uri( 'assets/js/index.min.js' ), [], $theme_version, false );
 		wp_script_add_data( 'wilbur-js', 'async', true );
+
+		// Tabbed content script.
+		wp_enqueue_script( 'wilbur-tabs', get_theme_file_uri( 'assets/js/theme-tabs.min.js' ), [ 'jquery' ], $theme_version, true );
 	}
 
 	/**

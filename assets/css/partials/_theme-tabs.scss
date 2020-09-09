@@ -1,0 +1,168 @@
+///
+/// Styles for the jQuery tabs library
+///
+
+// Import general app variables.
+@import '_typography';
+@import '_colors';
+
+/**
+ * App tabs library
+ *
+ * .theme-tabs is the container class.
+ */
+
+// Tab variables.
+$tab_border_width: 1px;
+
+.theme-tabs {
+
+	.theme-tabs-list {
+		list-style: none;
+		margin: 2em 0 0;
+		padding: 0 0 0 0.5em;
+		border-bottom: solid $tab_border_width $form_border_color;
+
+		.theme-tab {
+			display: inline-block;
+			position: relative;
+
+			// Top offset same as the border-bottom width of .theme-tabs-list.
+			top: $tab_border_width;
+			margin: 0 0.15em;
+			border: solid $tab_border_width $form_border_color;
+			font-size: 1em;
+			font-weight: 700;
+
+			a {
+				display: block;
+				padding: 0.75em 1em;
+				background-color: $white;
+				line-height: 1;
+				text-decoration: none;
+				color: $medium_gray;
+
+				&:hover,
+				&:focus,
+				&:active {
+					color: $black;
+				}
+			}
+
+			&.active {
+
+				// Same as background color for the open folder effect.
+				border-bottom-color: $white;
+
+				a {
+					color: $black;
+					cursor: default;
+				}
+			}
+		}
+	}
+
+	.theme-tab-content {
+		display: none;
+		position: relative;
+		overflow: hidden;
+		padding: 2rem 1em;
+
+		& > h2 {
+			margin-top: 0;
+
+			& + div,
+			& + section {
+				margin-top: 2rem;
+			}
+		}
+
+		section {
+
+			h3 {
+				&:first-of-type {
+					margin-top: 0;
+				}
+			}
+		}
+
+		.tab-section {
+
+			& > div {
+				padding-top: 1rem;
+			}
+		}
+
+		.theme-tab-columns {
+			display: flex;
+
+			@media screen and ( max-width: 768px ) {
+				flex-direction: column;
+			}
+
+			& > div {
+				width: auto;
+
+				@media screen and ( max-width: 768px ) {
+					width: 100%;
+				}
+
+				&:not( :last-of-type ) {
+					margin-right: 2rem;
+				}
+			}
+
+			&.theme-tab-columns-two {
+				& > div {
+					width: 50%;
+
+					@media screen and ( max-width: 768px ) {
+						width: 100%;
+					}
+				}
+			}
+
+			&.theme-tab-columns-three {
+				& > div {
+					width: 33.33325%;
+					width: calc( 100% / 3 );
+
+					@media screen and ( max-width: 768px ) {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+
+	// .theme-tabs[data-tab_mouseevent="hover"]
+	&[data-tab_mouseevent="hover"] {
+		.theme-tabs-list {
+			.theme-tab {
+				&.active {
+
+					// Pointer when using hover.
+					a {
+						cursor: pointer;
+					}
+				}
+			}
+		}
+	}
+}
+
+.rtl {
+	.theme-tabs {
+		.theme-tabs-list {
+			padding: 0 0.5em 0 0;
+		}
+	}
+}
+
+.no-js {
+	.theme-tabs {
+		.theme-tab-content {
+			display: block;
+		}
+	}
+}

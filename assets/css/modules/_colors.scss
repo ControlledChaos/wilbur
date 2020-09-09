@@ -1,14 +1,108 @@
 // Base colors.
-$white: #ffffff;
-$black: #000000;
 $text: #000000;
 $dark_bg: #222222;
-$dark_gray: #333333;
-$medium_gray: #555555;
-$light_gray: #888888;
-$pale_gray: #cccccc;
 
 // Color scheme colors.
 $primary_pink_bg: #f0eddb;
 $primary_pink: #b52712;
 $parent_pale: #dedfdf;
+
+// Color name variables.
+$white: #ffffff;
+$off_white: #eeeeee !default;
+$pale_gray: #cccccc !default;
+$light_gray: #888888 !default;
+$medium_gray: #555555 !default;
+$dark_gray: #333333 !default;
+$near_black: #121212 !default;
+$black: #000000;
+$theme_green: #44aa11 !default;
+$theme_yellow: #ffee00 !default;
+$theme_orange: #ee6600 !default;
+$theme_red: #dd0000 !default;
+
+// Global app color variables.
+$theme_primary_color: #ffee00 !default;
+$theme_secondary_color: #222222 !default;
+$theme_tertiary_color: #004499 !default;
+$theme_highlight_color: $theme_primary_color !default;
+
+// Primary body colors.
+$body_background: $white !default;
+$text_color: $theme_secondary_color !default;
+
+/// Box colors are used to distinguish sections, such as
+/// meta boxes, <hr> tags, and to create content dividers.
+$box_background_color: inherit !default;
+$box_border_color: $pale_gray !default;
+$box_text_color: inherit !default;
+
+// Standard links.
+$link_color: $theme_tertiary_color !default;
+$link_action_color: lighten( $link_color, 12% ) !default;
+
+// Messages and user actions.
+$notify_color: $theme_orange !default;
+$error_color: $theme_red !default;
+$warning_color: $theme_yellow !default;
+$success_color: $theme_green !default;
+
+// Form color variables.
+$form_background_color: inherit !default;
+$form_border_color: $light_gray !default;
+$form_text_color: $text_color !default;
+$form_action_background_color: $form_background_color !default;
+$form_action_border_color: $link_action_color !default;
+$form_action_text_color: $text_color !default;
+$form_focus: $link_action_color !default;
+$form_checked: $link_action_color !default;
+$form_placeholder_color: $light_gray !default;
+
+// Button color variables.
+$button_background_color: $white !default;
+$button_border_color: $light_gray !default;
+$button_text_color: $text_color !default;
+$button_action_background_color: $theme_highlight_color !default;
+$button_action_border_color: $button_border_color !default;
+$button_action_text_color: $text_color !default;
+$button_disabled_background_color: $off_white !default;
+$button_disabled_border_color: $pale_gray !default;
+$button_disabled_text_color: $light_gray !default;
+
+// Admin menu & admin-bar color variables.
+$menu_base_color: $theme_secondary_color !default;
+$menu_text_color: $white !default;
+$menu_icon_color: darken( $menu_text_color, 25% ) !default;
+
+$menu_icon: $menu_icon_color !default;
+$menu_background: $menu_base_color !default;
+
+$menu_highlight_text: $menu_text_color !default;
+$menu_highlight_icon: $menu_text_color !default;
+$menu_highlight_background: $theme_highlight_color !default;
+
+$menu_current_text: $menu_highlight_text !default;
+$menu_current_icon: $menu_highlight_icon !default;
+$menu_current_background: $menu_highlight_background !default;
+
+$menu_submenu_text: mix( $menu_base_color, $menu_text_color, 30% ) !default;
+$menu_submenu_background: darken( $menu_base_color, 7% ) !default;
+$menu_submenu_background_alt: desaturate( lighten( $menu_background, 7% ), 7% ) !default;
+
+$menu_submenu_focus_text: $theme_highlight_color !default;
+$menu_submenu_current_text: $menu_text_color !default;
+
+$menu_bubble_text: $menu_text_color !default;
+$menu_bubble_background: $notify_color !default;
+$menu_bubble_current_text: $menu_text_color !default;
+$menu_bubble_current_background: $menu_submenu_background !default;
+
+$menu_collapse_text: $menu_icon !default;
+$menu_collapse_icon: $menu_icon !default;
+$menu_collapse_focus_text: $menu_text_color !default;
+$menu_collapse_focus_icon: $menu_highlight_icon !default;
+
+$adminbar_avatar_frame: lighten( $menu_background, 7% ) !default;
+$adminbar_input_background: lighten( $menu_background, 7% ) !default;
+
+$menu_customizer_text: mix( $menu_base_color, $menu_text_color, 40% ) !default;
