@@ -1,11 +1,129 @@
-/**
- * Typography
- */
+///
+/// Font stack variables
+///
+/// The $sans and $serif stacks are default. The $variable_sans and $variable_serif
+/// stacks are used in @supports( font-variation-settings ) queries.
+///
+
+// Default sans stack.
+$sans :
+	system-ui,
+	-apple-system,
+	BlinkMacSystemFont,
+	'Segoe UI',
+	Roboto,
+	Oxygen-Sans,
+	Ubuntu,
+	Cantarell,
+	'Helvetica Neue',
+	Helvetica,
+	sans-serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+// Variable sans stack.
+$variable_sans :
+	'Inter',
+	system-ui,
+	-apple-system,
+	BlinkMacSystemFont,
+	'Segoe UI',
+	Roboto,
+	Oxygen-Sans,
+	Ubuntu,
+	Cantarell,
+	'Helvetica Neue',
+	Helvetica,
+	sans-serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+// Default serif stack.
+$serif :
+	HoeflerFix,
+	'Hoefler Text',
+	Garamond,
+	'Lucida Bright',
+	Lucidabright,
+	'Lucida Serif',
+	Lucida,
+	'Liberation Serif',
+	'Times New Roman',
+	Constantia,
+	Times,
+	Georgia,
+	serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+// Variable serif stack.
+$variable_serif :
+	'Crimson Pro',
+	HoeflerFix,
+	'Hoefler Text',
+	Garamond,
+	'Lucida Bright',
+	Lucidabright,
+	'Lucida Serif',
+	Lucida,
+	'Liberation Serif',
+	'Times New Roman',
+	Constantia,
+	Times,
+	Georgia,
+	serif,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+// Default monospace stack.
+$monospace :
+	SFMono-Regular,
+	'Menlo',
+	'Consolas',
+	'Roboto Mono',
+	'Ubuntu Monospace',
+	'Noto Mono',
+	'Oxygen Mono',
+	'Liberation Mono',
+	'Courier New',
+	Courier,
+	monospace,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
+
+// Variable monospace stack.
+$variable_mono :
+	'mono var',
+	SFMono-Regular,
+	'Menlo',
+	'Consolas',
+	'Roboto Mono',
+	'Ubuntu Monospace',
+	'Noto Mono',
+	'Oxygen Mono',
+	'Liberation Mono',
+	'Courier New',
+	Courier,
+	monospace,
+	'Apple Color Emoji',
+	'Segoe UI Emoji',
+	'Segoe UI Symbol',
+	'Noto Color Emoji';
 
 /**
  * Font stack variables
  *
- * The $sans and $serif stacks are default. The $inter and $crimson
+ * The $sans and $serif stacks are default. The $variable_sans and $variable_serif
  * stacks are used in @supports( font-variation-settings ) queries.
  */
 $sans :
@@ -15,7 +133,7 @@ $sans :
 	Helvetica,
 	sans-serif;
 
-$inter :
+$variable_sans :
 	'Inter',
 	-apple-system,
 	BlinkMacSystemFont,
@@ -38,7 +156,7 @@ $serif :
 	Georgia,
 	serif;
 
-$crimson :
+$variable_serif :
 	'Crimson Pro',
 	NonBreakingSpaceOverride,
 	'Hoefler Text',

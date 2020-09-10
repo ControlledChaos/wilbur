@@ -24,7 +24,7 @@ $toolbar_bg: #302a1e;
 		line-height: unset;
 
 		@supports ( font-variation-settings: normal ) {
-			font-family: $inter;
+			font-family: $variable_sans;
 		}
 	}
 

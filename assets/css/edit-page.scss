@@ -244,7 +244,7 @@
 	font-family: $serif;
 
 	@supports ( font-variation-settings: normal ) {
-		font-family: $crimson;
+		font-family: $variable_serif;
 	}
 }
 
@@ -294,7 +294,7 @@
 		font-weight: 700;
 
 		@supports ( font-variation-settings: normal ) {
-			font-family: $inter;
+			font-family: $variable_sans;
 		}
 	}
 }

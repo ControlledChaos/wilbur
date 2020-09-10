@@ -10,7 +10,7 @@ body {
 	color: $text;
 
 	@supports ( font-variation-settings: normal ) {
-		font-family: $inter;
+		font-family: $variable_sans;
 	}
 }
 
@@ -89,7 +89,7 @@ a {
 	line-height: 1.2;
 
 	@supports ( font-variation-settings: normal ) {
-		font-family: $crimson;
+		font-family: $variable_serif;
 	}
 }
 
@@ -99,7 +99,7 @@ a {
 	font-size: 1.6rem;
 
 	@supports ( font-variation-settings: normal ) {
-		font-family: $crimson;
+		font-family: $variable_serif;
 	}
 }
 
@@ -112,7 +112,7 @@ a {
 	border-radius: 0px;
 	box-shadow: none;
 	color: $white;
-	font-family: $inter;
+	font-family: $variable_sans;
 	font-size: 1rem;
 	font-weight: 600;
 	letter-spacing: 0.0333em;

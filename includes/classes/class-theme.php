@@ -547,7 +547,7 @@ class Theme {
 			wp_enqueue_style( 'wilbur-rtl', get_theme_file_uri( 'assets/css/rtl.min.css' ), [ 'wilbur' ], $theme_version, 'all' );
 		}
 
-		wp_enqueue_style( 'wilbur-style', get_stylesheet_uri(), [], $theme_version );
+		wp_enqueue_style( 'wilbur-style', get_stylesheet_uri(), [ 'wilbur' ], $theme_version, 'all' );
 		wp_style_add_data( 'wilbur-style', 'rtl', 'replace' );
 
 		// Add output of Customizer settings as inline style.

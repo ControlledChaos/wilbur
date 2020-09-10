@@ -11,7 +11,7 @@ body.rtl .press-this a.wp-switch-editor {
 	font-family: $sans;
 
 	@supports ( font-variation-settings: normal ) {
-		font-family: $inter;
+		font-family: $variable_sans;
 	}
 }
 

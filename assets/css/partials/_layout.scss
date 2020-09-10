@@ -7,3 +7,160 @@ body {
 	overflow-x: hidden;
 	position: relative;
 }
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	-webkit-font-smoothing: antialiased;
+	word-break: break-word;
+	word-wrap: break-word;
+}
+
+main {
+	display: block;
+}
+
+#site-content {
+	overflow: hidden;
+}
+
+// Clearing
+.group:after,
+.entry-content:after {
+	clear: both;
+	content: "";
+	display: block;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+.no-padding {
+	padding: 0;
+}
+
+.screen-height {
+	min-height: 100vh;
+}
+
+.admin-bar .screen-height {
+	min-height: calc(100vh - 32px);
+}
+
+@media (max-width: 782px) {
+
+	.admin-bar .screen-height {
+		min-height: calc(100vh - 46px);
+	}
+}
+
+.screen-width {
+	position: relative;
+	left: calc(50% - 50vw);
+	width: 100vw;
+}
+
+section {
+	padding: 5rem 0;
+	width: 100%;
+}
+
+.section-inner {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 120rem;
+	width: calc(100% - 4rem);
+}
+
+.section-inner.max-percentage {
+	width: 100%;
+}
+
+.section-inner.thin {
+	max-width: 1024px;
+}
+
+.section-inner.small {
+	max-width: 80rem;
+}
+
+.section-inner.medium {
+	max-width: 100rem;
+}
+
+.section-inner.no-margin {
+	margin: 0;
+}
+
+/*	7c. Template: Full Width
+/* -------------------------------------------------------------------------- */
+
+
+body.template-full-width .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
+body.template-full-width [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+	max-width: 120rem;
+}
+
+body.template-full-width .entry-content .alignleft,
+body.template-full-width .entry-content .alignright {
+	position: static;
+}
+
+body.template-full-width .entry-content .alignleft,
+body.template-full-width [class*="wp-block"].alignwide [class*="__inner-container"] > .alignleft,
+body.template-full-width [class*="wp-block"].alignwide [class*="__inner-container"] > p .alignleft,
+body.template-full-width [class*="wp-block"].alignwide [class*="__inner-container"] > .wp-block-image .alignleft {
+
+	/*rtl:ignore*/
+	margin-left: 0;
+	position: static;
+}
+
+body.template-full-width .entry-content > .alignleft,
+body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [class*="__inner-container"] > .alignleft,
+body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [class*="__inner-container"] > p .alignleft,
+body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [class*="__inner-container"] > .wp-block-image .alignleft {
+
+	/*rtl:ignore*/
+	margin-left: 2rem;
+	position: static;
+}
+
+body.template-full-width .entry-content .alignright,
+body.template-full-width [class*="wp-block"].alignwide [class*="__inner-container"] > .alignright,
+body.template-full-width [class*="wp-block"].alignwide [class*="__inner-container"] > p .alignright,
+body.template-full-width [class*="wp-block"].alignwide [class*="__inner-container"] > .wp-block-image .alignright {
+
+	/*rtl:ignore*/
+	margin-right: 0;
+	position: static;
+}
+
+body.template-full-width .entry-content > .alignright,
+body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [class*="__inner-container"] > .alignright,
+body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [class*="__inner-container"] > p .alignright,
+body.template-full-width [class*="wp-block"].alignfull:not(.has-background) [class*="__inner-container"] > .wp-block-image .alignright {
+
+	/*rtl:ignore*/
+	margin-right: 2rem;
+	position: static;
+}
+
+/*	14. Error 404
+/* -------------------------------------------------------------------------- */
+
+
+.error404 #site-content {
+	padding-top: 4rem;
+}
+
+.error404-content {
+	text-align: center;
+}
+
+.error404 #site-content .search-form {
+	justify-content: center;
+	margin-top: 3rem;
+}

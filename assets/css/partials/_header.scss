@@ -1,11 +1,304 @@
 
-/**
- * Header
- */
+///
+/// Header
+///
+
+#site-header {
+	background: #fff;
+	position: relative;
+}
+
+.header-inner {
+	max-width: 168rem;
+	padding: 3.15rem 0;
+	z-index: 100;
+}
+
+/* Header Titles ----------------------------- */
+
+.header-titles-wrapper {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	padding: 0 4rem;
+	text-align: center;
+}
+
+body:not(.enable-search-modal) .header-titles-wrapper {
+	justify-content: flex-start;
+	padding-left: 0;
+	text-align: left;
+}
+
+.site-title,
+.site-logo,
+.site-description {
+	margin: 0;
+}
+
+.site-title {
+	font-size: 2.1rem;
+	font-weight: 600;
+	line-height: 1;
+}
+
+.site-title a {
+	color: inherit;
+	display: block;
+	text-decoration: none;
+}
+
+.site-title a:hover,
+.site-title a:focus {
+	text-decoration: underline;
+}
+
+.site-description {
+	margin-top: 1rem;
+	color: #6d6d6d;
+	font-size: 1.8rem;
+	font-weight: 500;
+	display: none;
+	letter-spacing: -0.0311em;
+	transition: all 0.15s linear;
+}
+
+.site-logo a,
+.site-logo img {
+	display: block;
+}
+
+.header-titles .site-logo .site-logo {
+	margin: 0;
+}
+
+.site-logo img {
+	max-height: 6rem;
+	margin: 0 auto;
+	width: auto;
+}
+
+body:not(.enable-search-modal) .site-logo img {
+	margin: 0;
+}
+
+/* Overlay Header ---------------------------- */
+
+.overlay-header #site-header {
+	background: transparent;
+	margin: 0;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	z-index: 2;
+}
+
+.overlay-header .header-inner {
+	color: #fff;
+}
+
+.overlay-header .site-description,
+.overlay-header .toggle {
+	color: inherit;
+}
+
+.overlay-header .header-inner .toggle-wrapper:before {
+	background-color: currentColor;
+	opacity: 0.25;
+}
+
+.admin-bar.overlay-header #site-header {
+	top: 32px;
+}
+
+@media (max-width: 782px) {
+
+	.admin-bar.overlay-header #site-header {
+		top: 46px;
+	}
+}
+
+/* Header Navigation ------------------------- */
+
+.header-navigation-wrapper {
+	display: none;
+}
+
+/* Header Toggles ---------------------------- */
+
+.header-toggles {
+	display: none;
+}
+
+.header-inner .toggle {
+	align-items: center;
+	display: flex;
+	overflow: visible;
+	padding: 0 2rem;
+}
+
+.header-inner .toggle svg {
+	display: block;
+	position: relative;
+	z-index: 1;
+}
+
+.header-inner .toggle path {
+	fill: currentColor;
+}
+
+.toggle-inner {
+	display: flex;
+	justify-content: center;
+	height: 2.3rem;
+	position: relative;
+}
+
+.toggle-icon {
+	display: block;
+	overflow: hidden;
+}
+
+.toggle-inner .toggle-text {
+	color: #6d6d6d;
+	font-size: 1rem;
+	font-weight: 600;
+	position: absolute;
+	top: calc(100% + 0.5rem);
+	width: auto;
+	white-space: nowrap;
+	word-break: break-all;
+}
+
+.overlay-header .toggle-text {
+	color: inherit;
+}
+
+.header-inner .toggle:focus .toggle-text,
+.header-inner .toggle:hover .toggle-text {
+	text-decoration: underline;
+}
 
 // Stop hiding the site description (tagline) on mobile.
 .site-description {
 	display: block;
+}
+
+/* Cover Modals ------------------------------ */
+
+.cover-modal {
+	display: none;
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+}
+
+.cover-modal::-webkit-scrollbar {
+	display: none !important;
+}
+
+.cover-modal.show-modal {
+	display: block;
+	cursor: pointer;
+}
+
+.cover-modal.show-modal > * {
+	cursor: default;
+}
+
+/*	7a. Template: Cover Template
+/* -------------------------------------------------------------------------- */
+
+
+.cover-header {
+	display: flex;
+	overflow: hidden;
+}
+
+.cover-header-inner-wrapper {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.cover-header-inner {
+	padding: 10rem 0 5rem 0;
+	width: 100%;
+}
+
+.cover-color-overlay,
+.cover-color-overlay:before {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+}
+
+.cover-color-overlay:before {
+	background: #000;
+	content: "";
+	display: block;
+}
+
+.cover-header .entry-header {
+	position: relative;
+	width: 100%;
+	z-index: 1;
+}
+
+.cover-header .entry-header * {
+	color: #fff;
+}
+
+body.template-cover .entry-header {
+	background: transparent;
+	padding: 0;
+}
+
+.cover-header h1,
+.cover-header h2,
+.cover-header h3,
+.cover-header h4,
+.cover-header h5,
+.cover-header h6,
+.cover-header .faux-heading {
+	color: inherit;
+}
+
+.cover-header .entry-header a {
+	color: inherit;
+}
+
+/* To The Content ---------------------------- */
+
+.to-the-content-wrapper {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: calc(100% + 0.5rem);
+}
+
+.to-the-content {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	height: 4rem;
+	text-decoration: none;
+}
+
+.to-the-content svg {
+	height: 2rem;
+	transition: transform 0.15s linear;
+	transform: translateY(0);
+	width: 1.767rem;
+}
+
+.to-the-content:focus svg,
+.to-the-content:hover svg {
+	transform: translateY(20%);
 }
 
 button.close-nav-toggle .toggle-text {
