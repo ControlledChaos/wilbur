@@ -83,9 +83,7 @@ Theme URI: https://github.com/ControlledChaos/wilbur
 		margin-top: -1.8rem;
 	}
 
-	/* Template -------------------------------- */
-
-	/* TEMPLATE: COVER */
+	/* Templates -------------------------------- */
 
 	.template-cover .post-inner .post-meta-wrapper,
 	.template-cover .post-inner .author-bio {
@@ -433,7 +431,7 @@ Theme URI: https://github.com/ControlledChaos/wilbur
 		width: calc(100% - 8rem);
 	}
 
-	/* Template: Cover Template -------------- */
+	/* Cover Template -------------- */
 
 	.cover-header-inner {
 		padding: 18rem 0 8rem 0;
@@ -452,7 +450,7 @@ Theme URI: https://github.com/ControlledChaos/wilbur
 		width: 2.12rem;
 	}
 
-	/* Template: Full Width ------------------ */
+	/* Full Width ------------------ */
 
 	body.template-full-width .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
 		width: calc(100% - 8rem);
@@ -1299,7 +1297,7 @@ Theme URI: https://github.com/ControlledChaos/wilbur
 		width: 100%;
 	}
 
-	/* Template: Full Width ------------------ */
+	/* Full Width ------------------ */
 
 	.template-full-width .wp-block-image .alignleft {
 
@@ -1505,7 +1503,7 @@ Theme URI: https://github.com/ControlledChaos/wilbur
 
 	/* Sub Page ------------------------------ */
 
-	/* Template: Cover Template -------------- */
+	/* Cover Template -------------- */
 
 	.cover-header + .post-inner {
 		padding-top: 10rem;
@@ -1699,7 +1697,7 @@ Theme URI: https://github.com/ControlledChaos/wilbur
 		width: 100%;
 	}
 
-	/* Template: Full Width ------------------ */
+	/* Full Width ------------------ */
 
 	body.template-full-width .alignfull:not(.has-background) > .wp-block-group__inner-container > p:not(.has-background-color) {
 		padding-left: 0;

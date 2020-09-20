@@ -842,7 +842,7 @@ section {
   margin: 0;
 }
 
-/*	7c. Template: Full Width
+/*	7c. Full Width
 /* -------------------------------------------------------------------------- */
 body.template-full-width .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide),
 body.template-full-width [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
@@ -1757,7 +1757,7 @@ body:not(.enable-search-modal) .site-logo img {
   cursor: default;
 }
 
-/*	7a. Template: Cover Template
+/*	7a. Cover Template
 /* -------------------------------------------------------------------------- */
 .cover-header {
   display: -webkit-box;

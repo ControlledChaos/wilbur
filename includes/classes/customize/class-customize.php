@@ -320,7 +320,7 @@ class Customize {
 		);
 
 		/**
-		 * Template: Cover Template.
+		 * Cover Template.
 		 */
 		$wp_customize->add_section(
 			'cover_template_options',

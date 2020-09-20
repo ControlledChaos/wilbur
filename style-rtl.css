@@ -23,8 +23,8 @@ Theme URI: https://github.com/ControlledChaos/wilbur
 	5. 	Menu Modal
 	6. 	Search Modal
 	7. 	Page Templates
-		a. 	Template: Cover Template
-		c. 	Template: Full Width
+		a. 	Cover Template
+		c. 	Full Width
 	8.  Post: Archive
 	9.  Post: Single
 	10. Blocks
@@ -2180,7 +2180,7 @@ button.search-untoggle {
 
 /* -------------------------------------------------------------------------- */
 
-/*	7a. Template: Cover Template
+/*	7a. Cover Template
 /* -------------------------------------------------------------------------- */
 
 
@@ -2278,7 +2278,7 @@ body.template-cover .entry-header {
 
 /* -------------------------------------------------------------------------- */
 
-/*	7c. Template: Full Width
+/*	7c. Full Width
 /* -------------------------------------------------------------------------- */
 
 
@@ -4548,9 +4548,7 @@ a.to-the-top > * {
 		margin-top: -1.8rem;
 	}
 
-	/* Template -------------------------------- */
-
-	/* TEMPLATE: COVER */
+	/* Templates -------------------------------- */
 
 	.template-cover .post-inner .post-meta-wrapper,
 	.template-cover .post-inner .author-bio {
@@ -4880,7 +4878,7 @@ a.to-the-top > * {
 		width: calc(100% - 8rem);
 	}
 
-	/* Template: Cover Template -------------- */
+	/* Cover Template -------------- */
 
 	.cover-header-inner {
 		padding: 18rem 0 8rem 0;
@@ -4899,7 +4897,7 @@ a.to-the-top > * {
 		width: 2.12rem;
 	}
 
-	/* Template: Full Width ------------------ */
+	/* Full Width ------------------ */
 
 	body.template-full-width .entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
 		width: calc(100% - 8rem);
@@ -5734,7 +5732,7 @@ a.to-the-top > * {
 		width: 100%;
 	}
 
-	/* Template: Full Width ------------------ */
+	/* Full Width ------------------ */
 
 	.template-full-width .wp-block-image .alignleft {
 		margin-right: 2rem;
@@ -5932,7 +5930,7 @@ a.to-the-top > * {
 
 	/* Sub Page ------------------------------ */
 
-	/* Template: Cover Template -------------- */
+	/* Cover Template -------------- */
 
 	.cover-header + .post-inner {
 		padding-top: 10rem;
@@ -6118,7 +6116,7 @@ a.to-the-top > * {
 		width: 100%;
 	}
 
-	/* Template: Full Width ------------------ */
+	/* Full Width ------------------ */
 
 	body.template-full-width .alignfull:not(.has-background) > .wp-block-group__inner-container > p:not(.has-background-color) {
 		padding-right: 0;
