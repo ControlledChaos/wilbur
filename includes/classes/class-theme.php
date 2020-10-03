@@ -45,6 +45,9 @@ class Theme {
 		// Theme setup.
 		add_action( 'after_setup_theme', [ $this, 'setup' ], 11 );
 
+		// Remove user color scheme picker.
+		remove_action( 'admin_init', 'register_admin_color_schemes', 1 );
+
 		// Add navigation menus.
 		add_action( 'init', [ $this, 'menus' ] );
 
@@ -112,6 +115,9 @@ class Theme {
 		if ( is_customize_preview() ) {
 			add_filter( 'wilbur_starter_content', [ $this, 'starter_content' ] );
 		}
+
+		// Remove admin color scheme picker.
+		remove_action( 'admin_init', 'register_admin_color_schemes', 1 );
 	}
 
 	/**

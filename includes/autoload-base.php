@@ -27,7 +27,6 @@ const CLASSES = [
 	'Wilbur\Classes\Walker_Page'            => WILBUR_CLASS . 'walker-page.php',
 	// 'Wilbur\Classes\Dark_Mode_Widget' => WILBUR_CLASS . 'dark-mode-widget.php',
 	// 'Wilbur\Classes\User_Bio'         => WILBUR_CLASS . 'user-bio.php',
-	'Wilbur\Classes\User_Colors'      => WILBUR_CLASS . 'user-colors.php',
 	'Wilbur\Classes\Admin_Pages'      => WILBUR_CLASS . 'admin-pages.php',
 	'Wilbur\Classes\Dashboard'        => WILBUR_CLASS . 'dashboard.php',
 	'Wilbur\Classes\Script_Loader'        => WILBUR_CLASS . 'script-loader.php'

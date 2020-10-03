@@ -50,11 +50,10 @@ function wilbur() {
 	global $pagenow;
 
 	// Instantiate theme classes.
-	Wilbur\Classes\Theme       :: instance();
-	Wilbur\Classes\Non_Latin   :: instance();
-	Wilbur\Classes\Media       :: instance();
-	Wilbur\Classes\Customize   :: instance();
-	Wilbur\Classes\User_Colors :: instance();
+	Wilbur\Classes\Theme     :: instance();
+	Wilbur\Classes\Non_Latin :: instance();
+	Wilbur\Classes\Media     :: instance();
+	Wilbur\Classes\Customize :: instance();
 
 	// Instantiate admin theme classes.
 	if ( is_admin() ) {
