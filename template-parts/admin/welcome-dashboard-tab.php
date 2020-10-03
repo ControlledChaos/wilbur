@@ -8,21 +8,6 @@
  * @since      1.0.0
  */
 
-/**
- * Welcome to message
- *
- * Checks for ClassicPress and adjusts the message accordingly.
- */
-if ( function_exists( 'classicpress_version' ) ) {
-	$platform   = 'ClassicPress';
-	$learn_link = 'https://forums.classicpress.net/';
-} else {
-	$platform   = 'WordPress';
-	$learn_link = 'https://wordpress.org/support/article/first-steps-with-wordpress-b/';
-}
-$platform   = apply_filters( 'wilbur_welcome_platform', $platform );
-$learn_link = apply_filters( 'wilbur_welcome_learn_link', $learn_link );
-
 // Get the current user data for the greeting.
 $current_user = wp_get_current_user();
 $user_id      = get_current_user_id();
@@ -44,7 +29,7 @@ $avatar       = get_avatar(
 		<?php echo sprintf(
 			'<h2>%1s %2s</h2>',
 			__( 'Welcome to', 'wilbur' ),
-			$platform
+			get_bloginfo( 'name' )
 		); ?>
 		<p class="description"><?php _e( 'We\'ve assembled some links to get you started.', 'wilbur' ); ?></p>
 		<div class="welcome-panel-column-container">
@@ -119,8 +104,6 @@ $avatar       = get_avatar(
 				<?php if ( current_theme_supports( 'menus' ) ) : ?>
 					<li><?php printf( '<a href="%s" class="welcome-icon welcome-menus">' . __( 'Manage menus', 'wilbur' ) . '</a>', admin_url( 'nav-menus.php' ) ); ?></li>
 				<?php endif; ?>
-
-					<li><?php printf( '<a href="%s" target="_blank" rel="nofollow" class="welcome-icon welcome-learn-more">' . __( 'Learn more' ) . '</a>', esc_url( $learn_link ) ); ?></li>
 				</ul>
 			</div>
 
