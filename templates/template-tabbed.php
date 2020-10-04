@@ -15,7 +15,11 @@ get_header();
 
 	<?php
 
-	if ( have_posts() ) {
+	if ( ! class_exists( 'acf_pro' ) ) {
+
+		get_template_part( 'template-parts/content', 'acf-notice' );
+
+	} elseif ( have_posts() ) {
 
 		while ( have_posts() ) {
 			the_post();
