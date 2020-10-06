@@ -8,8 +8,20 @@
  *
  * @package WordPress
  * @subpackage Wilbur
- * @since Wilbur 1.0
+ * @since 1.0.0
  */
+
+/**
+ * Safety net
+ *
+ * In case the Advanced Custom Fields Pro
+ * inactive notice file was not accessed.
+ *
+ * @see content-acf-notice.php
+ */
+if ( ! class_exists( 'acf_pro' ) ) {
+	return;
+}
 
 ?>
 
