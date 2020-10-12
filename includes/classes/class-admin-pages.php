@@ -274,7 +274,7 @@ class Admin_Pages {
 		$screen = get_current_screen();
 
 		// Adjust height of editor pages for the admin header.
-		if ( $screen->id == ( 'post' || 'post-new' ) ) :
+		if ( has_action( 'enqueue_block_assets' ) && $screen->id == ( 'post' || 'post-new' ) ) :
 		?>
 		<script>
 
