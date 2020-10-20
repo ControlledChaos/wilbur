@@ -341,7 +341,7 @@ function wilbur_get_post_meta( $post_id = null, $location = 'single-top' ) {
 				do_action( 'wilbur_start_of_post_meta_list', $post_id, $post_meta, $location );
 
 				// Author.
-				if ( post_type_supports( get_post_type( $post_id ), 'author' ) && in_array( 'author', $post_meta, true ) ) {
+				if ( post_type_supports( get_post_type( $post_id ), 'author' ) && in_array( 'author', $post_meta, true ) && get_option( 'template_author_link' ) ) {
 
 					$has_meta = true;
 					?>
