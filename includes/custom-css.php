@@ -83,7 +83,7 @@ if ( ! function_exists( 'wilbur_get_customizer_css' ) ) {
 
 		// Background.
 		$background         = sanitize_hex_color_no_hash( get_theme_mod( 'background_color' ) );
-		$background_default = 'f0eddb';
+		$background_default = 'fdfbe0';
 
 		ob_start();
 

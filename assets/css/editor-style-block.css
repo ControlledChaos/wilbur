@@ -4,7 +4,7 @@
 /* ------------------------------------------- */
 
 .editor-styles-wrapper {
-	background: #f0eddb;
+	background: #fdfbe0;
 	color: #000;
 	letter-spacing: -0.015em;
 	-moz-font-smoothing: antialiased;
@@ -171,7 +171,7 @@ Inter variable font. Usage:
 
 :root .has-primary-background-color {
 	background-color: #000;
-	color: #f0eddb;
+	color: #fdfbe0;
 }
 
 :root .has-secondary-color {
@@ -193,11 +193,11 @@ Inter variable font. Usage:
 }
 
 :root .has-background-color {
-	color: #f0eddb;
+	color: #fdfbe0;
 }
 
 :root .has-background-background-color {
-	background-color: #f0eddb;
+	background-color: #fdfbe0;
 	color: #000;
 }
 

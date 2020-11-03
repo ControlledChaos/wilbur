@@ -116,7 +116,7 @@ html {
 }
 
 body {
-	background: #f0eddb;
+	background: #fdfbe0;
 	box-sizing: border-box;
 	color: #000;
 	font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
@@ -2732,7 +2732,7 @@ h2.entry-title {
 
 :root .has-primary-background-color {
 	background-color: #000;
-	color: #f0eddb;
+	color: #fdfbe0;
 }
 
 :root .has-secondary-color {
@@ -2754,11 +2754,11 @@ h2.entry-title {
 }
 
 :root .has-background-color {
-	color: #f0eddb;
+	color: #fdfbe0;
 }
 
 :root .has-background-background-color {
-	background-color: #f0eddb;
+	background-color: #fdfbe0;
 	color: #000;
 }
 

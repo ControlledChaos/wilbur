@@ -178,7 +178,7 @@ class Theme {
 			'default-size'           => 'auto',
 			'default-repeat'         => 'repeat',
 			'default-attachment'     => 'scroll',
-			'default-color'          => 'f0eddb',
+			'default-color'          => 'fdfbe0',
 			'wp-head-callback'       => '_custom_background_cb',
 			'admin-head-callback'    => '',
 			'admin-preview-callback' => '',
