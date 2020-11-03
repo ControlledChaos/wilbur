@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays the content when the cover template is used.
+ * Displays tabbed content with cover image.
  *
  * @package WordPress
  * @subpackage Wilbur

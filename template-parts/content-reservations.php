@@ -1,8 +1,6 @@
 <?php
 /**
- * The default template for displaying content
- *
- * Used for both singular and index.
+ * Template for the reservations page.
  *
  * @package WordPress
  * @subpackage Wilbur

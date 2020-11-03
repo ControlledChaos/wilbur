@@ -1,8 +1,6 @@
 <?php
 /**
- * The default template for displaying content
- *
- * Used for both singular and index.
+ * The default template for displaying tabbed content
  *
  * @package WordPress
  * @subpackage Wilbur

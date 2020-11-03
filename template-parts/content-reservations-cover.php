@@ -1,6 +1,6 @@
 <?php
 /**
- * Displays the content when the cover template is used.
+ * Template for the reservations page with cover image.
  *
  * @package WordPress
  * @subpackage Wilbur
