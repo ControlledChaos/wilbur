@@ -2,8 +2,6 @@
 /**
  * The template for displaying single posts and pages.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
  * @package WordPress
  * @subpackage Wilbur
  * @since 1.0.0

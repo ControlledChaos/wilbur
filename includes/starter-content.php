@@ -2,8 +2,6 @@
 /**
  * Wilbur Starter Content
  *
- * @link https://make.wordpress.org/core/2016/11/30/starter-content-for-themes-in-4-7/
- *
  * @package WordPress
  * @subpackage Wilbur
  * @since 1.0.0

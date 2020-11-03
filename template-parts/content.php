@@ -4,8 +4,6 @@
  *
  * Used for both singular and index.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
  * @package WordPress
  * @subpackage Wilbur
  * @since 1.0.0

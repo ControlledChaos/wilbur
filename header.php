@@ -2,8 +2,6 @@
 /**
  * Header file for the Wilbur WordPress default theme.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
  * @package WordPress
  * @subpackage Wilbur
  * @since 1.0.0

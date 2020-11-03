@@ -24,8 +24,6 @@ class Script_Loader {
 	 *
 	 * If #12009 lands in WordPress, this function can no-op since it would be handled in core.
 	 *
-	 * @link https://core.trac.wordpress.org/ticket/12009
-	 *
 	 * @param string $tag    The script tag.
 	 * @param string $handle The script handle.
 	 * @return string Script HTML string.

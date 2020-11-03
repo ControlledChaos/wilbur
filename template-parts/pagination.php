@@ -2,8 +2,6 @@
 /**
  * A template partial to output pagination for the Wilbur default theme.
  *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
  * @package WordPress
  * @subpackage Wilbur
  * @since 1.0.0
