@@ -164,7 +164,6 @@ if ( ! class_exists( 'acf_pro' ) ) {
 			)
 		);
 
-		edit_post_link();
 		// Single bottom post meta.
 		wilbur_the_post_meta( get_the_ID(), 'single-bottom' );
 
