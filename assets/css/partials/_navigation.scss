@@ -2,6 +2,9 @@
 /// Navigation
 ///
 
+@import '../modules/_colors';
+@import '../modules/_typography';
+
 /* Social Icons ------------------------------ */
 ul.social-icons {
 	display: flex;
@@ -639,7 +642,8 @@ button.search-untoggle {
 }
 
 .search-modal.active .search-untoggle {
-	animation: popIn both 0.3s 0.2s;
+	-webkit-animation: popIn both 0.3s 0.2s;
+	        animation: popIn both 0.3s 0.2s;
 }
 
 .search-untoggle svg {
@@ -739,4 +743,71 @@ button.search-untoggle {
 
 .nav-short {
 	display: none;
+}
+
+// Tabbed content templates.
+.content-tabs {
+	list-style: none;
+	margin: 3rem 0 0;
+	padding: 0 0.3rem;
+	border: none;
+	border-bottom: solid 1px $medium_gray;
+
+	li {
+		display: inline;
+		position: relative;
+
+		// Top same as .content-tabs border width.
+		top: 1px;
+		margin: 0 0.3rem;
+
+		a {
+			display: inline-block;
+			margin: 0;
+			padding: 1.1em 1.44em;
+			-webkit-appearance: none;
+			   -moz-appearance: none;
+			        appearance: none;
+			border: solid 1px $medium_gray;
+			border-bottom: none;
+			border-radius: 0;
+			font-family: $sans;
+			font-size: 1.5rem;
+			font-weight: 600;
+			letter-spacing: 0.0333em;
+			line-height: 1.25;
+			text-align: center;
+			text-decoration: none;
+			text-transform: uppercase;
+			color: #302a1e;
+			transition: all 0.15s linear;
+			cursor: pointer;
+
+			@supports ( font-variation-settings: normal ) {
+				font-family: $variable_sans;
+			}
+
+			&:hover {
+				background: #b52712;
+				color: #fff;
+			}
+		}
+
+		&.tab-active {
+			font-weight: 700;
+
+			@supports ( font-variation-settings: normal ) {
+				font-weight: 725;
+			}
+
+			a {
+				border-bottom: solid 1px $body_background;
+				color: #b52712;
+
+				&:hover {
+					background: $body_background;
+				}
+			}
+		}
+	}
 }

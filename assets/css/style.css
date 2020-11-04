@@ -1893,6 +1893,12 @@ button.close-nav-toggle .toggle-text {
   color: rgba(0, 0, 0, 0.75);
 }
 
+/**
+ * Font stack variables
+ *
+ * The $sans and $serif stacks are default. The $variable_sans and $variable_serif
+ * stacks are used in @supports( font-variation-settings ) queries.
+ */
 /* Social Icons ------------------------------ */
 ul.social-icons {
   display: -webkit-box;
@@ -2600,7 +2606,7 @@ button.search-untoggle {
 
 .search-modal.active .search-untoggle {
   -webkit-animation: popIn both 0.3s 0.2s;
-          animation: popIn both 0.3s 0.2s;
+  animation: popIn both 0.3s 0.2s;
 }
 
 .search-untoggle svg {
@@ -2709,6 +2715,75 @@ button.search-untoggle {
 
 .nav-short {
   display: none;
+}
+
+.content-tabs {
+  list-style: none;
+  margin: 3rem 0 0;
+  padding: 0 0.3rem;
+  border: none;
+  border-bottom: solid 1px #555555;
+}
+
+.content-tabs li {
+  display: inline;
+  position: relative;
+  top: 1px;
+  margin: 0 0.3rem;
+}
+
+.content-tabs li a {
+  display: inline-block;
+  margin: 0;
+  padding: 1.1em 1.44em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: solid 1px #555555;
+  border-bottom: none;
+  border-radius: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.0333em;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #302a1e;
+  -webkit-transition: all 0.15s linear;
+  transition: all 0.15s linear;
+  cursor: pointer;
+}
+
+@supports (font-variation-settings: normal) {
+  .content-tabs li a {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+  }
+}
+
+.content-tabs li a:hover {
+  background: #b52712;
+  color: #fff;
+}
+
+.content-tabs li.tab-active {
+  font-weight: 700;
+}
+
+@supports (font-variation-settings: normal) {
+  .content-tabs li.tab-active {
+    font-weight: 725;
+  }
+}
+
+.content-tabs li.tab-active a {
+  border-bottom: solid 1px #fdfbe0;
+  color: #b52712;
+}
+
+.content-tabs li.tab-active a:hover {
+  background: #fdfbe0;
 }
 
 /* Archive Header ---------------------------- */

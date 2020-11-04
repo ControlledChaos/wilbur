@@ -21,14 +21,14 @@ $theme_yellow: #ffee00 !default;
 $theme_orange: #ee6600 !default;
 $theme_red: #dd0000 !default;
 
-// Global app color variables.
+// Global theme color variables.
 $theme_primary_color: #ffee00 !default;
 $theme_secondary_color: #222222 !default;
 $theme_tertiary_color: #004499 !default;
 $theme_highlight_color: $theme_primary_color !default;
 
 // Primary body colors.
-$body_background: $white !default;
+$body_background: #fdfbe0 !default;
 $text_color: $theme_secondary_color !default;
 
 /// Box colors are used to distinguish sections, such as
