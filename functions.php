@@ -15,7 +15,7 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 // Define the minimum required PHP version.
-define( 'WILBUR_PHP_VERSION', '7.0' );
+define( 'WILBUR_PHP_VERSION', '7.3' );
 
 /**
  * Get the theme activation class

@@ -3,7 +3,7 @@ Theme Name: Wilbur
 Text Domain: wilbur
 Version: 1.0.0
 Requires at least: 4.7
-Requires PHP: 5.2.4
+Requires PHP: 7.3.0
 Description: A modern theme for the Sturtevant Camp website.
 Tags: blog, one-column, custom-background, custom-colors, custom-logo, custom-menu, editor-style, featured-images, footer-widgets, full-width-template, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready, block-styles, wide-blocks, accessibility-ready
 Author: Controlled Chaos Design
@@ -4750,7 +4750,7 @@ a.to-the-top > * {
 
 	/* SECTIONS */
 
-	section {
+	section:not(.tab-content) {
 		padding: 8rem 0;
 	}
 
