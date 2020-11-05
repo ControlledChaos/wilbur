@@ -817,6 +817,14 @@ button.search-untoggle {
 	display: none;
 }
 
+.entry-content {
+
+	// Show first tab content before tabs script is loaded.
+	section.tab-content:first-of-type {
+		display: block;
+	}
+}
+
 // If JavaScript is disabled.
 .no-js {
 

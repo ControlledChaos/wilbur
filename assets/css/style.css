@@ -2791,6 +2791,10 @@ button.search-untoggle {
   display: none;
 }
 
+.entry-content section.tab-content:first-of-type {
+  display: block;
+}
+
 .no-js .content-tabs {
   display: none;
 }
