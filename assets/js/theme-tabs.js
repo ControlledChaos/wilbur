@@ -10,7 +10,7 @@
 		// Default options.
 		var defaults = {
 			tabevent        : 'click',
-			tabactiveclass  : 'active',
+			tabactiveclass  : 'tab-active',
 			tabattribute    : 'href',
 			tabanimation    : false,
 			tabanispeed     : 400,
@@ -38,7 +38,7 @@
 				var _tabcontainer = $this;
 			}
 
-			var _app_tabs = _tabcontainer.find( '> div' );
+			var _app_tabs = _tabcontainer.find( '> section' );
 
 			// Caching.
 			_app_tabs.each( function() {
@@ -46,7 +46,7 @@
 			});
 
 			// Autorotate.
-			var elements = $this.find( '> ul > li' ), i = options.tabactive - 1; // ungly
+			var elements = $this.find( '> nav > ul > li' ), i = options.tabactive - 1; // ungly
 
 			if ( ! $this.data( 'app_tabs-init' ) ) {
 
