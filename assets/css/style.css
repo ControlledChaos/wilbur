@@ -810,7 +810,7 @@ main {
   width: 100vw;
 }
 
-section {
+section:not(.tab-content) {
   padding: 5rem 0;
   width: 100%;
 }
@@ -2780,10 +2780,15 @@ button.search-untoggle {
 .content-tabs li.tab-active a {
   border-bottom: solid 1px #fdfbe0;
   color: #b52712;
+  cursor: default;
 }
 
 .content-tabs li.tab-active a:hover {
   background: #fdfbe0;
+}
+
+.tab-content {
+  display: none;
 }
 
 /* Archive Header ---------------------------- */

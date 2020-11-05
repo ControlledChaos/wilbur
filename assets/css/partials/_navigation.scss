@@ -803,6 +803,7 @@ button.search-untoggle {
 			a {
 				border-bottom: solid 1px $body_background;
 				color: #b52712;
+				cursor: default;
 
 				&:hover {
 					background: $body_background;
@@ -810,4 +811,8 @@ button.search-untoggle {
 			}
 		}
 	}
+}
+
+.tab-content {
+	display: none;
 }

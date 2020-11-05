@@ -62,7 +62,7 @@ main {
 	width: 100vw;
 }
 
-section {
+section:not(.tab-content) {
 	padding: 5rem 0;
 	width: 100%;
 }
