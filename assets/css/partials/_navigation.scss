@@ -816,3 +816,15 @@ button.search-untoggle {
 .tab-content {
 	display: none;
 }
+
+// If JavaScript is disabled.
+.no-js {
+
+	.content-tabs {
+		display: none;
+	}
+
+	.tab-content {
+		display: block;
+	}
+}

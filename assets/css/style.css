@@ -2791,6 +2791,14 @@ button.search-untoggle {
   display: none;
 }
 
+.no-js .content-tabs {
+  display: none;
+}
+
+.no-js .tab-content {
+  display: block;
+}
+
 /* Archive Header ---------------------------- */
 .archive-header {
   background-color: #fff;
