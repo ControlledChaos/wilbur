@@ -1,6 +1,7 @@
 ///
 /// Content
 ///
+@import '../modules/_typography';
 
 /* Archive Header ---------------------------- */
 
@@ -471,7 +472,7 @@ h2.entry-title {
 	.entry-content address,
 	.entry-content .wp-caption-text,
 	.entry-content .wp-block-file {
-		font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+		font-family: $variable_sans;
 	}
 }
 

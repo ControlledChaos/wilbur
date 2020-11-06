@@ -79,7 +79,7 @@ body {
 
 @supports ( font-variation-settings: normal ) {
 	body {
-		font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+		font-family: $variable_sans;
 	}
 }
 

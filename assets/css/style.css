@@ -88,7 +88,7 @@ body {
 
 @supports (font-variation-settings: normal) {
   body {
-    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   }
 }
 
@@ -2803,6 +2803,12 @@ button.search-untoggle {
   display: block;
 }
 
+/**
+ * Font stack variables
+ *
+ * The $sans and $serif stacks are default. The $variable_sans and $variable_serif
+ * stacks are used in @supports( font-variation-settings ) queries.
+ */
 /* Archive Header ---------------------------- */
 .archive-header {
   background-color: #fff;
@@ -3283,7 +3289,7 @@ h2.entry-title {
   .entry-content address,
   .entry-content .wp-caption-text,
   .entry-content .wp-block-file {
-    font-family: "Inter var", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   }
 }
 
