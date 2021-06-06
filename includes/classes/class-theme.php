@@ -566,7 +566,7 @@ class Theme {
 		/**
 		 * Dark mode styles
 		 *
-		 * These syles are enqueued if the user's device prefers dark mode.
+		 * These styles are enqueued if the user's device prefers dark mode.
 		 * Same as the dark mode option in the Customizer.
 		 */
 		wp_enqueue_style( 'wilbur-dark', get_theme_file_uri( 'assets/css/dark-mode.min.css' ), [ 'wilbur' ], $theme_version, '(prefers-color-scheme: dark)' );
@@ -588,7 +588,7 @@ class Theme {
 		global $wp_version;
 
 		// Get theme versions.
-		$theme_version  = wp_get_theme()->get( 'Version' );
+		$theme_version = wp_get_theme()->get( 'Version' );
 
 		// Admin page styles.
 		wp_enqueue_style( 'wilbur-admin', get_theme_file_uri( 'assets/css/admin.css' ), [], $theme_version, 'all' );

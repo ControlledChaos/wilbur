@@ -21,7 +21,7 @@ define( 'WILBUR_PHP_VERSION', '7.3' );
  * Get the theme activation class
  *
  * Instantiate before the following version compare
- * to allow the deatcivation methods to run.
+ * to allow the deactivation methods to run.
  */
 require get_theme_file_path( '/includes/classes/class-activate.php' );
 
@@ -66,6 +66,8 @@ function wilbur() {
 			Wilbur\Classes\Dashboard :: instance();
 		}
 	}
+
+	new Wilbur\Classes\Dark_Mode_Widget;
 
 	// Template files.
 	require get_theme_file_path( '/includes/template-functions.php' );
