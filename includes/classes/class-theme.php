@@ -64,7 +64,7 @@ class Theme {
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_styles' ] );
 
 		// Backend styles.
-		add_action( 'admin_enqueue_scripts', [ $this, 'backend_styles' ], 99 );
+		// add_action( 'admin_enqueue_scripts', [ $this, 'backend_styles' ], 99 );
 
 		// Editor styles.
 		add_action( 'init', [ $this, 'editor_styles' ] );

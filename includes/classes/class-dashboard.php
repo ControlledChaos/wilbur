@@ -43,12 +43,12 @@ class Dashboard {
 		add_action( 'admin_enqueue_scripts', [ $this, 'tabs' ] );
 
 		// Remove the default welcome panel then add the new panel.
-		remove_action( 'welcome_panel', 'wp_welcome_panel' );
-		add_action( 'welcome_panel', [ $this, 'dashboard_panel' ], 11 );
+		// remove_action( 'welcome_panel', 'wp_welcome_panel' );
+		// add_action( 'welcome_panel', [ $this, 'dashboard_panel' ], 11 );
 
 		// Add theme page button to the "At a Glance" widget.
-		add_action( 'rightnow_end', [ $this, 'glance_theme_button' ] );
-		add_action( 'mu_rightnow_end', [ $this, 'glance_theme_button' ] );
+		// add_action( 'rightnow_end', [ $this, 'glance_theme_button' ] );
+		// add_action( 'mu_rightnow_end', [ $this, 'glance_theme_button' ] );
 	}
 
 	/**

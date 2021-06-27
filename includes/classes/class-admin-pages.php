@@ -44,7 +44,7 @@ class Admin_Pages {
 		add_action( 'after_setup_theme', [ $this, 'admin_menus' ] );
 
 		// Include the admin header template.
-		add_action( 'in_admin_header', [ $this, 'admin_header' ] );
+		// add_action( 'in_admin_header', [ $this, 'admin_header' ] );
 
 		// Add icons to parent items.
 		add_filter( 'nav_menu_item_args', [ $this, 'add_sub_toggles' ], 10, 3 );
@@ -64,8 +64,8 @@ class Admin_Pages {
 		 * Opening tag priority 11 to run after the widget area.
 		 * Closing tag priority 9 to run before any script tags.
 		 */
-		add_action( 'in_admin_footer', function() { echo '<div class="wpfooter-wrapper">'; }, 11 );
-		add_action( 'admin_footer', function() { echo '</div><!-- .wpfooter-wrapper -->'; }, 9 );
+		// add_action( 'in_admin_footer', function() { echo '<div class="wpfooter-wrapper">'; }, 11 );
+		// add_action( 'admin_footer', function() { echo '</div><!-- .wpfooter-wrapper -->'; }, 9 );
 
 		// Add inline scripts to the footer.
 		add_action( 'in_admin_footer', [ $this, 'admin_footer_scripts' ] );
