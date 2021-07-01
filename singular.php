@@ -19,7 +19,9 @@ get_header();
 		while ( have_posts() ) {
 			the_post();
 
-			if ( is_front_page() ) {
+			if ( class_exists( 'acf_pro' ) && is_front_page() ) {
+				get_template_part( 'template-parts/content', 'front-page-acf' );
+			} elseif ( is_front_page() ) {
 				get_template_part( 'template-parts/content', 'front-page' );
 			} else {
 				get_template_part( 'template-parts/content', get_post_type() );

@@ -3,7 +3,7 @@
  * Front page, no ACF
  *
  * Displays the content for the front page
- * if Advanced Custom Fields Pro in not active.
+ * if Advanced Custom Fields Pro in active.
  *
  * @package WordPress
  * @subpackage Wilbur
