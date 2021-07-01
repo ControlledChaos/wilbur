@@ -9,12 +9,11 @@
  */
 
 $has_footer_menu = has_nav_menu( 'admin-footer' );
-
-$has_sidebar_1 = is_active_sidebar( 'footer-sidebar-1' );
-$has_sidebar_2 = is_active_sidebar( 'footer-sidebar-2' );
+$has_sidebar_1   = is_active_sidebar( 'footer-sidebar-1' );
+$has_sidebar_2   = is_active_sidebar( 'footer-sidebar-2' );
 
 // Only output the container if there are elements to display.
-if ( $has_footer_menu || $has_social_menu || $has_sidebar_1 || $has_sidebar_2 ) {
+if ( $has_footer_menu || $has_sidebar_1 || $has_sidebar_2 ) {
 
 ?>
 <div class="footer-nav-widgets-wrapper header-footer-group">
@@ -23,7 +22,7 @@ if ( $has_footer_menu || $has_social_menu || $has_sidebar_1 || $has_sidebar_2 ) 
 		$footer_top_classes  = '';
 		$footer_top_classes .= $has_footer_menu ? ' has-footer-menu' : '';
 
-		if ( $has_footer_menu || $has_social_menu ) {
+		if ( $has_footer_menu ) {
 			?>
 			<div class="footer-top<?php echo $footer_top_classes; //phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>">
 				<?php if ( $has_footer_menu ) { ?>

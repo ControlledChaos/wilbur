@@ -637,7 +637,7 @@ function wilbur_body_classes( $classes ) {
 	}
 
 	// Check whether the current page should have an overlay header.
-	if ( is_page_template( array( 'templates/template-cover.php' ) ) ) {
+	if ( is_front_page() || is_page_template( array( 'templates/template-cover.php' ) ) ) {
 		$classes[] = 'overlay-header';
 	}
 
