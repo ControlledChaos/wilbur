@@ -154,20 +154,25 @@ $recent_query = new WP_Query( $recent_args );
 								$excerpt = get_the_excerpt();
 							}
 							$thumbnail = get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' );
-							$bg_image  = get_the_post_thumbnail_url( get_the_ID(), 'large' );
-							$bg_style  = "background-image: url( $bg_image )";
 
 							?>
-						<div class="featured-post">
-							<a href="<?php the_permalink( $page_link->ID ); ?>">
-								<img class="alignleft" src="<?php echo $thumbnail; ?>" role="presentation">
-								<?php the_title( '<h3>', '</h3>' ); ?>
-								<?php printf(
-									'<p>%s</p>',
-									$excerpt
-								); ?>
-							</a>
-						</div>
+							<div class="featured-post">
+								<figure>
+									<a href="<?php the_permalink( $page_link->ID ); ?>">
+										<img src="<?php echo $thumbnail; ?>" role="presentation">
+										<figcaption class="screen-reader-text"><?php echo __( 'Featured image for', 'wilbur' ) . ' ' . get_the_title( $page_link->ID ); ?></figcaption>
+									</a>
+								</figure>
+								<div>
+									<a href="<?php the_permalink( $page_link->ID ); ?>">
+										<?php the_title( '<h3>', '</h3>' ); ?>
+										<?php printf(
+											'<p>%s</p>',
+											$excerpt
+										); ?>
+									</a>
+								</div>
+							</div>
 							<?php
 						}
 					} else {
@@ -190,12 +195,29 @@ $recent_query = new WP_Query( $recent_args );
 					<div class="featured-post">
 						<a href="<?php the_permalink( $page_link->ID ); ?>">
 							<img class="alignleft" src="<?php echo $thumbnail; ?>" role="presentation">
-							<h3><?php echo $title ; ?></h3>
+							<h3><?php echo $title; ?></h3>
 							<?php printf(
 								'<p>%s</p>',
 								$excerpt
 							); ?>
 						</a>
+					</div>
+					<div class="featured-post">
+						<figure>
+							<a href="<?php the_permalink( $page_link->ID ); ?>">
+								<img src="<?php echo $thumbnail; ?>" role="presentation">
+								<figcaption class="screen-reader-text"><?php echo __( 'Featured image for', 'wilbur' ) . ' ' . $title; ?></figcaption>
+							</a>
+						</figure>
+						<div>
+							<a href="<?php the_permalink( $page_link->ID ); ?>">
+								<h3><?php echo $title; ?></h3>
+								<?php printf(
+									'<p>%s</p>',
+									$excerpt
+								); ?>
+							</a>
+						</div>
 					</div>
 					<?php endif; ?>
 				</div>
