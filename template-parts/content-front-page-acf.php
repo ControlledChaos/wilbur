@@ -159,7 +159,7 @@ $recent_query = new WP_Query( $recent_args );
 
 							?>
 						<div class="featured-post">
-							<a href="<?php the_permalink(); ?>">
+							<a href="<?php the_permalink( $page_link->ID ); ?>">
 								<img class="alignleft" src="<?php echo $thumbnail; ?>" role="presentation">
 								<?php the_title( '<h3>', '</h3>' ); ?>
 								<?php printf(
@@ -188,7 +188,7 @@ $recent_query = new WP_Query( $recent_args );
 					$thumbnail = get_the_post_thumbnail_url( $page_link->ID, 'thumbnail' );
 					if ( $page_link ) : ?>
 					<div class="featured-post">
-						<a href="<?php the_permalink(); ?>">
+						<a href="<?php the_permalink( $page_link->ID ); ?>">
 							<img class="alignleft" src="<?php echo $thumbnail; ?>" role="presentation">
 							<h3><?php echo $title ; ?></h3>
 							<?php printf(
