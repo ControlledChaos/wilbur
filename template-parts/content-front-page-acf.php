@@ -193,16 +193,6 @@ $recent_query = new WP_Query( $recent_args );
 					$thumbnail = get_the_post_thumbnail_url( $page_link->ID, 'thumbnail' );
 					if ( $page_link ) : ?>
 					<div class="featured-post">
-						<a href="<?php the_permalink( $page_link->ID ); ?>">
-							<img class="alignleft" src="<?php echo $thumbnail; ?>" role="presentation">
-							<h3><?php echo $title; ?></h3>
-							<?php printf(
-								'<p>%s</p>',
-								$excerpt
-							); ?>
-						</a>
-					</div>
-					<div class="featured-post">
 						<figure>
 							<a href="<?php the_permalink( $page_link->ID ); ?>">
 								<img src="<?php echo $thumbnail; ?>" role="presentation">
