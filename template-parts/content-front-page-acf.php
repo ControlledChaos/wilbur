@@ -218,6 +218,7 @@ $recent_query = new WP_Query( $recent_args );
 
 			<?php endwhile; ?>
 			</section>
+			<hr class="styled-separator" />
 			<?php
 
 			// End `have_rows( 'front_intro_content' )`.

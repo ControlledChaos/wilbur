@@ -4091,8 +4091,8 @@ figure.wp-block-table.is-style-stripes {
   display: grid;
   -ms-grid-columns: (1fr)[2];
       grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1.6rem;
-  padding: 0 !important;
+  grid-gap: 3rem;
+  padding: 0 0 5rem !important;
 }
 
 @media (max-width: 782px) {
@@ -4102,7 +4102,7 @@ figure.wp-block-table.is-style-stripes {
 }
 
 .front-intro-content h2 {
-  margin-top: 0;
+  margin: 0 0 5rem !important;
   font-size: 3.6rem;
 }
 
