@@ -10,6 +10,21 @@
  * @since 1.0.0
  */
 
+// Double check for ACF Pro.
+if ( ! class_exists( 'acf_pro' ) ) {
+	return;
+}
+
+// Recent post query.
+$recent_args = [
+	'post_type'           => [ 'post' ],
+	'post_status'         => [ 'publish' ],
+	'nopaging'            => false,
+	'posts_per_page'      => 1,
+	'ignore_sticky_posts' => true
+];
+$recent_query = new WP_Query( $recent_args );
+
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
@@ -84,6 +99,117 @@
 	<div class="post-inner" id="post-inner">
 
 		<div class="entry-content">
+
+			<?php
+			// Flexible content fields.
+			if ( have_rows( 'front_intro_content' ) ) :
+
+			?>
+			<section class="front-intro-content">
+			<?php while ( have_rows( 'front_intro_content' ) ) : the_row(); ?>
+
+			<?php if ( 'front_content_block' == get_row_layout() ) : ?>
+				<div class="front-intro-content-section">
+
+					<h2><?php the_sub_field( 'front_intro_content_heading' ); ?></h2>
+					<?php the_sub_field( 'front_intro_content_editor' ); ?>
+				</div>
+
+			<?php elseif ( 'front_intro_nav' == get_row_layout() ) : ?>
+				<div class="front-intro-content-section">
+
+					<h2><?php the_sub_field( 'front_intro_content_heading' ); ?></h2>
+					<?php $menu = get_sub_field( 'front_intro_nav_menu' );
+					wp_nav_menu( [ 'menu' => $menu ] );
+					?>
+				</div>
+
+			<?php elseif ( 'front_form_code' == get_row_layout() ) : ?>
+				<div class="front-intro-content-section">
+
+					<h2><?php the_sub_field( 'front_intro_content_heading' ); ?></h2>
+					<?php
+					if ( 'shortcode' == get_sub_field( 'front_form_code_type' ) ) {
+						echo do_shortcode( 'front_form_shortcode' );
+					} else {
+						the_sub_field( 'front_form_html_code' );
+					}
+					?>
+				</div>
+
+			<?php elseif ( 'front_latest_post' == get_row_layout() ) : ?>
+				<div class="front-intro-content-section">
+
+					<h2><?php the_sub_field( 'front_intro_content_heading' ); ?></h2>
+
+					<?php
+					if ( $recent_query->have_posts() ) {
+						while ( $recent_query->have_posts() ) {
+							$recent_query->the_post();
+
+							$get_excerpt = get_sub_field( 'front_latest_excerpt_override' );
+							if ( $get_excerpt ) {
+								$excerpt = $get_excerpt;
+							} else {
+								$excerpt = get_the_excerpt();
+							}
+							$thumbnail = get_the_post_thumbnail_url( get_the_ID(), 'thumbnail' );
+							$bg_image  = get_the_post_thumbnail_url( get_the_ID(), 'large' );
+							$bg_style  = "background-image: url( $bg_image )";
+
+							?>
+						<div class="featured-post">
+							<a href="<?php the_permalink(); ?>">
+								<img class="alignleft" src="<?php echo $thumbnail; ?>" role="presentation">
+								<?php the_title( '<h3>', '</h3>' ); ?>
+								<?php printf(
+									'<p>%s</p>',
+									$excerpt
+								); ?>
+							</a>
+						</div>
+							<?php
+						}
+					} else {
+						// no posts found
+					}
+					wp_reset_postdata();
+					?>
+				</div>
+			<?php elseif ( 'front_page_link' == get_row_layout() ) : ?>
+				<div class="front-intro-content-section">
+
+					<h2><?php the_sub_field( 'front_intro_content_heading' ); ?></h2>
+
+					<?php
+					$page_link = get_sub_field( 'front_page_link' );
+					$title     = get_the_title( $page_link->ID );
+					$excerpt   = get_the_excerpt( $page_link->ID );
+					$thumbnail = get_the_post_thumbnail_url( $page_link->ID, 'thumbnail' );
+					if ( $page_link ) : ?>
+					<div class="featured-post">
+						<a href="<?php the_permalink(); ?>">
+							<img class="alignleft" src="<?php echo $thumbnail; ?>" role="presentation">
+							<h3><?php echo $title ; ?></h3>
+							<?php printf(
+								'<p>%s</p>',
+								$excerpt
+							); ?>
+						</a>
+					</div>
+					<?php endif; ?>
+				</div>
+			<?php
+			// End `get_row_layout()`.
+			endif;
+			?>
+
+			<?php endwhile; ?>
+			</section>
+			<?php
+
+			// End `have_rows( 'front_intro_content' )`.
+			endif; ?>
 
 			<?php the_content(); ?>
 

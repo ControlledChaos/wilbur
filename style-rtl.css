@@ -2227,7 +2227,7 @@ button.search-untoggle {
 	color: #fff;
 }
 
-body.home  .entry-header,
+body.home .entry-header,
 body.template-cover .entry-header {
 	background: transparent;
 	padding: 0;
