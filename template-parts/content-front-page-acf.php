@@ -158,13 +158,13 @@ $recent_query = new WP_Query( $recent_args );
 							?>
 							<div class="featured-post">
 								<figure>
-									<a href="<?php the_permalink( $page_link->ID ); ?>">
+									<a href="<?php the_permalink( get_the_ID() ); ?>">
 										<img src="<?php echo $thumbnail; ?>" role="presentation">
-										<figcaption class="screen-reader-text"><?php echo __( 'Featured image for', 'wilbur' ) . ' ' . get_the_title( $page_link->ID ); ?></figcaption>
+										<figcaption class="screen-reader-text"><?php echo __( 'Featured image for', 'wilbur' ) . ' ' . get_the_title( get_the_ID() ); ?></figcaption>
 									</a>
 								</figure>
 								<div>
-									<a href="<?php the_permalink( $page_link->ID ); ?>">
+									<a href="<?php the_permalink( get_the_ID() ); ?>">
 										<?php the_title( '<h3>', '</h3>' ); ?>
 										<?php printf(
 											'<p>%s</p>',
