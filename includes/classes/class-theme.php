@@ -453,6 +453,30 @@ class Theme {
 				]
 			)
 		);
+
+		// Footer #3.
+		register_sidebar(
+			array_merge(
+				$shared_args,
+				[
+					'name'        => __( 'Footer #3', 'wilbur' ),
+					'id'          => 'sidebar-3',
+					'description' => __( 'Widgets in this area will be displayed in the third column in the footer.', 'wilbur' ),
+				]
+			)
+		);
+
+		// Footer #4.
+		register_sidebar(
+			array_merge(
+				$shared_args,
+				[
+					'name'        => __( 'Footer #4', 'wilbur' ),
+					'id'          => 'sidebar-4',
+					'description' => __( 'Widgets in this area will be displayed in the fourth column in the footer.', 'wilbur' ),
+				]
+			)
+		);
 	}
 
 	/**
