@@ -109,6 +109,18 @@ get_header();
 
 	<?php get_template_part( 'template-parts/pagination' ); ?>
 
+	<?php
+	if ( class_exists( 'acf_pro' ) ) :
+		if ( is_home() || is_singular( 'post' ) ) {
+			printf(
+				'<hr class="post-separator styled-separator section-inner" /><p class="blog-description"><span>%s</span><br />%s</a>',
+				__( 'Bigcone Blog:', 'wilbur' ),
+				get_field( 'blog_description', 'options' )
+			);
+		}
+	endif;
+	?>
+
 </main><!-- #site-content -->
 
 <?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>

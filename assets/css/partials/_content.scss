@@ -560,3 +560,15 @@ h2.entry-title {
 	float: right;
 	margin: 0.3rem 2rem 2rem 2rem;
 }
+
+.blog-description {
+	max-width: 1024px;
+	margin: 0 auto;
+	font-size: 0.9em;
+	font-style: italic;
+
+	span {
+		font-weight: bold;
+		font-weight: 600;
+	}
+}
