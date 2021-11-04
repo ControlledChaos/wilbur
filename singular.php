@@ -19,7 +19,9 @@ get_header();
 		while ( have_posts() ) {
 			the_post();
 
-			if ( class_exists( 'acf_pro' ) && is_front_page() ) {
+			if ( ! is_user_logged_in() && is_singular( 'mc-events' ) ) {
+				wp_safe_redirect( site_url() );
+			} elseif ( class_exists( 'acf_pro' ) && is_front_page() ) {
 				get_template_part( 'template-parts/content', 'front-page-acf' );
 			} elseif ( is_front_page() ) {
 				get_template_part( 'template-parts/content', 'front-page' );
